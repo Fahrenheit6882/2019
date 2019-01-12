@@ -19,12 +19,9 @@ public class hardware
     // ----------------------------------------------
     // SPARKS
     //-----------------------------------------------
-    //Initializes 4 Victor motor controllers: front right, back right, front left, back left.
-    private static Victor frontRight = new Victor(0);
-    private static Victor backRight = new Victor(1);
-    private static Victor frontLeft = new Victor(2);
-    private static Victor backLeft = new Victor(3);
-    
+    //Initializes Transmission with four Victor motor controllers: front right, back right, front left, back left.
+    public static Transmission driveBase = new Transmission(new Victor(0), new Victor(1), new Victor(2), new Victor(3));
+        
     // ==============================================
     // CAN CLASSES
     // ==============================================
