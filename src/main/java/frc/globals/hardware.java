@@ -2,6 +2,8 @@ package frc.globals;
 
 // Import statements
 import frc.interfaces.*;
+import edu.wpi.first.wpilibj.Joystick;
+//Allows program to reconize joysticks
 
 /**
  * Consolidate all the hardware declarations into one place.
@@ -77,7 +79,9 @@ public class hardware
     // ===============================================
     // JOYSTICKS
     // ===============================================
-
+    public static Joystick driverGamepad = new Joystick(0);
+    public static Joystick operatorGamepad = new Joystick(1);
+    //Initializes 2 Logitech Gamepads: one for driver, one for operator.
 
     // ***********************************************
     // INTERFACES
