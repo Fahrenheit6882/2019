@@ -20,10 +20,10 @@ public class hardware
     // SPARKS
     //-----------------------------------------------
     //Initializes 4 Victor motor controllers: front right, back right, front left, back left.
-    public static Victor frontRight = new Victor(0);
-    public static Victor backRight = new Victor(1);
-    public static Victor frontLeft = new Victor(2);
-    public static Victor backLeft = new Victor(3);
+    private static Victor frontRight = new Victor(0);
+    private static Victor backRight = new Victor(1);
+    private static Victor frontLeft = new Victor(2);
+    private static Victor backLeft = new Victor(3);
     
     // ==============================================
     // CAN CLASSES
