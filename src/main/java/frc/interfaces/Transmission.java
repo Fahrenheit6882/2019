@@ -12,6 +12,10 @@ public class Transmission
     private static Victor rightRear;
     private static Victor leftRear;
 
+    /**
+     * Constructor
+     * Parameters: 4 motor controllers, 1 per motor
+     */
     public Transmission (Victor rf, Victor lf, Victor rr, Victor lr)
     {
         // Initialize motor controllers
@@ -29,6 +33,7 @@ public class Transmission
      * Method: stop
      * Parameters: N/A
      * Return: void
+     * Operation: stop all drive motors
      */
     public static void stop()
     {
@@ -39,5 +44,12 @@ public class Transmission
         leftRear.set(0.0);
     }
 
+    /**
+     * Method: drive
+     * Parameters: leftSpeed, rightSpeed
+     * Return: void
+     * Operation: set speed of left and right motors based on indicated speed
+     */
 
+    
 } //end Transmission 

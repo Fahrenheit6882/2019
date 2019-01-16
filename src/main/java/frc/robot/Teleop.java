@@ -13,6 +13,7 @@ public class Teleop
      */
     public static void init()
     {
+        // Ensure all variables are at known default state
 
     } // end init
 
@@ -21,6 +22,9 @@ public class Teleop
      */
     public static void periodic()
     {
+        // Use DriveControls to check driver input
 
+        // Use OperatorControls to check operator input
+        
     } // end periodic
 } // end Teleop
