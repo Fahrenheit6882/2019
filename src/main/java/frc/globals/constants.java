@@ -11,33 +11,38 @@ public class constants
     // Controller constants
     // ----------------------------------------
     // controller assignments
-    int driverController = 0;
-    int operaterController = 1;
+    public static int driverController = 0;
+    public static int operaterController = 1;
     
     // Axis Indexes
-    int leftX = 0;
-    int leftY = 1;
-    int leftTrigger = 2;
-    int rightTrigger = 3;
-    int rightX = 4;
-    int rightY = 5;
+    public static int leftX = 0;
+    public static int leftY = 1;
+    public static int leftTrigger = 2;
+    public static int rightTrigger = 3;
+    public static int rightX = 4;
+    public static int rightY = 5;
     
     // Button Indexes
-    int btnA = 0;
-    int btnB = 1;
-    int btnX = 2;
-    int btnY = 3;
-    int btnLB = 4;
-    int btnRB = 5;
-    int btnBack = 6;
-    int btnStart = 7;
-    int btnLStick = 8;
-    int btnRStick = 9;
+    public static int btnA = 0;
+    public static int btnB = 1;
+    public static int btnX = 2;
+    public static int btnY = 3;
+    public static int btnLB = 4;
+    public static int btnRB = 5;
+    public static int btnBack = 6;
+    public static int btnStart = 7;
+    public static int btnLStick = 8;
+    public static int btnRStick = 9;
 
     // ----------------------------------------
     // Hardware Tunables
     // ----------------------------------------
     // Speed Factors
+    public static double driveFast = 0.6;
+    public static double driveSlow = 0.4;
+    public static double eleveatorFast = 0.7;
+    public static double eleveatorSlow = 0.3;
+    
 
 
     // Dead Zones
