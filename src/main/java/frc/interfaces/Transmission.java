@@ -22,4 +22,26 @@ public class Transmission
 
         // TODO: Invert one side of motor controllers so that + input moves forward
     }
-} //end Transmission 
+
+    public static void drive(double leftSpeed, double rightSpeed )
+    {
+        // checking leftSpeed is between -1.0 and 1.0
+        if(leftSpeed < -1.0 )
+        {
+            leftSpeed = -1.0;
+        } else if( leftSpeed > 1.0)
+        {
+            leftSpeed = 1.0;
+        }
+
+        // checking rightSpeed is between -1.0 and 1.0
+        if(rightSpeed < -1.0 )
+        {
+            rightSpeed = -1.0;
+        }else if(rightSpeed > 1.0 )
+        {
+            rightSpeed = 1.0;
+        }
+    }
+
+} //end Transmission
