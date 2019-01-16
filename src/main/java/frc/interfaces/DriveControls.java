@@ -9,15 +9,22 @@ public class DriveControls
 {
     //variables go here
     private static Joystick ctrl;
-    static double rightSpeeed;
+    static double rightSpeed;
     static double leftSpeed;
 
     public DriveControls(Joystick dc)
     {
        ctrl = dc;
-       if (Math.abs(dc.getRawAxis(constants.rightX))> constants.gamepadDeadzone){
-
-       }
+       if (Math.abs(dc.getRawAxis(constants.rightY))> constants.gamepadDeadzone){
+        rightSpeed = dc.getRawAxis(constants.rightY);
+        }else{
+            rightSpeed = 0.0;
+        }
+        if (Math.abs(dc.getRawAxis(constants.leftY))> constants.gamepadDeadzone){
+            leftSpeed = dc.getRawAxis(constants.leftY);
+        }else{
+            leftSpeed = 0.0;
+        }
     }
    
 
