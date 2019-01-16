@@ -32,9 +32,10 @@ public class Transmission
      */
     public static void stop()
     {
+        // stop all motor controllers
         rightFront.set(0);
         leftFront.set(0);
-        rightRear.set(0);
+        rightRear.set(0);        
         leftRear.set(0);
         
     }
