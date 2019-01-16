@@ -81,8 +81,9 @@ public class hardware
     // JOYSTICKS
     // ===============================================
     //Initializes 2 Logitech Gamepads: one for driver, one for operator.
-    public static Joystick driverGamepad = new Joystick(0);
-    public static Joystick operatorGamepad = new Joystick(1);
+    public static Joystick driverGamepad    = new Joystick(0);
+    public static Joystick operatorGamepad  = new Joystick(1);
+    public static DriveControls driverCntrl = new DriveControls( driverGamepad);
     
     // ***********************************************
     // INTERFACES
