@@ -15,18 +15,20 @@ public class DriveControls
     public DriveControls(Joystick dc)
     {
        ctrl = dc;
-       if (Math.abs(dc.getRawAxis(constants.rightY))> constants.gamepadDeadzone){
-        rightSpeed = dc.getRawAxis(constants.rightY);
+       
+    }
+    //Reads and sets the speed from the joysticks
+    if (Math.abs(dc.getRawAxis(constants.rightY))> constants.gamepadDeadzone){
+        rightSpeed = ctrl.getRawAxis(constants.rightY);
         }else{
             rightSpeed = 0.0;
         }
         if (Math.abs(dc.getRawAxis(constants.leftY))> constants.gamepadDeadzone){
-            leftSpeed = dc.getRawAxis(constants.leftY);
+            leftSpeed = ctrl.getRawAxis(constants.leftY);
         }else{
             leftSpeed = 0.0;
         }
+    if (ctrl.getRawButtonPressed(constants.btnA)){
+        constants.
     }
-   
-    // Move code above here!! In its own function.  No parameters.  No return.
-    
 } // end DriveControls
