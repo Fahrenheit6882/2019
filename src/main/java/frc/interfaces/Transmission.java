@@ -42,6 +42,7 @@ public class Transmission
         {
             rightSpeed = 1.0;
         }
+        
     }
-
+    
 } //end Transmission
