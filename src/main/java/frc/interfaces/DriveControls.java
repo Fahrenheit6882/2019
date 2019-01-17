@@ -28,7 +28,11 @@ public class DriveControls
         }else{
             leftSpeed = 0.0;
         }
+    //If statements for speed controls
     if (ctrl.getRawButtonPressed(constants.btnA)){
-        constants.
+        constants.fast = false;
+    }
+    if (ctrl.getRawButtonPressed(constants.btnX)){
+        constants.fast = true;
     }
 } // end DriveControls
