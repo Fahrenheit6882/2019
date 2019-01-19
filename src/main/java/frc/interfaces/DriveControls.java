@@ -39,6 +39,17 @@ public class DriveControls
          }
 
          hardware.driveBase.drive(leftSpeed,rightSpeed);
-         
+
+        //pressing button LB forces robot Slow 
+        if(hardware.driverGamepad.getRawButtonPressed(constants.btnLB))
+        {
+            hardware.driveBase.setSlow();
+        }
+
+        //pressing button RB to toggle speed setting
+        if(hardware.driverGamepad.getRawButtonPressed(constants.btnRB))
+        {
+            hardware.driveBase.changeSpeed();
+       }
     }
 } // end DriveControls

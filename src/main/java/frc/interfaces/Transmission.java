@@ -73,17 +73,6 @@ public class Transmission
             rightSpeed = 1.0;
         }
 
-    //     //pressing button A turn fast false 
-    //     if(hardware.driverGamepad.getRawButtonPressed(constants.btnA))
-    //     {
-    //         fast = false;
-    //     }
-    //     //pressing button X turn fast true
-    //     if(hardware.driverGamepad.getRawButtonPressed(constants.btnX))
-    //     {
-    //         fast = true;
-    //    }
-
         //checking if fast is true/false to adjust left & right speed
         if(fast = true)
         {
@@ -106,7 +95,7 @@ public class Transmission
     /**
      * changeSpeed toggles the current speed factor of robot between fast and slow
      */
-    public static void changeSpeed()
+    public void changeSpeed()
     {
         //
         fast = !(fast);
@@ -115,7 +104,7 @@ public class Transmission
     /**
      * setFast forces robot to fast speed setting
      */
-    public static void setFast()
+    public void setFast()
     {
         fast = true;
     }//end setFast
@@ -123,7 +112,7 @@ public class Transmission
     /**
      * setSlow forces robot to slow speed setting
      */
-    public static void setSlow()
+    public void setSlow()
     {
         fast = false;
     }//end setSlow
