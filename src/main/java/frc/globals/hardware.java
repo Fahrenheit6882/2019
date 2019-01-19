@@ -19,6 +19,10 @@ public class hardware
     // ----------------------------------------------
     // SPARKS
     //-----------------------------------------------
+
+    // ----------------------------------------------
+    // VICTORS
+    //-----------------------------------------------
     //Initializes Transmission with four Victor motor controllers: front right, back right, front left, back left.
     public static Transmission driveBase = new Transmission(new Victor(0), new Victor(1), new Victor(2), new Victor(3));
         
@@ -83,7 +87,7 @@ public class hardware
     //Initializes 2 Logitech Gamepads: one for driver, one for operator.
     public static Joystick driverGamepad    = new Joystick(0);
     public static Joystick operatorGamepad  = new Joystick(1);
-    public static DriveControls driverCntrl = new DriveControls( driverGamepad);
+    public static DriveControls driverCntrl = new DriveControls(driverGamepad);
     
     // ***********************************************
     // INTERFACES
