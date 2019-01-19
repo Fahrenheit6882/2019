@@ -11,6 +11,8 @@ public class Transmission
     private static Victor leftFront;
     private static Victor rightRear;
     private static Victor leftRear;
+    private static boolean fast;
+    private static double speedFactor;
 
     /**
      * Constructor
@@ -24,6 +26,8 @@ public class Transmission
         rightRear = rr;
         leftRear = lr;
         
+
+        fast = true;
 
         // TODO: Invert one side of motor controllers so that + input moves forward
 
@@ -45,11 +49,83 @@ public class Transmission
     }
 
     /**
-     * Method: drive
-     * Parameters: leftSpeed, rightSpeed
-     * Return: void
-     * Operation: set speed of left and right motors based on indicated speed
+     * drives the robot based on a desired left and right speed.
+     * @param leftSpeed
+     * @param rightSpeed
      */
+    public void drive(double leftSpeed, double rightSpeed )
+    {
+        // checking leftSpeed is between -1.0 and 1.0
+        if(leftSpeed < -1.0 )
+        {
+            leftSpeed = -1.0;
+        } else if( leftSpeed > 1.0)
+        {
+            leftSpeed = 1.0;
+        }
 
+        // checking rightSpeed is between -1.0 and 1.0
+        if(rightSpeed < -1.0 )
+        {
+            rightSpeed = -1.0;
+        }else if(rightSpeed > 1.0 )
+        {
+            rightSpeed = 1.0;
+        }
+
+    //     //pressing button A turn fast false 
+    //     if(hardware.driverGamepad.getRawButtonPressed(constants.btnA))
+    //     {
+    //         fast = false;
+    //     }
+    //     //pressing button X turn fast true
+    //     if(hardware.driverGamepad.getRawButtonPressed(constants.btnX))
+    //     {
+    //         fast = true;
+    //    }
+
+        //checking if fast is true/false to adjust left & right speed
+        if(fast = true)
+        {
+            speedFactor = constants.driveFast; 
+        }else
+        {
+            speedFactor = constants.driveSlow;
+        } 
+        
+        leftSpeed *= speedFactor;
+        rightSpeed *= speedFactor;
+
+        // set motor controllers
+        leftFront.set(leftSpeed);
+        leftRear.set(leftSpeed);
+        rightFront.set(rightSpeed);
+        rightRear.set(rightSpeed);
+    } // end drive
+
+    /**
+     * changeSpeed toggles the current speed factor of robot between fast and slow
+     */
+    public static void changeSpeed()
+    {
+        //
+        fast = !(fast);
+    } // end changeSpeed
+   
+    /**
+     * setFast forces robot to fast speed setting
+     */
+    public static void setFast()
+    {
+        fast = true;
+    }//end setFast
     
-} //end Transmission 
+    /**
+     * setSlow forces robot to slow speed setting
+     */
+    public static void setSlow()
+    {
+        fast = false;
+    }//end setSlow
+
+} //end Transmission
