@@ -9,9 +9,7 @@ public class DriveControls
 {
     //variables go here
     private static Joystick ctrl;
-    static double rightSpeed;
-    static double leftSpeed;
-
+    
     public DriveControls(Joystick dc)
     {
        ctrl = dc;
@@ -20,6 +18,9 @@ public class DriveControls
 
     public static void checkInput()
     {
+      double rightSpeed;
+      double leftSpeed;
+
          //Reads and sets the speed from the joysticks
          if (Math.abs(ctrl.getRawAxis(constants.rightY)) > constants.gamepadDeadzone)
          {
@@ -36,5 +37,8 @@ public class DriveControls
          {
             leftSpeed = 0.0;            
          }
+
+         hardware.driveBase.drive(leftSpeed,rightSpeed);
+         
     }
 } // end DriveControls
