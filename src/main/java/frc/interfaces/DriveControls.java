@@ -20,17 +20,21 @@ public class DriveControls
 
     public static void checkInput()
     {
-        //Reads and sets the speed from the joysticks
-        if (Math.abs(dc.getRawAxis(constants.rightY))> constants.gamepadDeadzone){
+         //Reads and sets the speed from the joysticks
+         if (Math.abs(ctrl.getRawAxis(constants.rightY)) > constants.gamepadDeadzone)
+         {
             rightSpeed = ctrl.getRawAxis(constants.rightY);
-            }else{
-                rightSpeed = 0.0;
-            }
-            if (Math.abs(dc.getRawAxis(constants.leftY))> constants.gamepadDeadzone){
-                leftSpeed = ctrl.getRawAxis(constants.leftY);
-            }else{
-                leftSpeed = 0.0;
-            }
-        }
+         }else
+         {
+            rightSpeed = 0.0;
+         }
+            
+         if (Math.abs(ctrl.getRawAxis(constants.leftY)) > constants.gamepadDeadzone)
+         {
+            leftSpeed = ctrl.getRawAxis(constants.leftY);
+         }else
+         {
+            leftSpeed = 0.0;            
+         }
     }
 } // end DriveControls
