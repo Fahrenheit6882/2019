@@ -7,11 +7,13 @@ import edu.wpi.first.wpilibj.Victor;
 public class Transmission
 {
     //Transmission varables
-    private Victor rightFront;
-    private Victor leftFront;
-    private Victor rightRear;
-    private Victor leftRear;
-    private static boolean fast = true;
+    private static Victor rightFront;
+    private static Victor leftFront;
+    private static Victor rightRear;
+    private static Victor leftRear;
+    private static boolean fast;
+    private static double speedFactor;
+
     public Transmission (Victor rf, Victor lf, Victor rr, Victor lr)
     {
         // Initialize motor controllers
@@ -20,9 +22,16 @@ public class Transmission
         rightRear = rr;
         leftRear = lr;
 
+        fast = true;
+
         // TODO: Invert one side of motor controllers so that + input moves forward
     }
 
+    /**
+     * drives the robot based on a desired left and right speed.
+     * @param leftSpeed
+     * @param rightSpeed
+     */
     public static void drive(double leftSpeed, double rightSpeed )
     {
         // checking leftSpeed is between -1.0 and 1.0
@@ -42,26 +51,60 @@ public class Transmission
         {
             rightSpeed = 1.0;
         }
-        //pressing button A turn fast false 
-        if(hardware.driverGamepad.getRawButtonPressed(constants.btnA))
-        {
-            fast = false;
-        }
-        //pressing button X turn fast true
-        if(hardware.driverGamepad.getRawButtonPressed(constants.btnX))
-        {
-            fast = true;
-        }
+
+    //     //pressing button A turn fast false 
+    //     if(hardware.driverGamepad.getRawButtonPressed(constants.btnA))
+    //     {
+    //         fast = false;
+    //     }
+    //     //pressing button X turn fast true
+    //     if(hardware.driverGamepad.getRawButtonPressed(constants.btnX))
+    //     {
+    //         fast = true;
+    //    }
+
         //checking if fast is true/false to adjust left & right speed
         if(fast = true)
         {
-            leftFront = (leftSpeed * constants.driveFast);
-            leftRear = (leftSpeed * constants.driveFast);  
+            speedFactor = constants.driveFast; 
         }else
-            {
-                rightFront = (rightSpeed *constants.driveSlow);
-                rightRear = (rightSpeed * constants.driveSlow); 
-            } 
+        {
+            speedFactor = constants.driveSlow;
+        } 
+        
+        leftSpeed *= speedFactor;
+        rightSpeed *= speedFactor;
+
+        // set motor controllers
+        leftFront.set(leftSpeed);
+        leftRear.set(leftSpeed);
+        rightFront.set(rightSpeed);
+        rightRear.set(rightSpeed);
+    } // end drive
+
+    /**
+     * changeSpeed toggles the current speed factor of robot between fast and slow
+     */
+    public static void changeSpeed()
+    {
+        //
+        fast = !(fast);
+    } // end changeSpeed
+   
+    /**
+     * setFast forces robot to fast speed setting
+     */
+    public static void setFast()
+    {
+        fast = true;
+    }//end setFast
     
-    
+    /**
+     * setSlow forces robot to slow speed setting
+     */
+    public static void setSlow()
+    {
+        fast = false;
+    }//end setSlow
+
 } //end Transmission
