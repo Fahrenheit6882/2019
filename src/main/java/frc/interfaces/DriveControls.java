@@ -10,28 +10,11 @@ public class DriveControls
     // Private variables
     private static Joystick ctrl;
     
-<<<<<<< HEAD
-    /**
-     * Constructor
-     * Parameters: Joystick
-     */
-=======
->>>>>>> DriverControlsDirectionality
     public DriveControls(Joystick dc)
     {
        ctrl = dc;
        
     }
-<<<<<<< HEAD
-    
-    /**
-     * Method: driverInput
-     * Parameters: N/A
-     * Return: void
-     * Operation: Perform actions based on driver input
-     */
-=======
->>>>>>> DriverControlsDirectionality
 
     public static void checkInput()
     {

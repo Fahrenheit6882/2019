@@ -53,7 +53,7 @@ public class Transmission
      * @param leftSpeed
      * @param rightSpeed
      */
-    public static void drive(double leftSpeed, double rightSpeed )
+    public void drive(double leftSpeed, double rightSpeed )
     {
         // checking leftSpeed is between -1.0 and 1.0
         if(leftSpeed < -1.0 )
