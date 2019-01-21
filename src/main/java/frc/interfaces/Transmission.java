@@ -2,15 +2,20 @@ package frc.interfaces;
 
 // Import statements here
 import frc.globals.*;
+
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+
 import edu.wpi.first.wpilibj.Victor;
 
 public class Transmission
 {
     //Transmission varables
-    private static Victor rightFront;
-    private static Victor leftFront;
-    private static Victor rightRear;
-    private static Victor leftRear;
+    private static TalonSRX rightFront;
+    private static TalonSRX leftFront;
+    private static VictorSPX rightRear;
+    private static VictorSPX leftRear;
     private static boolean fast;
     private static double speedFactor;
 
@@ -18,14 +23,13 @@ public class Transmission
      * Constructor
      * Parameters: 4 motor controllers, 1 per motor
      */
-    public Transmission (Victor rf, Victor lf, Victor rr, Victor lr)
+    public Transmission (TalonSRX rf, TalonSRX lf, VictorSPX rr, VictorSPX lr)
     {
         // Initialize motor controllers
         rightFront = rf;
         leftFront = lf;
         rightRear = rr;
         leftRear = lr;
-        
 
         fast = true;
 
@@ -42,10 +46,10 @@ public class Transmission
     public static void stop()
     {
         // stop all motor controllers
-        rightFront.set(0.0);
-        leftFront.set(0.0);
-        rightRear.set(0.0);        
-        leftRear.set(0.0);
+        rightFront.set(ControlMode.PercentOutput, 0.0);
+        leftFront.set(ControlMode.PercentOutput, 0.0);
+        rightRear.set(ControlMode.PercentOutput, 0.0);        
+        leftRear.set(ControlMode.PercentOutput, 0.0);
     }
 
     /**
@@ -86,10 +90,10 @@ public class Transmission
         rightSpeed *= speedFactor;
 
         // set motor controllers
-        leftFront.set(leftSpeed);
-        leftRear.set(leftSpeed);
-        rightFront.set(rightSpeed);
-        rightRear.set(rightSpeed);
+        leftFront.set(ControlMode.PercentOutput, leftSpeed);
+        leftRear.set(ControlMode.PercentOutput, leftSpeed);
+        rightFront.set(ControlMode.PercentOutput, rightSpeed);
+        rightRear.set(ControlMode.PercentOutput, rightSpeed);
     } // end drive
 
     /**

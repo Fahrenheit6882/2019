@@ -3,7 +3,8 @@ package frc.globals;
 // Import statements
 import frc.interfaces.*;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.Victor;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 /**
  * Consolidate all the hardware declarations into one place.
@@ -24,7 +25,7 @@ public class hardware
     // VICTORS
     //-----------------------------------------------
     //Initializes Transmission with four Victor motor controllers: front right, back right, front left, back left.
-    public static Transmission driveBase = new Transmission(new Victor(0), new Victor(1), new Victor(2), new Victor(3));
+    public static Transmission driveBase = new Transmission(new TalonSRX(0), new TalonSRX(1), new VictorSPX(0), new VictorSPX(1));
         
     // ==============================================
     // CAN CLASSES
