@@ -7,8 +7,6 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
-import edu.wpi.first.wpilibj.Victor;
-
 public class Transmission
 {
     //Transmission varables
@@ -77,6 +75,17 @@ public class Transmission
             rightSpeed = 1.0;
         }
 
+    //     //pressing button A turn fast false 
+    //     if(hardware.driverGamepad.getRawButtonPressed(constants.btnA))
+    //     {
+    //         fast = false;
+    //     }
+    //     //pressing button X turn fast true
+    //     if(hardware.driverGamepad.getRawButtonPressed(constants.btnX))
+    //     {
+    //         fast = true;
+    //    }
+
         //checking if fast is true/false to adjust left & right speed
         if(fast = true)
         {
@@ -99,7 +108,7 @@ public class Transmission
     /**
      * changeSpeed toggles the current speed factor of robot between fast and slow
      */
-    public void changeSpeed()
+    public static void changeSpeed()
     {
         //
         fast = !(fast);
@@ -108,7 +117,7 @@ public class Transmission
     /**
      * setFast forces robot to fast speed setting
      */
-    public void setFast()
+    public static void setFast()
     {
         fast = true;
     }//end setFast
@@ -116,7 +125,7 @@ public class Transmission
     /**
      * setSlow forces robot to slow speed setting
      */
-    public void setSlow()
+    public static void setSlow()
     {
         fast = false;
     }//end setSlow
