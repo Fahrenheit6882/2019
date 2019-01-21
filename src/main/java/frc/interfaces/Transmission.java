@@ -30,9 +30,11 @@ public class Transmission
         leftRear = lr;
 
         fast = true;
+        speedFactor = constants.driveFast;
 
         // TODO: Invert one side of motor controllers so that + input moves forward
-
+        leftFront.setInverted(true);
+        leftRear.setInverted(true);
     }
 
     /**
@@ -87,7 +89,7 @@ public class Transmission
     //    }
 
         //checking if fast is true/false to adjust left & right speed
-        if(fast = true)
+        if(fast == true)
         {
             speedFactor = constants.driveFast; 
         }else
@@ -111,15 +113,17 @@ public class Transmission
     public static void changeSpeed()
     {
         //
-        fast = !(fast);
+        fast = !fast;;
+        // System.out.println("Changing speed: " + fast);
     } // end changeSpeed
    
     /**
      * setFast forces robot to fast speed setting
      */
     public static void setFast()
-    {
+    {        
         fast = true;
+        // System.out.println("Setting fast.  Fast = " + fast);
     }//end setFast
     
     /**
@@ -128,6 +132,7 @@ public class Transmission
     public static void setSlow()
     {
         fast = false;
+        // System.out.println("Setting slow.  Fast = " + fast);
     }//end setSlow
 
 } //end Transmission

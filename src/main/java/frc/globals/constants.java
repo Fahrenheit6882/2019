@@ -23,30 +23,30 @@ public class constants
     public static int rightY       = 5;
     
     // Button Indexes
-    public static int btnA      = 0;
-    public static int btnB      = 1;
-    public static int btnX      = 2;
-    public static int btnY      = 3;
-    public static int btnLB     = 4;
-    public static int btnRB     = 5;
-    public static int btnBack   = 6;
-    public static int btnStart  = 7;
-    public static int btnLStick = 8;
-    public static int btnRStick = 9;
+    public static int btnA      = 1;
+    public static int btnB      = 2;
+    public static int btnX      = 3;
+    public static int btnY      = 4;
+    public static int btnLB     = 5;
+    public static int btnRB     = 6;
+    public static int btnBack   = 7;
+    public static int btnStart  = 8;
+    public static int btnLStick = 9;
+    public static int btnRStick = 10;
 
     // ----------------------------------------
     // Hardware Tunables
     // ----------------------------------------
     // Speed Factors
     public static double driveFast     = 0.6;
-    public static double driveSlow     = 0.4;
+    public static double driveSlow     = 0.3;
     public static double eleveatorFast = 0.7;
     public static double eleveatorSlow = 0.3;
     public boolean fast = true;
 
 
     // Dead Zones
-    public static double gamepadDeadzone = 0.05;
+    public static double gamepadDeadzone = 0.01;
     
 
     // Forward Motion Calculations
