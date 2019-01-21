@@ -77,17 +77,6 @@ public class Transmission
             rightSpeed = 1.0;
         }
 
-    //     //pressing button A turn fast false 
-    //     if(hardware.driverGamepad.getRawButtonPressed(constants.btnA))
-    //     {
-    //         fast = false;
-    //     }
-    //     //pressing button X turn fast true
-    //     if(hardware.driverGamepad.getRawButtonPressed(constants.btnX))
-    //     {
-    //         fast = true;
-    //    }
-
         //checking if fast is true/false to adjust left & right speed
         if(fast == true)
         {
