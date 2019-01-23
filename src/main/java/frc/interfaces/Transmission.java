@@ -6,6 +6,7 @@ import frc.globals.*;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import edu.wpi.first.wpilibj.Encoder;
 
 public class Transmission
 {
@@ -16,7 +17,8 @@ public class Transmission
     private static VictorSPX leftRear;
     private static boolean fast;
     private static double speedFactor;
-
+    private static boolean encReset;
+    private Encoder encLeft, encright; 
     /**
      * Constructor
      * Parameters: 4 motor controllers, 1 per motor
@@ -77,6 +79,17 @@ public class Transmission
             rightSpeed = 1.0;
         }
 
+    //     //pressing button A turn fast false 
+    //     if(hardware.driverGamepad.getRawButtonPressed(constants.btnA))
+    //     {
+    //         fast = false;
+    //     }
+    //     //pressing button X turn fast true
+    //     if(hardware.driverGamepad.getRawButtonPressed(constants.btnX))
+    //     {
+    //         fast = true;
+    //    }
+
         //checking if fast is true/false to adjust left & right speed
         if(fast == true)
         {
@@ -124,4 +137,23 @@ public class Transmission
         // System.out.println("Setting slow.  Fast = " + fast);
     }//end setSlow
 
+    /**
+     * @param speed 
+     * @param inches
+     * this function tell robot to drive a distints at a speed
+     */
+    public driveByInches(double speed,double inches)
+    {
+        //hold speed for left & right
+        double left = 0.0;
+        double right = 0.0;
+        boolean stop = false;
+        
+        if(encReset)
+        {
+            encReset = false;
+            encLeft.reset();
+            encright.reset();
+        }
+    }
 } //end Transmission
