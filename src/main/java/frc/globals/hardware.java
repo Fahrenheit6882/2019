@@ -5,7 +5,8 @@ import frc.interfaces.*;
 import edu.wpi.first.wpilibj.Joystick;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
-
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.cameraserver.*;
 /**
  * Consolidate all the hardware declarations into one place.
  */
@@ -75,7 +76,8 @@ public class hardware
     // ===============================================
     // CAMERA CONNECTIONS
     // ===============================================
-
+    //initializes a USB Camera
+    public static UsbCamera pOVCamera = new UsbCamera("driveCamera",0);
 
     // ===============================================
     // DRIVER STATION
