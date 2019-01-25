@@ -18,7 +18,7 @@ public class Transmission
     private static boolean fast;
     private static double speedFactor;
     private static boolean encReset;
-    private Encoder encLeft, encright; 
+    private Encoder encLeft, encRight; 
     /**
      * Constructor
      * Parameters: 4 motor controllers, 1 per motor
@@ -142,18 +142,50 @@ public class Transmission
      * @param inches
      * this function tell robot to drive a distints at a speed
      */
-    public driveByInches(double speed,double inches)
+    public boolean driveByInches(double speed,double inches)
     {
         //hold speed for left & right
         double left = 0.0;
         double right = 0.0;
         boolean stop = false;
         
+
+        //this checks if the encoders are reset if not it resets
         if(encReset)
         {
             encReset = false;
             encLeft.reset();
-            encright.reset();
+            encRight.reset();
         }
+        //checks if right side robot has gone correct distance
+        if(encRight.getDistance() < inches && !stop  )
+        {
+            right = speed;
+        }else
+        {
+            right = 0.0;
+            stop = true;
+
+        }
+         //checks if left side robot has gone correct distance
+        if(encLeft.getDistance() < inches && !stop)
+        {
+            left = speed;
+        }else
+        {
+            right = 0.0;
+           stop = true; 
+
+        }
+        //calls drive to make motors move
+        this.drive(left, right);    
+        
+        //checking left and right are 0.0 then reseting encoders
+        if(left == 0.0 && right == 0.0)
+        {
+            encReset = true;
+        }
+        //returning encReset: either false or true
+        return(encReset);
     }
 } //end Transmission
