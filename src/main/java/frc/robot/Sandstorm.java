@@ -23,7 +23,7 @@ public class Sandstorm
     }
         // if auto, ensure starting value of all necessary parameters
         
-    } // end init
+     // end init
 
     /**
      * Team developed code for Sandstorm periodic.
@@ -31,13 +31,11 @@ public class Sandstorm
     public static void periodic()
     {
         // If buttons Back and Start are pressed, the start auto
-        if (hardware.driverGamepad.getRawButtonPressed(constants.btnBack) == true && hardware.driverGamepad.getRawButtonPressed(constants.btnStart) == true){
-            if(auto == false){
-                auto = true;
-            }
-            if(auto == true){
-                auto = false;
-            }
+        if (hardware.driverGamepad.getRawButtonPressed(constants.btnBack) && 
+        hardware.driverGamepad.getRawButtonPressed(constants.btnStart)){
+            
+        auto = true;
+            
         }
         //Autonomuos code
         if (auto == true){
