@@ -102,7 +102,7 @@ public class Transmission
     public static void changeSpeed()
     {
         //
-        fast = !fast;;
+        fast = !fast;
         // System.out.println("Changing speed: " + fast);
     } // end changeSpeed
    

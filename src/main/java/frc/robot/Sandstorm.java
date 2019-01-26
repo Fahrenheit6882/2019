@@ -31,14 +31,14 @@ public class Sandstorm
     public static void periodic()
     {
         // If buttons Back and Start are pressed, the start auto
-        if (hardware.driverGamepad.getRawButtonPressed(constants.btnBack) && 
-        hardware.driverGamepad.getRawButtonPressed(constants.btnStart)){
-            
-        auto = true;
-            
+        if ( hardware.driverGamepad.getRawButtonPressed(constants.btnBack) && 
+             hardware.driverGamepad.getRawButtonPressed(constants.btnStart) )
+        {    
+          auto = true;   
         }
         //Autonomuos code
-        if (auto == true){
+        if (auto == true)
+        {
              
         }
         // If vision, use DriveControls to check driver input and OperatorControls to check operator input
