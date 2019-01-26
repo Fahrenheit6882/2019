@@ -5,6 +5,10 @@ import frc.globals.*;
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import com.sun.tools.classfile.StackMapTable_attribute.same_frame;
+
+import org.graalvm.compiler.nodes.calc.LeftShiftNode;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
 public class Transmission
@@ -124,4 +128,60 @@ public class Transmission
         // System.out.println("Setting slow.  Fast = " + fast);
     }//end setSlow
 
+    /**
+     * turn robot left or right by degrees at a speed
+     * @param degrees
+     * @param speed
+     * 
+     */
+    public static boolean turnByDegrees(double degrees, double speed )
+    {
+       //creating motor variable
+        double left = 0.0;
+        double right = 0.0;
+        boolean encReset = false;// delete later
+        // convert from degrees to inches for travel
+        double inchesToTravel= 0.0;
+        //reset motor pulses
+        if(encReset)
+        {
+            encLeft.reset();
+            encRight.reset();
+            encReset = false;
+        }
+        //checking if degrees is positive or negative
+        if(degrees < 0.0)
+        {
+            //moving left backwards
+            if(encLeft.getDistance() > inchesToTravel)
+            {
+                left = -speed;
+
+            }
+            //moving right forwards 
+            if(encRight.getDistance() > inchesToTravel)
+            {
+                right = speed;
+            }
+        }
+        //checking if degrees is positive or negative
+        if(degrees > 0.0)
+        {
+            //moving right backwards
+            if(encRight.getDistance() > inchesToTravel)
+            {
+                right = -speed;
+            }
+            //moving left forwards
+            if(encLeft.getDistance() > inchesToTravel)
+            {
+                left = speed;
+            }
+        }
+        if(left == 0.0 && right == 0.0)
+        {
+            encReset = true;
+        }
+        return(encReset);
+    }//end turnByDegrees
 } //end Transmission
