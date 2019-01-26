@@ -10,6 +10,7 @@ import com.sun.tools.classfile.StackMapTable_attribute.same_frame;
 import org.graalvm.compiler.nodes.calc.LeftShiftNode;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import edu.wpi.first.wpilibj.Encoder;
 
 public class Transmission
 {
@@ -20,7 +21,8 @@ public class Transmission
     private static VictorSPX leftRear;
     private static boolean fast;
     private static double speedFactor;
-
+    private static boolean encReset;
+    private Encoder encLeft, encRight; 
     /**
      * Constructor
      * Parameters: 4 motor controllers, 1 per motor
@@ -80,6 +82,17 @@ public class Transmission
         {
             rightSpeed = 1.0;
         }
+
+    //     //pressing button A turn fast false 
+    //     if(hardware.driverGamepad.getRawButtonPressed(constants.btnA))
+    //     {
+    //         fast = false;
+    //     }
+    //     //pressing button X turn fast true
+    //     if(hardware.driverGamepad.getRawButtonPressed(constants.btnX))
+    //     {
+    //         fast = true;
+    //    }
 
         //checking if fast is true/false to adjust left & right speed
         if(fast == true)
@@ -178,10 +191,55 @@ public class Transmission
                 left = speed;
             }
         }
+        
+        return(encReset);
+    }//end turnByDegrees
+
+    public boolean driveByInches(double speed,double inches)
+    {
+        //hold speed for left & right
+        double left = 0.0;
+        double right = 0.0;
+        boolean stop = false;
+        
+
+        //this checks if the encoders are reset if not it resets
+        if(encReset)
+        {
+            encReset = false;
+            encLeft.reset();
+            encRight.reset();
+        }
+        //checks if right side robot has gone correct distance
+        if(encRight.getDistance() < inches && !stop  )
+        {
+            right = speed;
+        }else
+        {
+            right = 0.0;
+            stop = true;
+
+        }
+         //checks if left side robot has gone correct distance
+        if(encLeft.getDistance() < inches && !stop)
+        {
+            left = speed;
+        }else
+        {
+            right = 0.0;
+           stop = true; 
+
+        }
+        //calls drive to make motors move
+        this.drive(left, right);    
+        
+        //checking left and right are 0.0 then reseting encoders
         if(left == 0.0 && right == 0.0)
         {
             encReset = true;
         }
+
+        //returning encReset: either false or true
         return(encReset);
-    }//end turnByDegrees
+    }
 } //end Transmission
