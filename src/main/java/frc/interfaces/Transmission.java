@@ -134,7 +134,7 @@ public class Transmission
      * @param speed
      * 
      */
-    public static turnByDegrees(double degrees, double speed )
+    public static boolean turnByDegrees(double degrees, double speed )
     {
        //creating motor variable
         double left = 0.0;
@@ -145,8 +145,8 @@ public class Transmission
         //reset motor pulses
         if(encReset)
         {
-            left.reset();
-            right.reset();
+            encLeft.reset();
+            encRight.reset();
             encReset = false;
         }
         //checking if degrees is positive or negative
@@ -178,6 +178,10 @@ public class Transmission
                 left = speed;
             }
         }
-
-    }
+        if(left == 0.0 && right == 0.0)
+        {
+            encReset = true;
+        }
+        return(encReset);
+    }//end turnByDegrees
 } //end Transmission
