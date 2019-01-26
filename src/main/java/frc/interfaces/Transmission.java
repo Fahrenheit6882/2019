@@ -5,9 +5,6 @@ import frc.globals.*;
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
-import com.sun.tools.classfile.StackMapTable_attribute.same_frame;
-
-import org.graalvm.compiler.nodes.calc.LeftShiftNode;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj.Encoder;
@@ -22,7 +19,7 @@ public class Transmission
     private static boolean fast;
     private static double speedFactor;
     private static boolean encReset;
-    private Encoder encLeft, encRight; 
+    private static Encoder encLeft, encRight; 
     /**
      * Constructor
      * Parameters: 4 motor controllers, 1 per motor
