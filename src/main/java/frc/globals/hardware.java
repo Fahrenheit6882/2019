@@ -91,6 +91,7 @@ public class hardware
     public static Joystick driverGamepad    = new Joystick(3);
     public static Joystick operatorGamepad  = new Joystick(1);
     public static DriveControls driverCntrl = new DriveControls(driverGamepad);
+    public static OperatorControls operatorCntrl = new OperatorControls(operatorGamepad);
     
     // ***********************************************
     // INTERFACES
