@@ -52,22 +52,46 @@ public class OperatorControls
         */
         if (hardware.operatorGamepad.getRawButtonPressed(constants.leftTrigger))
         {
-            //if(hardware.operatorGamepad.getRawButton(constants.))
-        } else 
-        {
-            if(hardware.operatorGamepad.getRawButtonPressed(constants.btnLB))
+            if(hardware.operatorGamepad.getPOV() == 0)
             {
-
-            } else
-            {
-
+            //Medium RocketShip for cargo
             }
-        }
+            if(hardware.operatorGamepad.getPOV() == 180)
+            {
+                //Lower RocketShip for Cargo
+            }
+
+            } else 
+            
+            {
+                if(hardware.operatorGamepad.getRawButtonPressed(constants.btnLB))
+                {
+                    if(hardware.operatorGamepad.getPOV() == 0)
+                    {
+                    //High CargoShip for cargo
+                    }
+                    if(hardware.operatorGamepad.getPOV() == 180)
+                    {
+                    //Pick up cargo from floor
+                    }
+                } else
+                {
+                    if(hardware.operatorGamepad.getPOV() == 0)
+                    {
+                        //Medium RocketShip for hatch panel
+                    }
+                    if(hardware.operatorGamepad.getPOV() == 180)
+                    {
+                        //Lower RocketShip for hatch panel
+                    }
+                }
+            }
+    }
         /**
         * Method: operatorInput
         * Parameters: N/A
         * Return: void
         * Operation: perform actions based on operator input
         */
-    }   
+       
 } // end OperatorControls
