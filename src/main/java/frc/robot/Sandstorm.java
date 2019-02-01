@@ -39,7 +39,8 @@ public class Sandstorm
         //Autonomuos code
         if (auto == true)
         {
-             
+             hardware.driveBase.driveByInches(constants.driveFast, 100.0);
+            
         }
         // If vision, use DriveControls to check driver input and OperatorControls to check operator input
     } // end periodic
