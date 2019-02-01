@@ -7,6 +7,8 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.*;
+import edu.wpi.first.wpilibj.AnalogInput;
+
 /**
  * Consolidate all the hardware declarations into one place.
  */
@@ -52,6 +54,13 @@ public class hardware
     // ----------------------------------------------
     // ENCODERS
     // ----------------------------------------------
+
+    //-----------------------------------------------
+    //POTENTIOMETERS
+    //-----------------------------------------------
+
+    potArm = new AnalogInput(0, 360, 30);
+    potClaw = new AnalogInput(0,360, 30);
 
 
     // **********************************************
