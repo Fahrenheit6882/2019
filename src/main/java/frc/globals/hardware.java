@@ -8,6 +8,7 @@ import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.*;
 import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.AnalogPotentiometer;
 
 /**
  * Consolidate all the hardware declarations into one place.
@@ -58,10 +59,10 @@ public class hardware
     //-----------------------------------------------
     //POTENTIOMETERS
     //-----------------------------------------------
-
-    potArm = new AnalogInput(0, 360, 30);
-    potClaw = new AnalogInput(0,360, 30);
-
+    
+    public static AnalogPotentiometer potArm = new AnalogPotentiometer(0, 360, 30);
+    public static AnalogPotentiometer potClaw = new AnalogPotentiometer(0,360, 30);
+    
 
     // **********************************************
     // SOLENOID I/O CLASSES
