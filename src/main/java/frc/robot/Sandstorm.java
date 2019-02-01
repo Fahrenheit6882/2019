@@ -47,5 +47,9 @@ public class Sandstorm
             hardware.driveBase.stop();
         }
         // If vision, use DriveControls to check driver input and OperatorControls to check operator input
+        if(auto == false )
+        {
+            //hardware.pOVCamera.getVideo();
+        }
     } // end periodic
 } // end Sandstorm

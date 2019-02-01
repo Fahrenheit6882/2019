@@ -13,6 +13,14 @@ public class Elevator
      * Parameters: motor controllers and/or pneumatic solenoids and/or any necessary I/O devices
      */
 
+     /**
+      * Initializing elevators hardware
+      * Parameters: N/A
+      */
+    // public static void ElevatorInit()
+    // {
+        
+    // }
 
     /**
      * Method: floor
