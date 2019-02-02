@@ -42,6 +42,9 @@ public class constants
     public static double driveSlow     = 0.3;
     public static double eleveatorFast = 0.7;
     public static double eleveatorSlow = 0.3;
+    public static double clawFast      = 0.7;
+    public static double clawSlow      = 0.3;
+    
     public boolean fast = true;
 
 

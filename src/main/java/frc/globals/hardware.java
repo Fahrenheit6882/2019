@@ -7,7 +7,13 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.*;
+<<<<<<< HEAD
 import edu.wpi.first.wpilibj.Encoder;
+=======
+import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.AnalogPotentiometer;
+
+>>>>>>> OperatorControllsInit
 /**
  * Consolidate all the hardware declarations into one place.
  */
@@ -54,6 +60,13 @@ public class hardware
     // ENCODERS
     // ----------------------------------------------
 
+    //-----------------------------------------------
+    //POTENTIOMETERS
+    //-----------------------------------------------
+    
+    public static AnalogPotentiometer potArm = new AnalogPotentiometer(0, 360, 30);
+    public static AnalogPotentiometer potClaw = new AnalogPotentiometer(0,360, 30);
+    
 
     // **********************************************
     // SOLENOID I/O CLASSES
@@ -92,6 +105,7 @@ public class hardware
     public static Joystick driverGamepad    = new Joystick(3);
     public static Joystick operatorGamepad  = new Joystick(1);
     public static DriveControls driverCntrl = new DriveControls(driverGamepad);
+    public static OperatorControls operatorCntrl = new OperatorControls(operatorGamepad);
     
     // ***********************************************
     // INTERFACES
