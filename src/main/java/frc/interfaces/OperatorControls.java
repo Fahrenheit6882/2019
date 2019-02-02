@@ -97,11 +97,40 @@ public class OperatorControls
                 //Cargo Ship Cargo Scoring Postion
             }
         }
-        /*
-        * Method: operatorInput
-        * Parameters: N/A
-        * Return: void
-        * Operation: perform actions based on operator input
+        /*Manipulator/claw preset positions
+        *A is open for Cargo
+        *B is close for Hatch Panel
+        *X is close for Cargo
+        *Y is open for Hatch Panel
+        *Right Trigger is for pneumatic piston out then in position (aka "boop")
         */
+        
+        if(hardware.operatorGamepad.getRawButtonPressed(constants.btnA))
+        {
+            //Open for Cargo
+        }
+        if(hardware.operatorGamepad.getRawButtonPressed(constants.btnB))
+        {
+            //Close for Hatch Panel
+        }
+        if(hardware.operatorGamepad.getRawButtonPressed(constants.btnX))
+        {
+            //Close for Cargo
+        }
+        if(hardware.operatorGamepad.getRawButtonPressed(constants.btnY))
+        {
+            //Open for Hatch Panel
+        }
+        if(hardware.operatorGamepad.getRawButtonPressed(constants.rightTrigger))
+        {
+            //Pneumatic piston out then in position (aka "boop")
+        }
     }
+    /*
+    * Method: operatorInput
+    * Parameters: N/A
+    * Return: void
+    * Operation: perform actions based on operator input
+    */
+    
 } // end OperatorControls
