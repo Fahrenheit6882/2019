@@ -9,10 +9,6 @@ import com.sun.tools.classfile.StackMapTable_attribute.same_frame;
 
 import org.graalvm.compiler.nodes.calc.LeftShiftNode;
 
-<<<<<<< HEAD
-=======
-import edu.wpi.first.wpilibj.Encoder;
->>>>>>> cad6b44ad7ab76035af8866170754bcf1034dfad
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
 public class Transmission
@@ -24,11 +20,8 @@ public class Transmission
     private static VictorSPX leftRear;
     private static boolean fast;
     private static double speedFactor;
-<<<<<<< HEAD
-=======
     private static boolean encReset;
     private static Encoder encLeft, encRight; 
->>>>>>> cad6b44ad7ab76035af8866170754bcf1034dfad
 
     /**
      * Constructor
@@ -187,8 +180,6 @@ public class Transmission
                 left = speed;
             }
         }
-<<<<<<< HEAD
-=======
         if(left == 0.0 && right == 0.0)
         {
             encReset = true;
@@ -235,15 +226,10 @@ public class Transmission
         this.drive(left, right);    
         
         //checking left and right are 0.0 then reseting encoders
->>>>>>> cad6b44ad7ab76035af8866170754bcf1034dfad
         if(left == 0.0 && right == 0.0)
         {
             encReset = true;
         }
         return(encReset);
-<<<<<<< HEAD
-    }//end turnByDegrees
-=======
     } // end driveByInches
->>>>>>> cad6b44ad7ab76035af8866170754bcf1034dfad
 } //end Transmission
