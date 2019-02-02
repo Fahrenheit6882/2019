@@ -5,17 +5,15 @@ import frc.globals.*;
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
-import com.sun.tools.classfile.StackMapTable_attribute.same_frame;
-
-import org.graalvm.compiler.nodes.calc.LeftShiftNode;
+import edu.wpi.first.wpilibj.Encoder;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
 public class Transmission
 {
     //Transmission varables
-    private static TalonSRX rightFront;
-    private static TalonSRX leftFront;
+    private static VictorSPX rightFront;
+    private static VictorSPX leftFront;
     private static VictorSPX rightRear;
     private static VictorSPX leftRear;
     private static boolean fast;
@@ -27,7 +25,7 @@ public class Transmission
      * Constructor
      * Parameters: 4 motor controllers, 1 per motor
      */
-    public Transmission (TalonSRX rf, TalonSRX lf, VictorSPX rr, VictorSPX lr)
+    public Transmission (VictorSPX rf, VictorSPX lf, VictorSPX rr, VictorSPX lr, Encoder r, Encoder l)
     {
         // Initialize motor controllers
         rightFront = rf;
@@ -41,6 +39,9 @@ public class Transmission
         // TODO: Invert one side of motor controllers so that + input moves forward
         leftFront.setInverted(true);
         leftRear.setInverted(true);
+
+        encRight = r;
+        encLeft = l;
     }
 
     /**
