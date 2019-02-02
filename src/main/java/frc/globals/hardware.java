@@ -7,13 +7,10 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.*;
-<<<<<<< HEAD
 import edu.wpi.first.wpilibj.Encoder;
-=======
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 
->>>>>>> OperatorControllsInit
 /**
  * Consolidate all the hardware declarations into one place.
  */
