@@ -3,36 +3,35 @@ package frc.interfaces;
 // Import statements here
 import frc.globals.*;
 
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import edu.wpi.first.wpilibj.Encoder;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import edu.wpi.first.wpilibj.Encoder;
 
 public class Transmission
 {
     //Transmission varables
-    
-    private static VictorSPX rightRear;
-    private static VictorSPX leftRear;
     private static VictorSPX rightFront;
     private static VictorSPX leftFront;
+    private static VictorSPX rightRear;
+    private static VictorSPX leftRear;
     private static boolean fast;
     private static double speedFactor;
     private static boolean encReset;
     private static Encoder encLeft, encRight; 
+
     /**
      * Constructor
      * Parameters: 4 motor controllers, 1 per motor
      */
-    public Transmission (VictorSPX rf, VictorSPX lf, VictorSPX rr, VictorSPX lr, Encoder right, Encoder left)
+    public Transmission (VictorSPX rf, VictorSPX lf, VictorSPX rr, VictorSPX lr, Encoder r, Encoder l)
     {
         // Initialize motor controllers
         rightFront = rf;
         leftFront = lf;
         rightRear = rr;
         leftRear = lr;
-        encRight = right;
-        encLeft = left;
 
         fast = true;
         speedFactor = constants.driveFast;
@@ -40,6 +39,9 @@ public class Transmission
         // TODO: Invert one side of motor controllers so that + input moves forward
         leftFront.setInverted(true);
         leftRear.setInverted(true);
+
+        encRight = r;
+        encLeft = l;
     }
 
     /**
@@ -82,17 +84,6 @@ public class Transmission
             rightSpeed = 1.0;
         }
 
-    //     //pressing button A turn fast false 
-    //     if(hardware.driverGamepad.getRawButtonPressed(constants.btnA))
-    //     {
-    //         fast = false;
-    //     }
-    //     //pressing button X turn fast true
-    //     if(hardware.driverGamepad.getRawButtonPressed(constants.btnX))
-    //     {
-    //         fast = true;
-    //    }
-
         //checking if fast is true/false to adjust left & right speed
         if(fast == true)
         {
@@ -118,7 +109,7 @@ public class Transmission
     public static void changeSpeed()
     {
         //
-        fast = !fast;
+        fast = !fast;;
         // System.out.println("Changing speed: " + fast);
     } // end changeSpeed
    
@@ -190,7 +181,10 @@ public class Transmission
                 left = speed;
             }
         }
-        
+        if(left == 0.0 && right == 0.0)
+        {
+            encReset = true;
+        }
         return(encReset);
     }//end turnByDegrees
 
@@ -237,8 +231,6 @@ public class Transmission
         {
             encReset = true;
         }
-
-        //returning encReset: either false or true
         return(encReset);
-    }
+    } // end driveByInches
 } //end Transmission

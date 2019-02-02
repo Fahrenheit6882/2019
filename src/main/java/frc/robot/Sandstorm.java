@@ -39,8 +39,20 @@ public class Sandstorm
         //Autonomuos code
         if (auto == true)
         {
-             
+            //Drives forward 8' 4"
+             hardware.driveBase.driveByInches(constants.driveSlow, 100.0);
+            
+        }else
+        {
+            hardware.driveBase.stop();
         }
         // If vision, use DriveControls to check driver input and OperatorControls to check operator input
+        if(auto == false )
+        {
+            //hardware.pOVCamera.getVideo();
+            //Listens to driver's and operator's controller input
+            DriveControls.checkInput();
+            OperatorControls.checkInput();
+        }
     } // end periodic
 } // end Sandstorm
