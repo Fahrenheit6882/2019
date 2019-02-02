@@ -24,13 +24,15 @@ public class Transmission
      * Constructor
      * Parameters: 4 motor controllers, 1 per motor
      */
-    public Transmission (VictorSPX rf, VictorSPX lf, VictorSPX rr, VictorSPX lr)
+    public Transmission (VictorSPX rf, VictorSPX lf, VictorSPX rr, VictorSPX lr, Encoder right, Encoder left)
     {
         // Initialize motor controllers
         rightFront = rf;
         leftFront = lf;
         rightRear = rr;
         leftRear = lr;
+        encRight = right;
+        encLeft = left;
 
         fast = true;
         speedFactor = constants.driveFast;

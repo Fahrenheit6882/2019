@@ -7,6 +7,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.*;
+import edu.wpi.first.wpilibj.Encoder;
 /**
  * Consolidate all the hardware declarations into one place.
  */
@@ -26,7 +27,7 @@ public class hardware
     // VICTORS
     //-----------------------------------------------
     //Initializes Transmission with four Victor motor controllers: front right, back right, front left, back left.
-    public static Transmission driveBase = new Transmission(new VictorSPX(0), new VictorSPX(1), new VictorSPX(2), new VictorSPX(3));
+    public static Transmission driveBase = new Transmission(new VictorSPX(0), new VictorSPX(1), new VictorSPX(2), new VictorSPX(3), new Encoder(1, 2, false, Encoder.EncodingType.k4X), new Encoder(3, 4, false, Encoder.EncodingType.k4X));
         
     // ==============================================
     // CAN CLASSES
