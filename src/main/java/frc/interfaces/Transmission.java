@@ -3,7 +3,6 @@ package frc.interfaces;
 // Import statements here
 import frc.globals.*;
 
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
@@ -12,10 +11,11 @@ import edu.wpi.first.wpilibj.Encoder;
 public class Transmission
 {
     //Transmission varables
-    private static TalonSRX rightFront;
-    private static TalonSRX leftFront;
+    
     private static VictorSPX rightRear;
     private static VictorSPX leftRear;
+    private static VictorSPX rightFront;
+    private static VictorSPX leftFront;
     private static boolean fast;
     private static double speedFactor;
     private static boolean encReset;
@@ -24,7 +24,7 @@ public class Transmission
      * Constructor
      * Parameters: 4 motor controllers, 1 per motor
      */
-    public Transmission (TalonSRX rf, TalonSRX lf, VictorSPX rr, VictorSPX lr)
+    public Transmission (VictorSPX rf, VictorSPX lf, VictorSPX rr, VictorSPX lr)
     {
         // Initialize motor controllers
         rightFront = rf;

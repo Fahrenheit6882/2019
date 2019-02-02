@@ -26,7 +26,7 @@ public class hardware
     // VICTORS
     //-----------------------------------------------
     //Initializes Transmission with four Victor motor controllers: front right, back right, front left, back left.
-    public static Transmission driveBase = new Transmission(new TalonSRX(0), new TalonSRX(1), new VictorSPX(0), new VictorSPX(1));
+    public static Transmission driveBase = new Transmission(new VictorSPX(0), new VictorSPX(1), new VictorSPX(2), new VictorSPX(3));
         
     // ==============================================
     // CAN CLASSES
