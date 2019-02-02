@@ -75,7 +75,6 @@ public class OperatorControls
                 //Rocket Low Hatch Panel Scoring Position
             }
             if(hardware.operatorGamepad.getPOV() == 270)
-<<<<<<< HEAD
             {
                 //Cargo Ship Hatch Panel Scoring Position
             }
@@ -119,31 +118,9 @@ public class OperatorControls
             //Close for Cargo
         }
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnY))
-=======
-            {
-                //Cargo Ship Hatch Panel Scoring Position
-            }
-        }else
->>>>>>> 704a7034e9ee0c9eab7e3604985d1113cc854006
         {
-            if(hardware.operatorGamepad.getPOV() == 0)
-            {
-                //Rocket High Cargo Scoring Postion
-            }
-            if(hardware.operatorGamepad.getPOV() == 90)
-            {
-                //Rocket Mid Cargo Scoring Position
-            }
-            if(hardware.operatorGamepad.getPOV() == 180)
-            {
-                //Rocket Low Cargo Scoring Position
-            }
-            if(hardware.operatorGamepad.getPOV() == 270)
-            {
-                //Cargo Ship Cargo Scoring Postion
-            }
+                //Cargo Ship Hatch Panel Scoring Position
         }
-<<<<<<< HEAD
         if(hardware.operatorGamepad.getRawButtonPressed(constants.rightTrigger))
         {
             //Pneumatic piston out then in position (aka "boop")
@@ -156,13 +133,4 @@ public class OperatorControls
     * Operation: perform actions based on operator input
     */
     
-=======
-        /*
-        * Method: operatorInput
-        * Parameters: N/A
-        * Return: void
-        * Operation: perform actions based on operator input
-        */
-    }
->>>>>>> 704a7034e9ee0c9eab7e3604985d1113cc854006
 } // end OperatorControls
