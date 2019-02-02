@@ -107,5 +107,5 @@ public class hardware
     // ***********************************************
     // INTERFACES
     // ***********************************************
-
+    public static OperatorControls Elevator = new OperatorControls();
 } // end hardware

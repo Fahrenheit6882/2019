@@ -59,42 +59,51 @@ public class OperatorControls
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnLB))
         {
             //Elevator floor position
+            Elevator.floor();
         }
         if(hardware.operatorGamepad.getRawButtonPressed(constants.leftTrigger))
         {
             if(hardware.operatorGamepad.getPOV() == 0)
             {
                 //Rocket High Hatch Panel Scoring Position
+                Elevator.hatchRocketHigh();
             }
             if(hardware.operatorGamepad.getPOV() == 90)
             {
                 //Rocket Mid Hatch Panel Scoring Position
+                Elevator.hatchRocketMid();
             }
             if(hardware.operatorGamepad.getPOV() == 180)
             {
                 //Rocket Low Hatch Panel Scoring Position
+                Elevator.hatchRocketLow();
             }
             if(hardware.operatorGamepad.getPOV() == 270)
             {
                 //Cargo Ship Hatch Panel Scoring Position
+                Elevator.hatchCargoShip();
             }
         }else
         {
             if(hardware.operatorGamepad.getPOV() == 0)
             {
                 //Rocket High Cargo Scoring Postion
+                Elevator.cargoRocketHigh();
             }
             if(hardware.operatorGamepad.getPOV() == 90)
             {
                 //Rocket Mid Cargo Scoring Position
+                Elevator.cargoRocketMid();
             }
             if(hardware.operatorGamepad.getPOV() == 180)
             {
                 //Rocket Low Cargo Scoring Position
+                Elevator.cargoRocketLow();
             }
             if(hardware.operatorGamepad.getPOV() == 270)
             {
                 //Cargo Ship Cargo Scoring Postion
+                Elevator.cargoCargoShip();
             }
         }
         /*Manipulator/claw preset positions
