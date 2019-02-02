@@ -40,7 +40,7 @@ public class Sandstorm
         if (auto == true)
         {
             //Drives forward 8' 4"
-             hardware.driveBase.driveByInches(constants.driveFast, 100.0);
+             hardware.driveBase.driveByInches(constants.driveSlow, 100.0);
             
         }else
         {
@@ -50,6 +50,9 @@ public class Sandstorm
         if(auto == false )
         {
             //hardware.pOVCamera.getVideo();
+            //Listens to driver's and operator's controller input
+            DriveControls.checkInput();
+            OperatorControls.checkInput();
         }
     } // end periodic
 } // end Sandstorm
