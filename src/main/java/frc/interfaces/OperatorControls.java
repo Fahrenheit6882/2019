@@ -39,80 +39,69 @@ public class OperatorControls
         } else
         {
             clawSpeed = 0.0;
+       
         }
-        /*Elavator preset positions
-        * up dpad + left trigger is medium RocketShip for Cargo
-        * down dpad + left trigger is lower RocketShip for Cargo
+        /*ELEVATOR PRESET POSITIONS
+        *Left bumper = Elevator Floor Position
         *
-        * up dpad + left bumper is high CargoShip for Cargo
-        * down dpad +left bumper is pick up Cargo from floor
+        *Left Trigger +
+        *D-Pad Left = Cargo Ship Hatch Panel Scoring Position
+        *D-Pad Down = Rocket Low Hatch Panel Scoring Position
+        *D-Pad Right = Rocket Mid Hatch Panel Scoring Position
+        *D-Pad Up = Rocket High Hatch Panel Scoring Position
         *
-        * up dpad is medium RocketShip for HatchPanel
-        * down dpad is lower RocketShip/CargoShip/LoadingZone for HatchPanel
+        *No Left Trigger +
+        *D-Pad Left = Cargo Ship Cargo Scoring Position
+        *D-Pad Down = Rocket Low Cargo Scoring Position
+        *D-Pad Right = Rocket Mid Cargo Scoring Position
+        *D-Pad Up = Rocket High Cargo Scoring Position
         */
-        if (hardware.operatorGamepad.getRawButtonPressed(constants.leftTrigger))
+        if(hardware.operatorGamepad.getRawButtonPressed(constants.btnLB))
+        {
+            //Elevator floor position
+        }
+        if(hardware.operatorGamepad.getRawButtonPressed(constants.leftTrigger))
         {
             if(hardware.operatorGamepad.getPOV() == 0)
             {
-            //Medium RocketShip for cargo
+                //Rocket High Hatch Panel Scoring Position
+            }
+            if(hardware.operatorGamepad.getPOV() == 90)
+            {
+                //Rocket Mid Hatch Panel Scoring Position
             }
             if(hardware.operatorGamepad.getPOV() == 180)
             {
-                //Lower RocketShip for Cargo
+                //Rocket Low Hatch Panel Scoring Position
             }
-
-        } else 
-        {
-            if(hardware.operatorGamepad.getRawButtonPressed(constants.btnLB))
-                {
-                if(hardware.operatorGamepad.getPOV() == 0)
-                {
-                    //High CargoShip for cargo
-                    }   
-                    if(hardware.operatorGamepad.getPOV() == 180)
-                    {
-                    //Pick up cargo from floor
-                    }
-            } else
+            if(hardware.operatorGamepad.getPOV() == 270)
             {
-                if(hardware.operatorGamepad.getPOV() == 0)
-                {
-                    //Medium RocketShip for hatch panel
-                }
-                if(hardware.operatorGamepad.getPOV() == 180)
-                {
-                        //Lower RocketShip for hatch panel
-                }
+                //Cargo Ship Hatch Panel Scoring Position
+            }
+        }else
+        {
+            if(hardware.operatorGamepad.getPOV() == 0)
+            {
+                //Rocket High Cargo Scoring Postion
+            }
+            if(hardware.operatorGamepad.getPOV() == 90)
+            {
+                //Rocket Mid Cargo Scoring Position
+            }
+            if(hardware.operatorGamepad.getPOV() == 180)
+            {
+                //Rocket Low Cargo Scoring Position
+            }
+            if(hardware.operatorGamepad.getPOV() == 270)
+            {
+                //Cargo Ship Cargo Scoring Postion
             }
         }
-        /*Manipulator/claw preset positions
-        *A is open for Cargo
-        *B is close for Hatch Panel
-        *X is close for Cargo
-        *Y is open for Hatch Panel
-        */
-        if(hardware.operatorGamepad.getRawButtonPressed(constants.btnA))
-        {
-            //Open for Cargoo
-        }
-        if(hardware.operatorGamepad.getRawButtonPressed(constants.btnB))
-        {
-            //Close for Hatch Panel
-        }
-        if(hardware.operatorGamepad.getRawButtonPressed(constants.btnX))
-        {
-            //Close for Cargo
-        }
-        if(hardware.operatorGamepad.getRawButtonPressed(constants.btnY))
-        {
-            //Open for Hatch Panel
-        }
-    }
         /*
         * Method: operatorInput
         * Parameters: N/A
         * Return: void
         * Operation: perform actions based on operator input
         */
-       
+    }
 } // end OperatorControls
