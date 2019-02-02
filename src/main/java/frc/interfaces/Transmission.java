@@ -9,6 +9,10 @@ import com.sun.tools.classfile.StackMapTable_attribute.same_frame;
 
 import org.graalvm.compiler.nodes.calc.LeftShiftNode;
 
+<<<<<<< HEAD
+=======
+import edu.wpi.first.wpilibj.Encoder;
+>>>>>>> cad6b44ad7ab76035af8866170754bcf1034dfad
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
 public class Transmission
@@ -20,6 +24,11 @@ public class Transmission
     private static VictorSPX leftRear;
     private static boolean fast;
     private static double speedFactor;
+<<<<<<< HEAD
+=======
+    private static boolean encReset;
+    private static Encoder encLeft, encRight; 
+>>>>>>> cad6b44ad7ab76035af8866170754bcf1034dfad
 
     /**
      * Constructor
@@ -178,10 +187,63 @@ public class Transmission
                 left = speed;
             }
         }
+<<<<<<< HEAD
+=======
         if(left == 0.0 && right == 0.0)
         {
             encReset = true;
         }
         return(encReset);
     }//end turnByDegrees
+
+    public boolean driveByInches(double speed,double inches)
+    {
+        //hold speed for left & right
+        double left = 0.0;
+        double right = 0.0;
+        boolean stop = false;
+        
+
+        //this checks if the encoders are reset if not it resets
+        if(encReset)
+        {
+            encReset = false;
+            encLeft.reset();
+            encRight.reset();
+        }
+        //checks if right side robot has gone correct distance
+        if(encRight.getDistance() < inches && !stop  )
+        {
+            right = speed;
+        }else
+        {
+            right = 0.0;
+            stop = true;
+
+        }
+         //checks if left side robot has gone correct distance
+        if(encLeft.getDistance() < inches && !stop)
+        {
+            left = speed;
+        }else
+        {
+            right = 0.0;
+           stop = true; 
+
+        }
+        //calls drive to make motors move
+        this.drive(left, right);    
+        
+        //checking left and right are 0.0 then reseting encoders
+>>>>>>> cad6b44ad7ab76035af8866170754bcf1034dfad
+        if(left == 0.0 && right == 0.0)
+        {
+            encReset = true;
+        }
+        return(encReset);
+<<<<<<< HEAD
+    }//end turnByDegrees
+=======
+    } // end driveByInches
+>>>>>>> cad6b44ad7ab76035af8866170754bcf1034dfad
 } //end Transmission
