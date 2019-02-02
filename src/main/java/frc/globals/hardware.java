@@ -105,11 +105,8 @@ public class hardware
     // ***********************************************
     // INTERFACES
     // ***********************************************
-<<<<<<< HEAD
     public static OperatorControls Elevator = new OperatorControls();
-=======
     //Initializes Transmission with four Victor motor controllers: front right, back right, front left, back left.
     public static Transmission driveBase = new Transmission(new VictorSPX(0), new VictorSPX(1), new VictorSPX(2), new VictorSPX(3), new Encoder(1, 2, false, Encoder.EncodingType.k4X), new Encoder(3, 4, false, Encoder.EncodingType.k4X));
         
->>>>>>> 82493db826fe39d5a2ed76fa16e697e2738a3535
 } // end hardware
