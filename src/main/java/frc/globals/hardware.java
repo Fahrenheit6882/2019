@@ -10,6 +10,7 @@ import edu.wpi.first.cameraserver.*;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
+import edu.wpi.first.wpilibj.DriverStation;
 
 /**
  * Consolidate all the hardware declarations into one place.
@@ -59,8 +60,8 @@ public class hardware
     //POTENTIOMETERS
     //-----------------------------------------------
     
-    public static AnalogPotentiometer potArm = new AnalogPotentiometer(0, 360, 30);
-    public static AnalogPotentiometer potClaw = new AnalogPotentiometer(0,360, 30);
+    // public static AnalogPotentiometer potArm = new AnalogPotentiometer(0, 360, 30);
+    // public static AnalogPotentiometer potClaw = new AnalogPotentiometer(0,360, 30);
     
 
     // **********************************************
@@ -91,7 +92,7 @@ public class hardware
     // ===============================================
     // DRIVER STATION
     // ===============================================
-
+    public static DriverStation ds = DriverStation.getInstance();
 
     // ===============================================
     // JOYSTICKS

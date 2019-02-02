@@ -26,6 +26,6 @@ public class Teleop
         hardware.driverCntrl.checkInput();
 
         // Use OperatorControls to check operator input
-        
+        hardware.operatorCntrl.checkInput();
     } // end periodic
 } // end Teleop
