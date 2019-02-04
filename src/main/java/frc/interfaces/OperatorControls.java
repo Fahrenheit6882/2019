@@ -116,23 +116,23 @@ public class OperatorControls
         
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnA))
         {
-            //Open for Cargo
+            Claw.open();
         }
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnB))
         {
-            //Close for Hatch Panel
+            Claw.close();
         }
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnX))
         {
-            //Close for Cargo
+            Claw.gripCargo();
         }
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnY))
         {
-                //Cargo Ship Hatch Panel Scoring Position
+                Claw.holdHatch();
         }
         if(hardware.operatorGamepad.getRawButtonPressed(constants.rightTrigger))
         {
-            //Pneumatic piston out then in position (aka "boop")
+            Claw.boop();
         }
     }
     /*
