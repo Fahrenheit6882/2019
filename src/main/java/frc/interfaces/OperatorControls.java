@@ -10,6 +10,7 @@ public class OperatorControls
 {
     // Private variables
     private static Joystick  ctrl;
+    public static boolean ready = true;
     
     public OperatorControls(Joystick oc){
         
@@ -60,50 +61,68 @@ public class OperatorControls
         {
             //Elevator floor position
             Elevator.floor();
-        }
-        if(hardware.operatorGamepad.getRawButtonPressed(constants.leftTrigger))
-        {
-            if(hardware.operatorGamepad.getPOV() == 0)
-            {
-                //Rocket High Hatch Panel Scoring Position
-                Elevator.hatchRocketHigh();
-            }
-            if(hardware.operatorGamepad.getPOV() == 90)
-            {
-                //Rocket Mid Hatch Panel Scoring Position
-                Elevator.hatchRocketMid();
-            }
-            if(hardware.operatorGamepad.getPOV() == 180)
-            {
-                //Rocket Low Hatch Panel Scoring Position
-                Elevator.hatchRocketLow();
-            }
-            if(hardware.operatorGamepad.getPOV() == 270)
-            {
-                //Cargo Ship Hatch Panel Scoring Position
-                Elevator.hatchCargoShip();
-            }
         }else
         {
-            if(hardware.operatorGamepad.getPOV() == 0)
+            switch(hardware.operatorGamepad.getPOV())
             {
-                //Rocket High Cargo Scoring Postion
-                Elevator.cargoRocketHigh();
-            }
-            if(hardware.operatorGamepad.getPOV() == 90)
-            {
-                //Rocket Mid Cargo Scoring Position
-                Elevator.cargoRocketMid();
-            }
-            if(hardware.operatorGamepad.getPOV() == 180)
-            {
-                //Rocket Low Cargo Scoring Position
-                Elevator.cargoRocketLow();
-            }
-            if(hardware.operatorGamepad.getPOV() == 270)
-            {
-                //Cargo Ship Cargo Scoring Postion
-                Elevator.cargoCargoShip();
+                case 0: 
+                if(ready)
+                {
+                    ready = false;
+                    if(hardware.operatorGamepad.getRawAxis(constants.leftTrigger) > constants.gamepadDeadzone)
+                    {
+                        Elevator.hatchRocketHigh();
+                    }else
+                    {
+                        Elevator.cargoRocketHigh();
+                    }
+                }   
+                break;
+
+                case 90:
+                if(ready)
+                {
+                    ready = false;
+                    if(hardware.operatorGamepad.getRawAxis(constants.leftTrigger) > constants.gamepadDeadzone)
+                    {
+                        Elevator.hatchRocketMid();
+                    }else 
+                    {
+                        Elevator.cargoRocketMid();
+                    }
+                }   
+                break;
+
+                case 180:
+                if(ready)
+                {
+                    ready = false;
+                    if(hardware.operatorGamepad.getRawAxis(constants.leftTrigger) > constants.gamepadDeadzone)
+                    {
+                        Elevator.hatchRocketLow();
+                    }else 
+                    {
+                        Elevator.cargoRocketLow();
+                    }
+                }
+                break;
+                case 270:
+                if(ready)
+                {
+                    ready = false;
+                    if(hardware.operatorGamepad.getRawAxis(constants.leftTrigger) > constants.gamepadDeadzone)
+                    {
+                        Elevator.hatchCargoShip();
+                    }else 
+                    {
+                        Elevator.cargoCargoShip();
+                    }
+                }
+                break;
+                
+                case -1:
+                ready = true;
+                break;
             }
         }
         /*Manipulator/claw preset positions
@@ -113,7 +132,7 @@ public class OperatorControls
         *Y is open for Hatch Panel
         *Right Trigger is for pneumatic piston out then in position (aka "boop")
         */
-        
+           
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnA))
         {
             //Open for Cargo
