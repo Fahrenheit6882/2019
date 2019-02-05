@@ -1,13 +1,16 @@
 package frc.interfaces;
 
+
 // import statements
 import frc.globals.*;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.ControlMode;
 
 public class Elevator
 {
     // Private variables
-
-
+  private static TalonSRX liftRight;
+  private static TalonSRX liftLeft;
     /**
      * Constructor
      * Parameters: motor controllers and/or pneumatic solenoids and/or any necessary I/O devices
@@ -17,10 +20,18 @@ public class Elevator
       * Initializing elevators hardware
       * Parameters: N/A
       */
-    // public static void ElevatorInit()
-    // {
-        
-    // }
+      public Elevator (TalonSRX l1, TalonSRX l2)
+      {
+        liftRight = l1;
+        liftLeft = l2;
+        //Left motor is inverted
+        liftLeft.setInverted(true);
+      }
+    public void ElevatorInit()
+    {
+      
+    }
+    
 
     /**
      * Method: floor
@@ -31,6 +42,17 @@ public class Elevator
     public static void floor()
     {
       System.out.println("Floor Position");
+      /*suedo code
+      if(hardware.potArm.getAverageVoltage() > var)
+      {
+        liftRight.set(Controlmode.PercentOutput, constants.elevatorFast);
+        liftleft.set(Controlmode.PercentOutput, constants.elevatorFast);
+      }else if(hardware.potArm.getAverageVoltage() > var)
+      {
+        liftRight.set(Controlmode.PercentOutput, -constants.elevatorFast);
+        liftleft.set(Controlmode.PercentOutput, -constants.elevatorFast);
+      }
+      */
     }
     
     /**
@@ -42,6 +64,9 @@ public class Elevator
     public static void cargoCargoShip()
     {
       System.out.println("Cargo position for CargoShip");
+      /*
+      if()
+      */
     }
 
     /**
