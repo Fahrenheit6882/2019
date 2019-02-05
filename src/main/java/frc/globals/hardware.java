@@ -60,7 +60,7 @@ public class hardware
     //-----------------------------------------------
     
     public static AnalogPotentiometer potArm = new AnalogPotentiometer(0, 360, 30);
-    public static AnalogPotentiometer potClaw = new AnalogPotentiometer(0,360, 30);
+    public static AnalogPotentiometer potClaw = new AnalogPotentiometer(1,360, 30);
     
 
     // **********************************************
