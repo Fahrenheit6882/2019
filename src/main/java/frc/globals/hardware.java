@@ -3,8 +3,6 @@ package frc.globals;
 // Import statements
 import frc.interfaces.*;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.Solenoid;
-
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.cscore.UsbCamera;
@@ -14,7 +12,6 @@ import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DriverStation;
-import frc.interfaces.Elevator;
 
 /**
  * Consolidate all the hardware declarations into one place.
@@ -41,7 +38,7 @@ public class hardware
     // ----------------------------------------------
     // TALONS
     // ----------------------------------------------
-       
+
 
     // ==============================================
     // DIGITAL INPUTS
@@ -82,8 +79,7 @@ public class hardware
     // ----------------------------------------------
     // DOUBLE SOLENOIDS
     // ----------------------------------------------
-    public static DoubleSolenoid Booper = new DoubleSolenoid(0,1);
-    
+    public static DoubleSolenoid Booper = new DoubleSolenoid(0, 1);
 
     // ***********************************************
     // DRIVER STATION AND RIO CONNECTIONS
@@ -111,7 +107,7 @@ public class hardware
     // ***********************************************
     // INTERFACES
     // ***********************************************
-    //public static Elevator lift = new Elevator(new TalonSRX(0), new TalonSRX(1));
+    public static Elevator lift = new Elevator(new TalonSRX(0), new TalonSRX(1));
     //Initializes Transmission with four Victor motor controllers: front right, back right, front left, back left.
     public static Transmission driveBase = new Transmission(new VictorSPX(0), new VictorSPX(1), new VictorSPX(2), new VictorSPX(3), new Encoder(1, 2, false, Encoder.EncodingType.k4X), new Encoder(3, 4, false, Encoder.EncodingType.k4X));
         
