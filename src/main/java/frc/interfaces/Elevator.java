@@ -16,17 +16,18 @@ public class Elevator
      * Parameters: motor controllers and/or pneumatic solenoids and/or any necessary I/O devices
      */
 
-     /**
-      * Initializing elevators hardware
-      * Parameters: N/A
-      */
-      public Elevator (TalonSRX l1, TalonSRX l2)
-      {
-        liftRight = l1;
-        liftLeft = l2;
-        //Left motor is inverted
-        liftLeft.setInverted(true);
-      }
+    /**
+     * Initializing elevators hardware
+     * Parameters: N/A
+     */
+    public Elevator (TalonSRX l1, TalonSRX l2)
+    {
+      liftRight = l1;
+      liftLeft = l2;
+      //Left motor is inverted
+      liftLeft.setInverted(true);
+    }
+    
     public void ElevatorInit()
     {
       
