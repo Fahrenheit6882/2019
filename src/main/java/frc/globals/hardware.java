@@ -5,6 +5,8 @@ import frc.interfaces.*;
 import edu.wpi.first.wpilibj.Joystick;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import com.revrobotics.*;
+
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.*;
 import edu.wpi.first.wpilibj.Encoder;
@@ -109,5 +111,5 @@ public class hardware
     public static Elevator lift = new Elevator();
     //Initializes Transmission with four Victor motor controllers: front right, back right, front left, back left.
     public static Transmission driveBase = new Transmission(new VictorSPX(0), new VictorSPX(1), new VictorSPX(2), new VictorSPX(3), new Encoder(1, 2, false, Encoder.EncodingType.k4X), new Encoder(3, 4, false, Encoder.EncodingType.k4X));
-        
+    public static Claw ClawControls = new Claw( new CANSparkMax(0, CANSparkMaxLowLevel.MotorType.kBrushed));
 } // end hardware

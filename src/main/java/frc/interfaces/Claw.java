@@ -1,16 +1,23 @@
 package frc.interfaces;
 
+import com.revrobotics.CANSparkMax;
 // import statements
 import frc.globals.*;
+
 
 public class Claw
 {
     // private variables
+    private static CANSparkMax ClawMotor;
 
     /**
      * Constructor
      * Parameters: motor controllers and/or solenoids required for Claw
      */
+    public Claw(CANSparkMax c)
+    {
+        ClawMotor = c;
+    }
 
     /**
      * Method: open
