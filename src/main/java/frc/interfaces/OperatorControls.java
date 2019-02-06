@@ -27,6 +27,10 @@ public class OperatorControls
          */
 
         //Reads and sets speed from joysticks
+        if(hardware.operatorGamepad.getRawButtonPressed(constants.btnRStick))
+        {
+            System.out.println(hardware.potentiometer.getAverageVoltage());
+        }
         if (Math.abs(ctrl.getRawAxis(constants.leftY))> constants.gamepadDeadzone)
         {
             elevatorSpeed = ctrl.getRawAxis(constants.leftY);

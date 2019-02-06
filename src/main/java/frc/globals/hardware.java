@@ -60,10 +60,8 @@ public class hardware
     //POTENTIOMETERS
     //-----------------------------------------------
     
-    // public static AnalogPotentiometer potArm = new AnalogPotentiometer(0, 360, 30);
-    // public static AnalogPotentiometer potClaw = new AnalogPotentiometer(0,360, 30);
-    
-
+    public static AnalogPotentiometer potArm = new AnalogPotentiometer(0, 360, 30);
+    public static AnalogInput potentiometer = new AnalogInput(0);
     // **********************************************
     // SOLENOID I/O CLASSES
     // **********************************************
