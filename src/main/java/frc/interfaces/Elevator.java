@@ -33,7 +33,20 @@ public class Elevator
       
     }
     
-
+    //Elevator moves
+    public static void preset(double angle, double speed)
+    {
+      double degrees = hardware.potArm.get();
+      if(degrees > angle)
+      {
+        liftRight.set(ControlMode.PercentOutput, speed);
+        liftLeft.set(ControlMode.PercentOutput, speed);
+      }else if(degrees < angle)
+      {
+        liftRight.set(ControlMode.PercentOutput, -speed);
+        liftLeft.set(ControlMode.PercentOutput, -speed);
+      }
+    }
     /**
      * Method: floor
      * Parameters: N/A
@@ -43,17 +56,7 @@ public class Elevator
     public static void floor()
     {
       System.out.println("Floor Position");
-      /*suedo code
-      if(hardware.potArm.getAverageVoltage() > var)
-      {
-        liftRight.set(Controlmode.PercentOutput, constants.elevatorFast);
-        liftleft.set(Controlmode.PercentOutput, constants.elevatorFast);
-      }else if(hardware.potArm.getAverageVoltage() > var)
-      {
-        liftRight.set(Controlmode.PercentOutput, -constants.elevatorFast);
-        liftleft.set(Controlmode.PercentOutput, -constants.elevatorFast);
-      }
-      */
+      //ElevatorMove(angle, constants.elevatorFast);
     }
     
     /**
@@ -65,9 +68,7 @@ public class Elevator
     public static void cargoCargoShip()
     {
       System.out.println("Cargo position for CargoShip");
-      /*
-      if()
-      */
+     //ElevatorMove(angle, constants.elevatorFast);
     }
 
     /**
@@ -79,6 +80,7 @@ public class Elevator
     public static void cargoRocketLow()
     {
       System.out.println("Cargo position for Rocket Low");
+      //ElevatorMove(angle, constants.elevatorFast);
     }
 
     /**
@@ -90,6 +92,7 @@ public class Elevator
     public static void cargoRocketMid()
     {
       System.out.println("Cargo postition for Rocket Mid");
+      //ElevatorMove(angle, constants.elevatorFast);
     }
 
     /**
@@ -101,6 +104,7 @@ public class Elevator
     public static void cargoRocketHigh()
     {
       System.out.println("Cargo postition for Rocket High");
+      //ElevatorMove(angle, constants.elevatorFast);
     }
 
     /**
@@ -112,6 +116,7 @@ public class Elevator
     public static void hatchCargoShip()
     {
       System.out.println("Hatch Panel position for Cargo Ship");
+      //ElevatorMove(angle, constants.elevatorFast);
     }
 
     /**
@@ -123,6 +128,7 @@ public class Elevator
     public static void hatchRocketLow()
     {
       System.out.println("Hatch Panel postition for Rocket Low");
+      //ElevatorMove(angle, constants.elevatorFast);
     }
 
     /**
@@ -134,6 +140,7 @@ public class Elevator
     public static void hatchRocketMid()
     {
       System.out.println("Hatch Panel position for Rocket Middle");
+      //ElevatorMove(angle, constants.elevatorFast);
     }
 
     /**
@@ -145,6 +152,7 @@ public class Elevator
     public static void hatchRocketHigh()
     {
       System.out.println("Hatch Panel position for Rocket High");
+      //ElevatorMove(angle, constants.elevatorFast);
     }
 
 } // end Elevator
