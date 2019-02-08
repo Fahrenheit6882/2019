@@ -37,11 +37,11 @@ public class Elevator
     public static void preset(double angle, double speed)
     {
       double degrees = hardware.potArm.get();
-      if(degrees > angle)
+      if(degrees <= angle)
       {
         liftRight.set(ControlMode.PercentOutput, speed);
         liftLeft.set(ControlMode.PercentOutput, speed);
-      }else if(degrees < angle)
+      }else if(degrees >= angle)
       {
         liftRight.set(ControlMode.PercentOutput, -speed);
         liftLeft.set(ControlMode.PercentOutput, -speed);
@@ -68,7 +68,7 @@ public class Elevator
     public static void cargoCargoShip()
     {
       System.out.println("Cargo position for CargoShip");
-     //ElevatorMove(angle, constants.elevatorFast);
+      preset(41.84, constants.elevatorFast);
     }
 
     /**
@@ -80,7 +80,7 @@ public class Elevator
     public static void cargoRocketLow()
     {
       System.out.println("Cargo position for Rocket Low");
-      //ElevatorMove(angle, constants.elevatorFast);
+      preset(33.09, constants.elevatorFast);
     }
 
     /**
@@ -92,7 +92,7 @@ public class Elevator
     public static void cargoRocketMid()
     {
       System.out.println("Cargo postition for Rocket Mid");
-      //ElevatorMove(angle, constants.elevatorFast);
+      preset(89.85, constants.elevatorFast);
     }
 
     /**
@@ -116,7 +116,7 @@ public class Elevator
     public static void hatchCargoShip()
     {
       System.out.println("Hatch Panel position for Cargo Ship");
-      //ElevatorMove(angle, constants.elevatorFast);
+      preset(10.34, constants.elevatorFast);
     }
 
     /**
@@ -128,7 +128,7 @@ public class Elevator
     public static void hatchRocketLow()
     {
       System.out.println("Hatch Panel postition for Rocket Low");
-      //ElevatorMove(angle, constants.elevatorFast);
+      preset(10.34, constants.elevatorFast);
     }
 
     /**
@@ -140,7 +140,7 @@ public class Elevator
     public static void hatchRocketMid()
     {
       System.out.println("Hatch Panel position for Rocket Middle");
-      //ElevatorMove(angle, constants.elevatorFast);
+      preset(72.58, constants.elevatorFast);
     }
 
     /**
