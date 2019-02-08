@@ -32,6 +32,7 @@ public class Elevator
     {
       
     }
+    //Moves the Elevator based on speed
     public static void fineTune(double speed)
     {
       liftRight.set(ControlMode.PercentOutput, speed * constants.elevatorSlow);
