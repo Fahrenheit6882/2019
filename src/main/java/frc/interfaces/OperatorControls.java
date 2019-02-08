@@ -10,7 +10,8 @@ public class OperatorControls
 {
     // Private variables
     private static Joystick  ctrl;
-    public static boolean ready = true;
+    private static boolean ready = true;
+
     
     public OperatorControls(Joystick oc){
         
@@ -36,9 +37,11 @@ public class OperatorControls
         if (Math.abs(ctrl.getRawAxis(constants.leftY))> constants.gamepadDeadzone)
         {
             elevatorSpeed = ctrl.getRawAxis(constants.leftY);
+            Elevator.fineTune(elevatorSpeed);
         } else
         {
             elevatorSpeed = 0.0;
+            Elevator.fineTune(elevatorSpeed);
         }
         if (Math.abs(ctrl.getRawAxis(constants.rightY)) > constants.gamepadDeadzone)
         {
@@ -128,6 +131,11 @@ public class OperatorControls
                 
                 case -1:
                 ready = true;
+                
+                break;
+
+                default:
+
                 break;
             }
         }

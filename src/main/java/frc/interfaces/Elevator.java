@@ -32,8 +32,14 @@ public class Elevator
     {
       
     }
-    
-    //Elevator moves
+    public static void fineTune(double speed)
+    {
+      liftRight.set(ControlMode.PercentOutput, speed * constants.elevatorSlow);
+      liftLeft.set(ControlMode.PercentOutput, speed * constants.elevatorSlow);
+
+    }
+
+    //Elevator moves to a preset
     public static void preset(double angle, double speed)
     {
       double degrees = hardware.potArm.get();
