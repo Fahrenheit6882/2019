@@ -1,6 +1,8 @@
 package frc.interfaces;
 
 import com.revrobotics.CANSparkMax;
+
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 // import statements
 import frc.globals.*;
 
@@ -73,7 +75,8 @@ public class Claw
     public static void boop()
     {
         System.out.println("BettyBoop!");
-        
+        hardware.Booper.set(Value.kForward);
+        hardware.Booper.set(Value.kReverse);
 
     }
 

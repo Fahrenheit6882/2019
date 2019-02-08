@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 /**
  * Consolidate all the hardware declarations into one place.
@@ -80,8 +81,8 @@ public class hardware
     // ----------------------------------------------
     // DOUBLE SOLENOIDS
     // ----------------------------------------------
-
-
+    public static DoubleSolenoid Booper = new DoubleSolenoid(0, 1);
+    // 0 and 1 are dummy port values
     // ***********************************************
     // DRIVER STATION AND RIO CONNECTIONS
     // ***********************************************
