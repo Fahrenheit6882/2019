@@ -28,6 +28,7 @@ public class Claw
     public static void open()
     {
         System.out.println("Open claw.");
+        //clawMove(degrees, constants.clawFast)
     }
     /**
      * Method: close
@@ -38,6 +39,7 @@ public class Claw
     public static void close()
     {
         System.out.println("Close claw");
+        //clawMove(degrees, constants.clawFast)
     }
 
     /**
@@ -49,6 +51,7 @@ public class Claw
     public static void gripCargo()
     {
         System.out.println("Grip cargo.");
+        //clawMove(degrees, constants.clawFast)
     }
     /**
      * Method: holdHatch
@@ -59,6 +62,7 @@ public class Claw
     public static void holdHatch()
     {
         System.out.println("Hold hatch panel");
+        //clawMove(degrees, constants.clawFast)
     }
     /**
      * Method: boop
@@ -68,7 +72,9 @@ public class Claw
      */
     public static void boop()
     {
-        System.out.println("Boop!");
+        System.out.println("BettyBoop!");
+        
+
     }
 
 } // end Claw
