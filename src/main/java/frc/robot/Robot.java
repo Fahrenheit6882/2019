@@ -123,7 +123,10 @@ public class Robot extends TimedRobot {
   @Override
   public void testPeriodic() 
   {
-    
+    if(hardware.operatorGamepad.getRawButtonPressed(constants.btnA))
+    {
+      System.out.println("potentiometer reading is: " + hardware.potArm.get());
+    }
   }
   
 }
