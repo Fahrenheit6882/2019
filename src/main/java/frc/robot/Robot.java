@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.globals.*;
+import frc.interfaces.Elevator;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -127,6 +128,7 @@ public class Robot extends TimedRobot {
     {
       System.out.println("potentiometer reading is: " + hardware.potArm.get());
     }
+    Elevator.elevatorTest();
   }
   
 }

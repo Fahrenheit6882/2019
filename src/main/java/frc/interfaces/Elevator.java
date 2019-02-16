@@ -146,5 +146,12 @@ public class Elevator
     {
       System.out.println("Hatch Panel position for Rocket High");
     }
+    
+    //For Testing Elevator motors
+    public static void elevatorTest()
+    {
+      liftLeft.set(ControlMode.PercentOutput, (constants.driveSlow * hardware.driverGamepad.getRawAxis(constants.leftY)));
+      liftRight.set(ControlMode.PercentOutput, (constants.driveSlow * hardware.driverGamepad.getRawAxis(constants.leftY)));
+    }
 
 } // end Elevator
