@@ -233,4 +233,10 @@ public class Transmission
         }
         return(encReset);
     } // end driveByInches
+
+    public static void encTest()
+    {
+        System.out.println("Right encoder reads:" + encRight.getDistance());
+        System.out.println("Left encoder reads:" + encLeft.getDistance());
+    }
 } //end Transmission
