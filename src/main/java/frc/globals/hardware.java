@@ -82,6 +82,8 @@ public class hardware
     // DOUBLE SOLENOIDS
     // ----------------------------------------------
     public static DoubleSolenoid Booper = new DoubleSolenoid(0, 1);
+    public static DoubleSolenoid updown = new DoubleSolenoid(0, 1);
+    public static DoubleSolenoid updown2 = new DoubleSolenoid(0,1);
     // 0 and 1 are dummy port values
     // ***********************************************
     // DRIVER STATION AND RIO CONNECTIONS
