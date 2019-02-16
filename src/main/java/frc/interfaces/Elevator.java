@@ -25,7 +25,7 @@ public class Elevator
       liftRight = l1;
       liftLeft = l2;
       //Left motor is inverted
-      liftLeft.setInverted(true);
+      liftRight.setInverted(true);
     }
     
     public void ElevatorInit()
