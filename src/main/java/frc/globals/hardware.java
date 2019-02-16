@@ -108,6 +108,7 @@ public class hardware
     // ***********************************************
     public static Elevator lift = new Elevator(new TalonSRX(0), new TalonSRX(1));
     //Initializes Transmission with four Victor motor controllers: front right, back right, front left, back left.
-    public static Transmission driveBase = new Transmission(new VictorSPX(0), new VictorSPX(1), new VictorSPX(2), new VictorSPX(3), new Encoder(1, 2, false, Encoder.EncodingType.k4X), new Encoder(3, 4, false, Encoder.EncodingType.k4X));
+    //Blue encoder wire goes in ports 2 (left) & 4 (right), yellow encoder wires go in ports 1 (left) & 3 (right)
+    public static Transmission driveBase = new Transmission(new VictorSPX(0), new VictorSPX(1), new VictorSPX(2), new VictorSPX(3), new Encoder(2, 1, false, Encoder.EncodingType.k4X), new Encoder(4, 3, false, Encoder.EncodingType.k4X));
         
 } // end hardware
