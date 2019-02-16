@@ -1,6 +1,8 @@
 package frc.interfaces;
 
+import com.revrobotics.CANSparkMax.*;
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.ControlType;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 // import statements
@@ -78,6 +80,11 @@ public class Claw
         hardware.Booper.set(Value.kForward);
         hardware.Booper.set(Value.kReverse);
 
+    }
+    //For testing the claw movement
+    public static void clawTest()
+    {
+        ClawMotor.getPIDController().setReference(constants.clawSlow * hardware.operatorGamepad.getRawAxis(constants.rightY), ControlType.kDutyCycle);
     }
 
 } // end Claw

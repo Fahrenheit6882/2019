@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.globals.hardware;
+import frc.interfaces.Claw;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -123,7 +124,7 @@ public class Robot extends TimedRobot {
   @Override
   public void testPeriodic() 
   {
-    
+    Claw.clawTest();
   }
   
 }
