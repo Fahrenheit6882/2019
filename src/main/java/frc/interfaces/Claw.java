@@ -107,7 +107,7 @@ public class Claw
             hardware.updown2.set(Value.kReverse);
             System.out.println("button A is pressed");
 
-        }else if(hardware.operatorGamepad.getRawButtonReleased(constants.btnA)
+        }else if(hardware.operatorGamepad.getRawButtonReleased(constants.btnA))
         {
             hardware.updown.set(Value.kOff);
             hardware.updown2.set(Value.kOff);
