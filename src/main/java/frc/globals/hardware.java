@@ -55,7 +55,8 @@ public class hardware
     // LIMIT SWITCHES
     // ----------------------------------------------
 
-    public static DigitalInput limitSwitch = new DigitalInput(0);
+    public static DigitalInput clawCloseSwitch = new DigitalInput(0);
+    public static DigitalInput clawOpenSwitch = new DigitalInput(1);
 
     // ----------------------------------------------
     // ENCODERS
@@ -84,8 +85,9 @@ public class hardware
     // DOUBLE SOLENOIDS
     // ----------------------------------------------
     public static DoubleSolenoid Booper = new DoubleSolenoid(0, 1);
-    public static DoubleSolenoid updown = new DoubleSolenoid(0, 1);
-    public static DoubleSolenoid updown2 = new DoubleSolenoid(0,1);
+    public static DoubleSolenoid updown = new DoubleSolenoid(2, 3);
+    public static DoubleSolenoid updown2 = new DoubleSolenoid(4,5);
+    
     // 0 and 1 are dummy port values
     // ***********************************************
     // DRIVER STATION AND RIO CONNECTIONS

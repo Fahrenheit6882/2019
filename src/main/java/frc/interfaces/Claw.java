@@ -142,8 +142,10 @@ public class Claw
         }
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnB))
         {
-            System.out.println("Is the limit switch pressed? " + hardware.limitSwitch.get());
+            System.out.println("Is the claw closed? " + hardware.clawOpenSwitch.get());
+            System.out.println("Is the claw open? " + hardware.clawOpenSwitch.get());
         }
+        
     }
 
 
