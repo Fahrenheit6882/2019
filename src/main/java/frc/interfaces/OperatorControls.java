@@ -33,9 +33,9 @@ public class OperatorControls
         {
             elevatorSpeed = 0.0;
         }
-        if (Math.abs(ctrl.getRawAxis(constants.rightY)) > constants.gamepadDeadzone)
+        if (Math.abs(ctrl.getRawAxis(constants.rightX)) > constants.gamepadDeadzone)
         {
-            clawSpeed = ctrl.getRawAxis(constants.rightY);
+            clawSpeed = ctrl.getRawAxis(constants.rightX);
         } else
         {
             clawSpeed = 0.0;
@@ -133,6 +133,19 @@ public class OperatorControls
         if(hardware.operatorGamepad.getRawButtonPressed(constants.rightTrigger))
         {
             Claw.boop();
+        }else
+        {
+            Claw.bettyOff();
+        }
+        if(hardware.operatorGamepad.getRawAxis(constants.rightY) > constants.gamepadDeadzone)
+        {
+            Claw.upClaw();
+        }else if(hardware.operatorGamepad.getRawAxis(constants.rightY) < constants.gamepadDeadzone)
+        {
+            Claw.downClaw();
+        }else
+        {
+            Claw.offClaw();
         }
     }
     /*

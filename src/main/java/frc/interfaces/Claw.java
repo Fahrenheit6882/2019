@@ -81,6 +81,28 @@ public class Claw
         hardware.Booper.set(Value.kReverse);
 
     }
+    public static void bettyOff()
+    {
+        hardware.Booper.set(Value.kOff);
+    }
+
+    //ForMovement of claw up and down
+    public static void upClaw()
+    {
+        hardware.updown.set(Value.kReverse);
+        hardware.updown2.set(Value.kReverse);
+    }
+    
+    public static void downClaw()
+    {
+        hardware.updown.set(Value.kForward);
+        hardware.updown2.set(Value.kForward);
+    }
+    public static void offClaw()
+    {
+        hardware.updown.set(Value.kOff);
+        hardware.updown2.set(Value.kOff);
+    }
     //For testing the claw movement
     public static void clawTest()
     {
