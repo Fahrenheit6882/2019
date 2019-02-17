@@ -126,5 +126,6 @@ public class Robot extends TimedRobot {
   {
     Claw.clawTest();
   }
+    //Claw.clawTest();
   
 }

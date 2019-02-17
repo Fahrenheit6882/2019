@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 // import statements
 import frc.globals.*;
 
-
+//For all movements of the claw
 public class Claw
 {
     // private variables
@@ -23,9 +23,26 @@ public class Claw
         ClawMotor = c;
     }
     //For fine tuning the claw motor
-    public static void clawFineTune()
+    public static void clawFineTuneOpen()
     {
-        
+        if(hardware.clawOpenSwitch.get() != true)
+        {
+            ClawMotor.getPIDController().setReference(-constants.clawSlow, ControlType.kDutyCycle);
+        }else 
+        {
+            ClawMotor.getPIDController().setReference(0, ControlType.kDutyCycle);
+        }
+    }
+
+    public static void clawFineTuneClose()
+    {
+        if(hardware.clawOpenSwitch.get() != true)
+        {
+            ClawMotor.getPIDController().setReference(constants.clawSlow, ControlType.kDutyCycle);
+        }else
+        {
+            ClawMotor.getPIDController().setReference(0, ControlType.kDutyCycle);
+        }
     }
     /**
      * Method: open
@@ -36,7 +53,10 @@ public class Claw
     public static void open()
     {
         System.out.println("Open claw.");
-        //clawMove(degrees, constants.clawFast)
+        if(hardware.clawOpenSwitch.get() != true)
+        {
+            ClawMotor.getPIDController().setReference(-constants.clawFast, ControlType.kDutyCycle);
+        }
     }
     /**
      * Method: close
@@ -47,7 +67,10 @@ public class Claw
     public static void close()
     {
         System.out.println("Close claw");
-        //clawMove(degrees, constants.clawFast)
+        if(hardware.clawCloseSwitch.get() != true)
+        {
+            ClawMotor.getPIDController().setReference(constants.clawFast, ControlType.kDutyCycle);
+        }
     }
 
     /**
@@ -59,7 +82,10 @@ public class Claw
     public static void gripCargo()
     {
         System.out.println("Grip cargo.");
-        //clawMove(degrees, constants.clawFast)
+        if(hardware.clawCloseSwitch.get() != false)
+        {
+            ClawMotor.getPIDController().setReference(constants.clawFast, ControlType.kDutyCycle);
+        }
     }
     /**
      * Method: holdHatch
@@ -70,7 +96,10 @@ public class Claw
     public static void holdHatch()
     {
         System.out.println("Hold hatch panel");
-        //clawMove(degrees, constants.clawFast)
+        if(hardware.clawOpenSwitch.get() != false)
+        {
+            ClawMotor.getPIDController().setReference(-constants.clawFast, ControlType.kDutyCycle);
+        }
     }
     /**
      * Method: boop
