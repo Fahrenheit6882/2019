@@ -22,7 +22,11 @@ public class Claw
     {
         ClawMotor = c;
     }
-
+    //For fine tuning the claw motor
+    public static void clawFineTune()
+    {
+        
+    }
     /**
      * Method: open
      * Parameters: N/A
