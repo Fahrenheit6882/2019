@@ -112,6 +112,11 @@ public class Claw
             hardware.updown.set(Value.kOff);
             hardware.updown2.set(Value.kOff);
             System.out.println("button A is not pressed");
+        
+        }
+        if(hardware.operatorGamepad.getRawButtonPressed(constants.btnB))
+        {
+            System.out.println("The limit switch is pressed. " + hardware.limitSwitch.get());
         }
     }
 

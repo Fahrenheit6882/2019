@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DigitalInput;
 
 /**
  * Consolidate all the hardware declarations into one place.
@@ -54,6 +55,7 @@ public class hardware
     // LIMIT SWITCHES
     // ----------------------------------------------
 
+    public static DigitalInput limitSwitch = new DigitalInput(0);
 
     // ----------------------------------------------
     // ENCODERS
