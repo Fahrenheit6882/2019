@@ -136,9 +136,13 @@ public class Claw
     //For testing the claw movement
     public static void clawTest()
     {
-        if(hardware.operatorGamepad.getRawAxis(constants.rightY) > constants.gamepadDeadzone)
+        if(Math.abs(hardware.operatorGamepad.getRawAxis(constants.rightY)) > constants.gamepadDeadzone)
         {
-            ClawMotor.getPIDController().setReference(constants.clawSlow * hardware.operatorGamepad.getRawAxis(constants.rightY), ControlType.kDutyCycle);
+            ClawMotor.set(constants.clawSlow *  hardware.operatorGamepad.getRawAxis(constants.rightY));
+            System.out.println("Moving claw: " + (constants.clawSlow * hardware.operatorGamepad.getRawAxis(constants.rightY)));
+        } else
+        {
+            ClawMotor.set(0);
         }
 
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnY))
@@ -151,6 +155,7 @@ public class Claw
             hardware.updown.set(Value.kOff);
             System.out.println("button Y is not pressed");
         }
+
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnA))
         {
             hardware.updown.set(Value.kReverse);
@@ -162,12 +167,21 @@ public class Claw
             System.out.println("button A is not pressed");
         
         }
+
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnB))
         {
             System.out.println("Is the claw closed? " + hardware.clawOpenSwitch.get());
             System.out.println("Is the claw open? " + hardware.clawOpenSwitch.get());
         }
-        
+        if(hardware.operatorGamepad.getRawAxis(constants.rightTrigger) > constants.gamepadDeadzone)
+        {
+            hardware.Booper.set(Value.kForward);
+            hardware.Booper.set(Value.kReverse);
+        }
+        else
+        {
+            hardware.Booper.set(Value.kOff);
+        }
     }
 
 

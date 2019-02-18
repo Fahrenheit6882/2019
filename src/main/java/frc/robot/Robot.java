@@ -131,10 +131,7 @@ public class Robot extends TimedRobot {
     {
       System.out.println("potentiometer reading is: " + hardware.potArm.get());
     }
-    if (hardware.operatorGamepad.getRawButtonPressed(constants.btnX))
-    {
-      Transmission.encTest();
-    }
+    Transmission.encTest();
     Elevator.elevatorTest();
     Claw.clawTest();
   }

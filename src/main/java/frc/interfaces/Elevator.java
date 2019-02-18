@@ -154,6 +154,10 @@ public class Elevator
       {
         liftLeft.set(ControlMode.PercentOutput, (constants.driveSlow * hardware.driverGamepad.getRawAxis(constants.leftY)));
         liftRight.set(ControlMode.PercentOutput, (constants.driveSlow * hardware.driverGamepad.getRawAxis(constants.leftY)));
+      } else
+      {
+        liftLeft.set(ControlMode.PercentOutput, 0);
+        liftRight.set(ControlMode.PercentOutput, 0);
       }
     }
 } // end Elevator
