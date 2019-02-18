@@ -34,13 +34,13 @@ public class OperatorControls
         {
             elevatorSpeed = 0.0;
         }
-        if (Math.abs(ctrl.getRawAxis(constants.rightY)) > constants.gamepadDeadzone)
+        if (ctrl.getRawAxis(constants.rightX) > constants.gamepadDeadzone)
         {
-            clawSpeed = ctrl.getRawAxis(constants.rightY);
-        } else
+            Claw.clawFineTuneClose(ctrl.getRawAxis(constants.rightX));
+        }
+        else if(ctrl.getRawAxis(constants.rightX) > -constants.gamepadDeadzone)
         {
-            clawSpeed = 0.0;
-       
+            Claw.clawFineTuneOpen(ctrl.getRawAxis(constants.rightX));
         }
         /*ELEVATOR PRESET POSITIONS
         *Left bumper = Elevator Floor Position
@@ -135,23 +135,36 @@ public class OperatorControls
            
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnA))
         {
-            //Open for Cargo
+            Claw.open();
         }
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnB))
         {
-            //Close for Hatch Panel
+            Claw.close();
         }
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnX))
         {
-            //Close for Cargo
+            Claw.gripCargo();
         }
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnY))
         {
-                //Cargo Ship Hatch Panel Scoring Position
+                Claw.holdHatch();
         }
         if(hardware.operatorGamepad.getRawButtonPressed(constants.rightTrigger))
         {
-            //Pneumatic piston out then in position (aka "boop")
+            Claw.boop();
+        }else
+        {
+            Claw.bettyOff();
+        }
+        if(hardware.operatorGamepad.getRawAxis(constants.rightY) > constants.gamepadDeadzone)
+        {
+            Claw.upClaw();
+        }else if(hardware.operatorGamepad.getRawAxis(constants.rightY) < constants.gamepadDeadzone)
+        {
+            Claw.downClaw();
+        }else
+        {
+            Claw.offClaw();
         }
     }
     /*

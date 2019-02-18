@@ -5,12 +5,16 @@ import frc.interfaces.*;
 import edu.wpi.first.wpilibj.Joystick;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import com.revrobotics.*;
+
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.*;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DigitalInput;
 
 /**
  * Consolidate all the hardware declarations into one place.
@@ -51,6 +55,8 @@ public class hardware
     // LIMIT SWITCHES
     // ----------------------------------------------
 
+    public static DigitalInput clawCloseSwitch = new DigitalInput(0);
+    public static DigitalInput clawOpenSwitch = new DigitalInput(1);
 
     // ----------------------------------------------
     // ENCODERS
@@ -78,8 +84,11 @@ public class hardware
     // ----------------------------------------------
     // DOUBLE SOLENOIDS
     // ----------------------------------------------
-
-
+    public static DoubleSolenoid Booper = new DoubleSolenoid(0, 1);
+    public static DoubleSolenoid updown = new DoubleSolenoid(2, 3);
+    public static DoubleSolenoid updown2 = new DoubleSolenoid(4,5);
+    
+    // 0 and 1 are dummy port values
     // ***********************************************
     // DRIVER STATION AND RIO CONNECTIONS
     // ***********************************************
@@ -110,5 +119,5 @@ public class hardware
     //Initializes Transmission with four Victor motor controllers: front right, back right, front left, back left.
     //Blue encoder wire goes in ports 2 (left) & 4 (right), yellow encoder wires go in ports 1 (left) & 3 (right)
     public static Transmission driveBase = new Transmission(new VictorSPX(0), new VictorSPX(1), new VictorSPX(2), new VictorSPX(3), new Encoder(2, 1, false, Encoder.EncodingType.k4X), new Encoder(4, 3, false, Encoder.EncodingType.k4X));
-        
+    public static Claw ClawControls = new Claw( new CANSparkMax(0, CANSparkMaxLowLevel.MotorType.kBrushed));
 } // end hardware
