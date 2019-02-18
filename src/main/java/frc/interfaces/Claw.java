@@ -23,22 +23,22 @@ public class Claw
         ClawMotor = c;
     }
     //For fine tuning the claw motor
-    public static void clawFineTuneOpen()
+    public static void clawFineTuneOpen(double speed)
     {
         if(hardware.clawOpenSwitch.get() != true)
         {
-            ClawMotor.getPIDController().setReference(-constants.clawSlow, ControlType.kDutyCycle);
+            ClawMotor.getPIDController().setReference((-constants.clawSlow * speed), ControlType.kDutyCycle);
         }else 
         {
             ClawMotor.getPIDController().setReference(0, ControlType.kDutyCycle);
         }
     }
 
-    public static void clawFineTuneClose()
+    public static void clawFineTuneClose(double speed)
     {
         if(hardware.clawOpenSwitch.get() != true)
         {
-            ClawMotor.getPIDController().setReference(constants.clawSlow, ControlType.kDutyCycle);
+            ClawMotor.getPIDController().setReference((constants.clawSlow * speed), ControlType.kDutyCycle);
         }else
         {
             ClawMotor.getPIDController().setReference(0, ControlType.kDutyCycle);

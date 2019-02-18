@@ -33,13 +33,13 @@ public class OperatorControls
         {
             elevatorSpeed = 0.0;
         }
-        if (Math.abs(ctrl.getRawAxis(constants.rightX)) > constants.gamepadDeadzone)
+        if (ctrl.getRawAxis(constants.rightX) > constants.gamepadDeadzone)
         {
-            clawSpeed = ctrl.getRawAxis(constants.rightX);
-        } else
+            Claw.clawFineTuneClose(ctrl.getRawAxis(constants.rightX));
+        }
+        else if(ctrl.getRawAxis(constants.rightX) > -constants.gamepadDeadzone)
         {
-            clawSpeed = 0.0;
-       
+            Claw.clawFineTuneOpen(ctrl.getRawAxis(constants.rightX));
         }
         /*ELEVATOR PRESET POSITIONS
         *Left bumper = Elevator Floor Position
