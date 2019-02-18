@@ -86,7 +86,6 @@ public class hardware
     // ----------------------------------------------
     public static DoubleSolenoid Booper = new DoubleSolenoid(0, 1);
     public static DoubleSolenoid updown = new DoubleSolenoid(2, 3);
-    public static DoubleSolenoid updown2 = new DoubleSolenoid(4,5);
     
     // 0 and 1 are dummy port values
     // ***********************************************

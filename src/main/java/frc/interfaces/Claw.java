@@ -123,18 +123,15 @@ public class Claw
     public static void upClaw()
     {
         hardware.updown.set(Value.kReverse);
-        hardware.updown2.set(Value.kReverse);
     }
     
     public static void downClaw()
     {
         hardware.updown.set(Value.kForward);
-        hardware.updown2.set(Value.kForward);
     }
     public static void offClaw()
     {
         hardware.updown.set(Value.kOff);
-        hardware.updown2.set(Value.kOff);
     }
     //For testing the claw movement
     public static void clawTest()
@@ -147,25 +144,21 @@ public class Claw
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnY))
         {
             hardware.updown.set(Value.kForward);
-            hardware.updown2.set(Value.kForward);
             System.out.println("button Y is pressed");
 
         }else if(hardware.operatorGamepad.getRawButtonReleased(constants.btnY))
         {
             hardware.updown.set(Value.kOff);
-            hardware.updown2.set(Value.kOff);
             System.out.println("button Y is not pressed");
         }
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnA))
         {
             hardware.updown.set(Value.kReverse);
-            hardware.updown2.set(Value.kReverse);
             System.out.println("button A is pressed");
 
         }else if(hardware.operatorGamepad.getRawButtonReleased(constants.btnA))
         {
             hardware.updown.set(Value.kOff);
-            hardware.updown2.set(Value.kOff);
             System.out.println("button A is not pressed");
         
         }
