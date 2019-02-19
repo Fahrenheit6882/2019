@@ -1,9 +1,12 @@
 package frc.interfaces;
 
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 // import statements
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
+import frc.globals.constants;
+import frc.globals.hardware;
 public class Elevator
 {
     // Private variables
@@ -25,7 +28,21 @@ public class Elevator
       //Left motor is inverted
       liftRight.setInverted(true);
     }
-    
+    private static void presetMove(double position)
+    {
+      //Moves arm down if pot reading is more than desired reading
+      if(hardware.potArm.get() >= position + 5)
+      {
+        liftRight.set(ControlMode.PercentOutput, -constants.elevatorFast);
+        liftLeft.set(ControlMode.PercentOutput, -constants.elevatorFast);
+      }
+      //Moves arm up if pot reading is less than desired reading
+      else if (hardware.potArm.get()<= position - 5)
+      {
+        liftRight.set(ControlMode.PercentOutput, constants.elevatorFast);
+        liftLeft.set(ControlMode.PercentOutput, constants.elevatorFast);
+      }
+    }
     /***
      * Move to the lowest setting to pick up from the ground
      * @return  true when reached; false otherwise
@@ -34,8 +51,10 @@ public class Elevator
     {
       boolean arrived = false;
 
-      // logic to move arm and check if arrived
+      //presetMove(0.0);
 
+      // logic to move arm and check if arrived
+      
       return arrived;
     }
 
@@ -46,6 +65,8 @@ public class Elevator
     public boolean Paper()
     {
       boolean arrived = false;
+
+      presetMove(75.0);
 
       // logic to move arm and check if arrived
 
@@ -60,6 +81,8 @@ public class Elevator
     {
       boolean arrived = false;
 
+      presetMove(170.1);
+
       // logic to move arm and check if arrived
 
       return arrived;
@@ -72,6 +95,8 @@ public class Elevator
     public boolean Lizard()
     {
       boolean arrived = false;
+
+      presetMove(100.5);
 
       // logic to move arm and check if arrived
 
@@ -86,6 +111,7 @@ public class Elevator
     {
       boolean arrived = false;
 
+      presetMove(234.88);
       // logic to move arm and check if arrived
 
       return arrived;
@@ -100,5 +126,7 @@ public class Elevator
       // ensure speed is within allowable range
 
       // move Tigger
+      liftRight.set(ControlMode.PercentOutput, speed);
+      liftLeft.set(ControlMode.PercentOutput, speed);
     }
 } // end Elevator
