@@ -31,7 +31,7 @@ public class OperatorControls
         {
             Elevator.RubberAndSprings(constants.elevatorSlow * ctrl.getRawAxis(constants.leftY));
         }
-        if (Math.abs(ctrl.getRawAxis(constants.rightY)) > constants.gamepadDeadzone)
+        if (ctrl.getRawAxis(constants.rightX) > constants.gamepadDeadzone)
         {
             Elevator.AttackAndCruise(constants.rightY * ctrl.getRawAxis(constants.rightY));
         }
@@ -130,5 +130,22 @@ public class OperatorControls
         {
             Claw.Charge();
         }
+        // if(hardware.operatorGamepad.getRawButtonPressed(constants.rightTrigger))
+        // {
+        //     Claw.boop();
+        // }else
+        // {
+        //     Claw.bettyOff();
+        // }
+        // if(hardware.operatorGamepad.getRawAxis(constants.rightY) > constants.gamepadDeadzone)
+        // {
+        //     Claw.upClaw();
+        // }else if(hardware.operatorGamepad.getRawAxis(constants.rightY) < constants.gamepadDeadzone)
+        // {
+        //     Claw.downClaw();
+        // }else
+        // {
+        //     Claw.offClaw();
+        // }
     }
 } // end OperatorControls

@@ -25,7 +25,7 @@ public class Elevator
       liftRight = l1;
       liftLeft = l2;
       //Left motor is inverted
-      liftLeft.setInverted(true);
+      liftRight.setInverted(true);
     }
     
     public void ElevatorInit()
@@ -150,8 +150,16 @@ public class Elevator
     //For Testing Elevator motors
     public static void elevatorTest()
     {
-      liftLeft.set(ControlMode.PercentOutput, (constants.driveSlow * hardware.driverGamepad.getRawAxis(constants.leftY)));
-      liftRight.set(ControlMode.PercentOutput, (constants.driveSlow * hardware.driverGamepad.getRawAxis(constants.leftY)));
-    }
+      double speed;
+      if(Math.abs(hardware.operatorGamepad.getRawAxis(constants.leftY)) > constants.gamepadDeadzone)
+      {
+        speed = constants.elevatorSlow * hardware.operatorGamepad.getRawAxis(constants.leftY);
+      } else
+      {
+        speed = 0.0;
+      }
 
+      liftLeft.set(ControlMode.PercentOutput, speed);
+      liftRight.set(ControlMode.PercentOutput, speed);
+    }
 } // end Elevator
