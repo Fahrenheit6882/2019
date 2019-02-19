@@ -19,8 +19,6 @@ public class OperatorControls
     }
     public static void checkInput()
     {
-        double clawSpeed;
-        double elevatorSpeed;
          /**
          * Constructor
          * Parameters: Joystick
@@ -29,18 +27,11 @@ public class OperatorControls
         //Reads and sets speed from joysticks
         if (Math.abs(ctrl.getRawAxis(constants.leftY))> constants.gamepadDeadzone)
         {
-            elevatorSpeed = ctrl.getRawAxis(constants.leftY);
-        } else
-        {
-            elevatorSpeed = 0.0;
+            Elevator.RubberAndSpring(constants.elevatorSlow * ctrl.getRawAxis(constants.leftY));
         }
-        if (Math.abs(ctrl.getRawAxis(constants.rightY)) > constants.gamepadDeadzone)
+        if (ctrl.getRawAxis(constants.rightX) > constants.gamepadDeadzone)
         {
-            clawSpeed = ctrl.getRawAxis(constants.rightY);
-        } else
-        {
-            clawSpeed = 0.0;
-       
+            Claw.AttackAndCruise(constants.clawSlow * ctrl.getRawAxis(constants.rightY));
         }
         /*ELEVATOR PRESET POSITIONS
         *Left bumper = Elevator Floor Position
@@ -60,7 +51,7 @@ public class OperatorControls
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnLB))
         {
             //Elevator floor position
-            Elevator.floor();
+            Elevator.Rock();
         }else
         {
             switch(hardware.operatorGamepad.getPOV())
@@ -69,13 +60,7 @@ public class OperatorControls
                 if(ready)
                 {
                     ready = false;
-                    if(hardware.operatorGamepad.getRawAxis(constants.leftTrigger) > constants.gamepadDeadzone)
-                    {
-                        Elevator.hatchRocketHigh();
-                    }else
-                    {
-                        Elevator.cargoRocketHigh();
-                    }
+                    Elevator.Spock();
                 }   
                 break;
 
@@ -83,13 +68,7 @@ public class OperatorControls
                 if(ready)
                 {
                     ready = false;
-                    if(hardware.operatorGamepad.getRawAxis(constants.leftTrigger) > constants.gamepadDeadzone)
-                    {
-                        Elevator.hatchRocketMid();
-                    }else 
-                    {
-                        Elevator.cargoRocketMid();
-                    }
+                    Elevator.Scissor();
                 }   
                 break;
 
@@ -97,68 +76,74 @@ public class OperatorControls
                 if(ready)
                 {
                     ready = false;
-                    if(hardware.operatorGamepad.getRawAxis(constants.leftTrigger) > constants.gamepadDeadzone)
-                    {
-                        Elevator.hatchRocketLow();
-                    }else 
-                    {
-                        Elevator.cargoRocketLow();
-                    }
+                    Elevator.Paper();
                 }
                 break;
                 case 270:
                 if(ready)
                 {
                     ready = false;
-                    if(hardware.operatorGamepad.getRawAxis(constants.leftTrigger) > constants.gamepadDeadzone)
-                    {
-                        Elevator.hatchCargoShip();
-                    }else 
-                    {
-                        Elevator.cargoCargoShip();
-                    }
+                    Elevator.Lizard();
                 }
                 break;
                 
                 case -1:
                 ready = true;
+
+                default:
+                ready = true;
+
                 break;
             }
         }
         /*Manipulator/claw preset positions
-        *A is open for Cargo
-        *B is close for Hatch Panel
-        *X is close for Cargo
-        *Y is open for Hatch Panel
+        *A is close for Hatch Panel
+        *B is open for Cargo
+        *X is Enterprise up
+        *Y is Enterprise down
         *Right Trigger is for pneumatic piston out then in position (aka "boop")
         */
            
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnA))
         {
-            //Open for Cargo
+            Claw.Pinch();
         }
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnB))
         {
-            //Close for Hatch Panel
+            Claw.Blalala();
         }
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnX))
         {
-            //Close for Cargo
+            Claw.Dock();
         }
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnY))
         {
-                //Cargo Ship Hatch Panel Scoring Position
+            Claw.Deploy();
         }
-        if(hardware.operatorGamepad.getRawButtonPressed(constants.rightTrigger))
+        if(hardware.operatorGamepad.getRawButtonPressed(constants.btnRB))
         {
-            //Pneumatic piston out then in position (aka "boop")
+            Claw.Boop();
         }
+        else if(hardware.operatorGamepad.getRawButtonReleased(constants.btnRB))
+        {
+            Claw.Charge();
+        }
+        // if(hardware.operatorGamepad.getRawButtonPressed(constants.rightTrigger))
+        // {
+        //     Claw.boop();
+        // }else
+        // {
+        //     Claw.bettyOff();
+        // }
+        // if(hardware.operatorGamepad.getRawAxis(constants.rightY) > constants.gamepadDeadzone)
+        // {
+        //     Claw.upClaw();
+        // }else if(hardware.operatorGamepad.getRawAxis(constants.rightY) < constants.gamepadDeadzone)
+        // {
+        //     Claw.downClaw();
+        // }else
+        // {
+        //     Claw.offClaw();
+        // }
     }
-    /*
-    * Method: operatorInput
-    * Parameters: N/A
-    * Return: void
-    * Operation: perform actions based on operator input
-    */
-    
 } // end OperatorControls
