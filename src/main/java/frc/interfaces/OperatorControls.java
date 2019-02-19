@@ -29,7 +29,8 @@ public class OperatorControls
         {
             hardware.Tigger.RubberAndSpring(constants.elevatorSlow * ctrl.getRawAxis(constants.leftY));
         }
-        if (ctrl.getRawAxis(constants.rightX) > constants.gamepadDeadzone)
+
+        if (Math.abs(ctrl.getRawAxis(constants.rightY)) > constants.gamepadDeadzone)
         {
             hardware.enterprise.AttackAndCruise(constants.clawSlow * ctrl.getRawAxis(constants.rightY));
         }
@@ -104,11 +105,12 @@ public class OperatorControls
         *Right Trigger is for pneumatic piston out then in position (aka "boop")
         */
            
-        if(hardware.operatorGamepad.getRawButtonPressed(constants.btnA))
+        if(hardware.operatorGamepad.getRawButton(constants.btnA))
         {
+            // System.out.println("BtnA pressed.");
             hardware.enterprise.Pinch();
         }
-        if(hardware.operatorGamepad.getRawButtonPressed(constants.btnB))
+        if(hardware.operatorGamepad.getRawButton(constants.btnB))
         {
             hardware.enterprise.Blalala();
         }

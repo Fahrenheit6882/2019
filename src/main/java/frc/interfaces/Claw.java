@@ -27,27 +27,27 @@ public class Claw
         updown = ud;
     }
     //For fine tuning the claw motor
-    public void clawFineTuneOpen(double speed)
-    {
-        if(hardware.clawOpenSwitch.get() != true)
-        {
-            ClawMotor.getPIDController().setReference((-constants.clawSlow * speed), ControlType.kDutyCycle);
-        }else 
-        {
-            ClawMotor.getPIDController().setReference(0, ControlType.kDutyCycle);
-        }
-    }
+    // public void clawFineTuneOpen(double speed)
+    // {
+    //     if(hardware.clawOpenSwitch.get() != true)
+    //     {
+    //         ClawMotor.getPIDController().setReference((-constants.clawSlow * speed), ControlType.kDutyCycle);
+    //     }else 
+    //     {
+    //         ClawMotor.getPIDController().setReference(0, ControlType.kDutyCycle);
+    //     }
+    // }
 
-    public void clawFineTuneClose(double speed)
-    {
-        if(hardware.clawOpenSwitch.get() != true)
-        {
-            ClawMotor.getPIDController().setReference((constants.clawSlow * speed), ControlType.kDutyCycle);
-        }else
-        {
-            ClawMotor.getPIDController().setReference(0, ControlType.kDutyCycle);
-        }
-    }
+    // public void clawFineTuneClose(double speed)
+    // {
+    //     if(hardware.clawOpenSwitch.get() != true)
+    //     {
+    //         ClawMotor.getPIDController().setReference((constants.clawSlow * speed), ControlType.kDutyCycle);
+    //     }else
+    //     {
+    //         ClawMotor.getPIDController().setReference(0, ControlType.kDutyCycle);
+    //     }
+    // }
     /**
      * Method: open
      * Parameters: N/A
@@ -56,9 +56,12 @@ public class Claw
      */
     public void Blalala()
     {
-        if(hardware.clawOpenSwitch.get() != true)
+        if(hardware.clawOpenSwitch.get())
         {
-            ClawMotor.set(-constants.clawFast);
+            ClawMotor.set(constants.clawFast);
+        } else
+        {
+            ClawMotor.set(0);
         }
         
     }
@@ -70,9 +73,12 @@ public class Claw
      */
     public void Pinch()
     {
-        if(hardware.clawCloseSwitch.get() != true)
+        if(hardware.clawCloseSwitch.get())
         {
-            ClawMotor.set(constants.clawFast);
+            ClawMotor.set(-constants.clawFast);
+        } else
+        {
+            ClawMotor.set(0);
         }
 
     }
@@ -107,5 +113,6 @@ public class Claw
     public void AttackAndCruise(double speed)
     {
         ClawMotor.set(speed);
+        // System.out.println("Speed: " + speed);
     }
 } // end Claw
