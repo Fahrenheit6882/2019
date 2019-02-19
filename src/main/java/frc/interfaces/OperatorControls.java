@@ -27,7 +27,7 @@ public class OperatorControls
         //Reads and sets speed from joysticks
         if (Math.abs(ctrl.getRawAxis(constants.leftY))> constants.gamepadDeadzone)
         {
-            Elevator.RubberAndSprings(constants.elevatorSlow * ctrl.getRawAxis(constants.leftY));
+            Elevator.RubberAndSpring(constants.elevatorSlow * ctrl.getRawAxis(constants.leftY));
         }
         if (ctrl.getRawAxis(constants.rightX) > constants.gamepadDeadzone)
         {
@@ -120,11 +120,11 @@ public class OperatorControls
         {
             Claw.Deploy();
         }
-        if(hardware.operatorGamepad.getRawAxis(constants.rightTrigger) > constants.gamepadDeadzone)
+        if(hardware.operatorGamepad.getRawButtonPressed(constants.btnRB))
         {
             Claw.Boop();
         }
-        else if(hardware.operatorGamepad.getRawAxis(constants.rightTrigger) > constants.gamepadDeadzone)
+        else if(hardware.operatorGamepad.getRawButtonReleased(constants.btnRB))
         {
             Claw.Charge();
         }
