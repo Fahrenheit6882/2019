@@ -16,7 +16,7 @@ public class DriveControls
        
     }
 
-    public static void checkInput()
+    public void checkInput()
     {
       double rightSpeed;
       double leftSpeed;

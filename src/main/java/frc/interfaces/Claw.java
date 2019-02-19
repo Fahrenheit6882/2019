@@ -1,6 +1,5 @@
 package frc.interfaces;
 
-import com.revrobotics.CANSparkMax.*;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.ControlType;
 
@@ -28,7 +27,7 @@ public class Claw
         updown = ud;
     }
     //For fine tuning the claw motor
-    public static void clawFineTuneOpen(double speed)
+    public void clawFineTuneOpen(double speed)
     {
         if(hardware.clawOpenSwitch.get() != true)
         {
@@ -39,7 +38,7 @@ public class Claw
         }
     }
 
-    public static void clawFineTuneClose(double speed)
+    public void clawFineTuneClose(double speed)
     {
         if(hardware.clawOpenSwitch.get() != true)
         {
@@ -55,7 +54,7 @@ public class Claw
      * Return: void
      * Operation: fully open the claw
      */
-    public static void Blalala()
+    public void Blalala()
     {
         if(hardware.clawOpenSwitch.get() != true)
         {
@@ -69,7 +68,7 @@ public class Claw
      * Return: void
      * Operation: fully close the claw
      */
-    public static void Pinch()
+    public void Pinch()
     {
         if(hardware.clawCloseSwitch.get() != true)
         {
@@ -85,27 +84,27 @@ public class Claw
      * Return: void
      * Operation: activate pneumatic piston or equivalent to push game piece out of claw
      */
-    public static void Boop()
+    public void Boop()
     {
         Betty.set(Value.kForward);   
     }
 
-    public static void Charge()
+    public void Charge()
     {
         Betty.set(Value.kReverse);
     }
 
-    public static void Dock()
+    public void Dock()
     {
         updown.set(Value.kReverse);
     }
 
-    public static void Deploy()
+    public void Deploy()
     {
         updown.set(Value.kForward);
     }
 
-    public static void AttackAndCruise(double speed)
+    public void AttackAndCruise(double speed)
     {
         ClawMotor.set(speed);
     }

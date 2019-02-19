@@ -2,7 +2,6 @@ package frc.robot;
 
 // Import statements
 import frc.globals.*;
-import frc.interfaces.*;
 public class Teleop
 {
     // Teleop variables

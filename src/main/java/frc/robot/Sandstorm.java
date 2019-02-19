@@ -2,7 +2,6 @@ package frc.robot;
 
 // Import statements
 import frc.globals.*;
-import frc.interfaces.*;
 
 public class Sandstorm
 {
@@ -51,8 +50,9 @@ public class Sandstorm
         {
             //hardware.pOVCamera.getVideo();
             //Listens to driver's and operator's controller input
-            DriveControls.checkInput();
-            OperatorControls.checkInput();
+            hardware.driverCntrl.checkInput();
+
+            hardware.operatorCntrl.checkInput();
         }
     } // end periodic
 } // end Sandstorm

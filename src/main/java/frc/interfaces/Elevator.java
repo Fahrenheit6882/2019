@@ -2,9 +2,7 @@ package frc.interfaces;
 
 
 // import statements
-import frc.globals.*;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.ctre.phoenix.motorcontrol.ControlMode;
 
 public class Elevator
 {
@@ -32,7 +30,7 @@ public class Elevator
      * Move to the lowest setting to pick up from the ground
      * @return  true when reached; false otherwise
      */
-    public static boolean Rock ()
+    public boolean Rock ()
     {
       boolean arrived = false;
 
@@ -45,7 +43,7 @@ public class Elevator
      * Move Tigger into position to score in low rocket or cargo ship hatch panel
      * @return true when reached; false otherwise
      */
-    public static boolean Paper()
+    public boolean Paper()
     {
       boolean arrived = false;
 
@@ -58,7 +56,7 @@ public class Elevator
      * Move Tigger into position to score in mid rocket hatch panel or cargo ship cargo
      * @return true when reached; false otherwise
      */
-    public static boolean Scissor()
+    public boolean Scissor()
     {
       boolean arrived = false;
 
@@ -71,7 +69,7 @@ public class Elevator
      * Move Tigger into position to score in low rocket cargo
      * @return true when reached; false otherwise
      */
-    public static boolean Lizard()
+    public boolean Lizard()
     {
       boolean arrived = false;
 
@@ -84,7 +82,7 @@ public class Elevator
      * Move Tigger into position to score in mid rocket cargo
      * @return true when reached; false otherwise
      */
-    public static boolean Spock()
+    public boolean Spock()
     {
       boolean arrived = false;
 
@@ -97,7 +95,7 @@ public class Elevator
      * Move Tigger based on desired speed
      * @param speed value -1.0 to 1.0
      */
-    public static void RubberAndSpring(double speed)
+    public void RubberAndSpring(double speed)
     {
       // ensure speed is within allowable range
 

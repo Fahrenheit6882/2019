@@ -17,7 +17,7 @@ public class OperatorControls
         ctrl = oc;
 
     }
-    public static void checkInput()
+    public void checkInput()
     {
          /**
          * Constructor
@@ -27,11 +27,11 @@ public class OperatorControls
         //Reads and sets speed from joysticks
         if (Math.abs(ctrl.getRawAxis(constants.leftY))> constants.gamepadDeadzone)
         {
-            Elevator.RubberAndSpring(constants.elevatorSlow * ctrl.getRawAxis(constants.leftY));
+            hardware.Tigger.RubberAndSpring(constants.elevatorSlow * ctrl.getRawAxis(constants.leftY));
         }
         if (ctrl.getRawAxis(constants.rightX) > constants.gamepadDeadzone)
         {
-            Claw.AttackAndCruise(constants.clawSlow * ctrl.getRawAxis(constants.rightY));
+            hardware.enterprise.AttackAndCruise(constants.clawSlow * ctrl.getRawAxis(constants.rightY));
         }
         /*ELEVATOR PRESET POSITIONS
         *Left bumper = Elevator Floor Position
@@ -51,7 +51,7 @@ public class OperatorControls
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnLB))
         {
             //Elevator floor position
-            Elevator.Rock();
+            hardware.Tigger.Rock();
         }else
         {
             switch(hardware.operatorGamepad.getPOV())
@@ -60,7 +60,7 @@ public class OperatorControls
                 if(ready)
                 {
                     ready = false;
-                    Elevator.Spock();
+                    hardware.Tigger.Spock();
                 }   
                 break;
 
@@ -68,7 +68,7 @@ public class OperatorControls
                 if(ready)
                 {
                     ready = false;
-                    Elevator.Scissor();
+                    hardware.Tigger.Scissor();
                 }   
                 break;
 
@@ -76,14 +76,14 @@ public class OperatorControls
                 if(ready)
                 {
                     ready = false;
-                    Elevator.Paper();
+                    hardware.Tigger.Paper();
                 }
                 break;
                 case 270:
                 if(ready)
                 {
                     ready = false;
-                    Elevator.Lizard();
+                    hardware.Tigger.Lizard();
                 }
                 break;
                 
@@ -106,44 +106,27 @@ public class OperatorControls
            
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnA))
         {
-            Claw.Pinch();
+            hardware.enterprise.Pinch();
         }
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnB))
         {
-            Claw.Blalala();
+            hardware.enterprise.Blalala();
         }
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnX))
         {
-            Claw.Dock();
+            hardware.enterprise.Dock();
         }
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnY))
         {
-            Claw.Deploy();
+            hardware.enterprise.Deploy();
         }
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnRB))
         {
-            Claw.Boop();
+            hardware.enterprise.Boop();
         }
         else if(hardware.operatorGamepad.getRawButtonReleased(constants.btnRB))
         {
-            Claw.Charge();
+            hardware.enterprise.Charge();
         }
-        // if(hardware.operatorGamepad.getRawButtonPressed(constants.rightTrigger))
-        // {
-        //     Claw.boop();
-        // }else
-        // {
-        //     Claw.bettyOff();
-        // }
-        // if(hardware.operatorGamepad.getRawAxis(constants.rightY) > constants.gamepadDeadzone)
-        // {
-        //     Claw.upClaw();
-        // }else if(hardware.operatorGamepad.getRawAxis(constants.rightY) < constants.gamepadDeadzone)
-        // {
-        //     Claw.downClaw();
-        // }else
-        // {
-        //     Claw.offClaw();
-        // }
     }
 } // end OperatorControls

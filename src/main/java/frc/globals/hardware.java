@@ -8,9 +8,7 @@ import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.revrobotics.*;
 
 import edu.wpi.cscore.UsbCamera;
-import edu.wpi.first.cameraserver.*;
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
@@ -114,7 +112,7 @@ public class hardware
     // ***********************************************
     // INTERFACES
     // ***********************************************
-    public static Elevator lift = new Elevator(new TalonSRX(0), new TalonSRX(1));
+    public static Elevator Tigger = new Elevator(new TalonSRX(0), new TalonSRX(1));
     //Initializes Transmission with four Victor motor controllers: front right, back right, front left, back left.
     //Blue encoder wire goes in ports 2 (left) & 4 (right), yellow encoder wires go in ports 1 (left) & 3 (right)
     public static Transmission driveBase = new Transmission(new VictorSPX(0), new VictorSPX(1), new VictorSPX(2), new VictorSPX(3), new Encoder(2, 1, false, Encoder.EncodingType.k4X), new Encoder(4, 3, false, Encoder.EncodingType.k4X));

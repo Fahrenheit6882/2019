@@ -3,7 +3,6 @@ package frc.interfaces;
 // Import statements here
 import frc.globals.*;
 
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.first.wpilibj.Encoder;
 
@@ -36,7 +35,6 @@ public class Transmission
         fast = true;
         speedFactor = constants.driveFast;
 
-        // TODO: Invert one side of motor controllers so that + input moves forward
         leftFront.setInverted(true);
         leftRear.setInverted(true);
 
@@ -50,7 +48,7 @@ public class Transmission
      * Return: void
      * Operation: stop all drive motors
      */
-    public static void stop()
+    public void stop()
     {
         // stop all motor controllers
         rightFront.set(ControlMode.PercentOutput, 0.0);
@@ -106,7 +104,7 @@ public class Transmission
     /**
      * changeSpeed toggles the current speed factor of robot between fast and slow
      */
-    public static void changeSpeed()
+    public void changeSpeed()
     {
         //
         fast = !fast;;
@@ -116,7 +114,7 @@ public class Transmission
     /**
      * setFast forces robot to fast speed setting
      */
-    public static void setFast()
+    public void setFast()
     {        
         fast = true;
         // System.out.println("Setting fast.  Fast = " + fast);
@@ -125,7 +123,7 @@ public class Transmission
     /**
      * setSlow forces robot to slow speed setting
      */
-    public static void setSlow()
+    public void setSlow()
     {
         fast = false;
         // System.out.println("Setting slow.  Fast = " + fast);
@@ -137,7 +135,7 @@ public class Transmission
      * @param speed
      * 
      */
-    public static boolean turnByDegrees(double degrees, double speed )
+    public boolean turnByDegrees(double degrees, double speed )
     {
        //creating motor variable
         double left = 0.0;
@@ -234,7 +232,7 @@ public class Transmission
         return(encReset);
     } // end driveByInches
 
-    public static void encTest()
+    public void encTest()
     {
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnX))
         {
