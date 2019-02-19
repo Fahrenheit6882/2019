@@ -19,8 +19,6 @@ public class OperatorControls
     }
     public static void checkInput()
     {
-        double clawSpeed;
-        double elevatorSpeed;
          /**
          * Constructor
          * Parameters: Joystick
@@ -33,7 +31,7 @@ public class OperatorControls
         }
         if (ctrl.getRawAxis(constants.rightX) > constants.gamepadDeadzone)
         {
-            Elevator.AttackAndCruise(constants.rightY * ctrl.getRawAxis(constants.rightY));
+            Claw.AttackAndCruise(constants.clawSlow * ctrl.getRawAxis(constants.rightY));
         }
         /*ELEVATOR PRESET POSITIONS
         *Left bumper = Elevator Floor Position
