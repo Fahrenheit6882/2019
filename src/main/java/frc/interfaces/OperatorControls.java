@@ -149,23 +149,23 @@ public class OperatorControls
         {
                 Claw.holdHatch();
         }
-        if(hardware.operatorGamepad.getRawButtonPressed(constants.rightTrigger))
-        {
-            Claw.boop();
-        }else
-        {
-            Claw.bettyOff();
-        }
-        if(hardware.operatorGamepad.getRawAxis(constants.rightY) > constants.gamepadDeadzone)
-        {
-            Claw.upClaw();
-        }else if(hardware.operatorGamepad.getRawAxis(constants.rightY) < constants.gamepadDeadzone)
-        {
-            Claw.downClaw();
-        }else
-        {
-            Claw.offClaw();
-        }
+        // if(hardware.operatorGamepad.getRawButtonPressed(constants.rightTrigger))
+        // {
+        //     Claw.boop();
+        // }else
+        // {
+        //     Claw.bettyOff();
+        // }
+        // if(hardware.operatorGamepad.getRawAxis(constants.rightY) > constants.gamepadDeadzone)
+        // {
+        //     Claw.upClaw();
+        // }else if(hardware.operatorGamepad.getRawAxis(constants.rightY) < constants.gamepadDeadzone)
+        // {
+        //     Claw.downClaw();
+        // }else
+        // {
+        //     Claw.offClaw();
+        // }
     }
     /*
     * Method: operatorInput

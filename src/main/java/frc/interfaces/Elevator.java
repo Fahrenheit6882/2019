@@ -150,14 +150,16 @@ public class Elevator
     //For Testing Elevator motors
     public static void elevatorTest()
     {
+      double speed;
       if(Math.abs(hardware.operatorGamepad.getRawAxis(constants.leftY)) > constants.gamepadDeadzone)
       {
-        liftLeft.set(ControlMode.PercentOutput, (constants.driveSlow * hardware.driverGamepad.getRawAxis(constants.leftY)));
-        liftRight.set(ControlMode.PercentOutput, (constants.driveSlow * hardware.driverGamepad.getRawAxis(constants.leftY)));
+        speed = constants.elevatorSlow * hardware.operatorGamepad.getRawAxis(constants.leftY);
       } else
       {
-        liftLeft.set(ControlMode.PercentOutput, 0);
-        liftRight.set(ControlMode.PercentOutput, 0);
+        speed = 0.0;
       }
+
+      liftLeft.set(ControlMode.PercentOutput, speed);
+      liftRight.set(ControlMode.PercentOutput, speed);
     }
 } // end Elevator
