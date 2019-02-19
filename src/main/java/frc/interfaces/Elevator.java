@@ -28,138 +28,79 @@ public class Elevator
       liftRight.setInverted(true);
     }
     
-    public void ElevatorInit()
+    /***
+     * Move to the lowest setting to pick up from the ground
+     * @return  true when reached; false otherwise
+     */
+    public static boolean Rock ()
     {
-      
-    }
-    
+      boolean arrived = false;
 
-    /**
-     * Method: floor
-     * Parameters: N/A
-     * Return: void
-     * Operation: bring elevator to lowest setting to allow for picking up cargo off the floor
-     */
-    public static void floor()
-    {
-      System.out.println("Floor Position");
-      /*suedo code
-      if(hardware.potArm.getAverageVoltage() > var)
-      {
-        liftRight.set(Controlmode.PercentOutput, constants.elevatorFast);
-        liftleft.set(Controlmode.PercentOutput, constants.elevatorFast);
-      }else if(hardware.potArm.getAverageVoltage() > var)
-      {
-        liftRight.set(Controlmode.PercentOutput, -constants.elevatorFast);
-        liftleft.set(Controlmode.PercentOutput, -constants.elevatorFast);
-      }
-      */
-    }
-    
-    /**
-     * Method: cargoCargoShip
-     * Parameters: N/A
-     * Return: void
-     * Operation: bring elevator to height necessary to score cargo in cargo ship
-     */
-    public static void cargoCargoShip()
-    {
-      System.out.println("Cargo position for CargoShip");
-      /*
-      if()
-      */
+      // logic to move arm and check if arrived
+
+      return arrived;
     }
 
-    /**
-     * Method: cargoRocketLow
-     * Parameters: N/A
-     * Return: void
-     * Operation: bring elevator to height necessary to score cargo in rocket low goal
+    /***
+     * Move Tigger into position to score in low rocket or cargo ship hatch panel
+     * @return true when reached; false otherwise
      */
-    public static void cargoRocketLow()
+    public static boolean Paper()
     {
-      System.out.println("Cargo position for Rocket Low");
+      boolean arrived = false;
+
+      // logic to move arm and check if arrived
+
+      return arrived;
     }
 
-    /**
-     * Method: cargoRocketMid
-     * Parameters: N/A
-     * Return: void
-     * Operation: bring elevator to height necessary to score cargo in rocket mid goal
+    /***
+     * Move Tigger into position to score in mid rocket hatch panel or cargo ship cargo
+     * @return true when reached; false otherwise
      */
-    public static void cargoRocketMid()
+    public static boolean Scissor()
     {
-      System.out.println("Cargo postition for Rocket Mid");
+      boolean arrived = false;
+
+      // logic to move arm and check if arrived
+
+      return arrived;
     }
 
-    /**
-     * Method: cargoRocketHigh
-     * Parameters: N/A
-     * Return: void
-     * Operation: bring elevator to height necessary to score cargo in rocket high goal
+    /***
+     * Move Tigger into position to score in low rocket cargo
+     * @return true when reached; false otherwise
      */
-    public static void cargoRocketHigh()
+    public static boolean Lizard()
     {
-      System.out.println("Cargo postition for Rocket High");
+      boolean arrived = false;
+
+      // logic to move arm and check if arrived
+
+      return arrived;
     }
 
-    /**
-     * Method: hatchCargoShip
-     * Parameters: N/A
-     * Return: void
-     * Operation: bring elevator to height necessary to score hatch on cargo ship
+    /***
+     * Move Tigger into position to score in mid rocket cargo
+     * @return true when reached; false otherwise
      */
-    public static void hatchCargoShip()
+    public static boolean Spock()
     {
-      System.out.println("Hatch Panel position for Cargo Ship");
+      boolean arrived = false;
+
+      // logic to move arm and check if arrived
+
+      return arrived;
     }
 
-    /**
-     * Method: hatchRocketLow
-     * Parameters: N/A
-     * Return: void
-     * Operation: bring elevator to height necessary to score hatch on rocket low goal
+    /***
+     * Move Tigger based on desired speed
+     * @param speed value -1.0 to 1.0
      */
-    public static void hatchRocketLow()
+    public static void RubberAndSpring(double speed)
     {
-      System.out.println("Hatch Panel postition for Rocket Low");
-    }
+      // ensure speed is within allowable range
 
-    /**
-     * Method: hatchRocketMid
-     * Parameters: N/A
-     * Return: void
-     * Operation: bring elevator to height necessary to score hatch on rocket mid goal
-     */
-    public static void hatchRocketMid()
-    {
-      System.out.println("Hatch Panel position for Rocket Middle");
-    }
-
-    /**
-     * Method: hatchRocketHigh
-     * Parameters: N/A
-     * Return: void
-     * Operation: bring elevator to height necessary to score hatch on rocket high goal
-     */
-    public static void hatchRocketHigh()
-    {
-      System.out.println("Hatch Panel position for Rocket High");
-    }
-    
-    //For Testing Elevator motors
-    public static void elevatorTest()
-    {
-      double speed;
-      if(Math.abs(hardware.operatorGamepad.getRawAxis(constants.leftY)) > constants.gamepadDeadzone)
-      {
-        speed = constants.elevatorSlow * hardware.operatorGamepad.getRawAxis(constants.leftY);
-      } else
-      {
-        speed = 0.0;
-      }
-
-      liftLeft.set(ControlMode.PercentOutput, speed);
-      liftRight.set(ControlMode.PercentOutput, speed);
+      // move Tigger
     }
 } // end Elevator
