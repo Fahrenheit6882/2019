@@ -27,7 +27,7 @@ public class OperatorControls
         //Reads and sets speed from joysticks
         if (Math.abs(ctrl.getRawAxis(constants.leftY))> constants.gamepadDeadzone)
         {
-            hardware.Tigger.RubberAndSpring(constants.elevatorSlow * ctrl.getRawAxis(constants.leftY));
+            hardware.Tigger.RubberAndSpring(constants.elevatorFast * ctrl.getRawAxis(constants.leftY));
         }
 
         if (Math.abs(ctrl.getRawAxis(constants.rightY)) > constants.gamepadDeadzone)

@@ -28,21 +28,34 @@ public class Elevator
       //Left motor is inverted
       liftRight.setInverted(true);
     }
-    private static void presetMove(double position)
+
+    private static boolean presetMove(double position)
     {
+      boolean arrived = false;
+
       //Moves arm down if pot reading is more than desired reading
       if(hardware.potArm.get() >= position + 5)
       {
-        liftRight.set(ControlMode.PercentOutput, -constants.elevatorFast);
-        liftLeft.set(ControlMode.PercentOutput, -constants.elevatorFast);
+        liftRight.set(ControlMode.PercentOutput, constants.elevatorSlow);
+        liftLeft.set(ControlMode.PercentOutput, constants.elevatorSlow);
       }
       //Moves arm up if pot reading is less than desired reading
       else if (hardware.potArm.get()<= position - 5)
       {
-        liftRight.set(ControlMode.PercentOutput, constants.elevatorFast);
-        liftLeft.set(ControlMode.PercentOutput, constants.elevatorFast);
+        liftRight.set(ControlMode.PercentOutput, -constants.elevatorSlow);
+        liftLeft.set(ControlMode.PercentOutput, -constants.elevatorSlow);
       }
+      // We have arrived at target - return true
+      else
+      {
+        arrived = true;
+        liftRight.set(ControlMode.PercentOutput, 0.0);
+        liftLeft.set(ControlMode.PercentOutput, 0.0);
+      }
+
+      return arrived;
     }
+
     /***
      * Move to the lowest setting to pick up from the ground
      * @return  true when reached; false otherwise
@@ -51,7 +64,7 @@ public class Elevator
     {
       boolean arrived = false;
 
-      //presetMove(0.0);
+      arrived = presetMove(50.0);
 
       // logic to move arm and check if arrived
       
@@ -66,7 +79,7 @@ public class Elevator
     {
       boolean arrived = false;
 
-      presetMove(75.0);
+      arrived = presetMove(75.0);
 
       // logic to move arm and check if arrived
 
@@ -81,7 +94,7 @@ public class Elevator
     {
       boolean arrived = false;
 
-      presetMove(170.1);
+      arrived = presetMove(170.1);
 
       // logic to move arm and check if arrived
 
@@ -96,7 +109,7 @@ public class Elevator
     {
       boolean arrived = false;
 
-      presetMove(100.5);
+      arrived = presetMove(100.5);
 
       // logic to move arm and check if arrived
 
@@ -111,7 +124,7 @@ public class Elevator
     {
       boolean arrived = false;
 
-      presetMove(234.88);
+      arrived = presetMove(234.88);
       // logic to move arm and check if arrived
 
       return arrived;
@@ -124,6 +137,19 @@ public class Elevator
     public void RubberAndSpring(double speed)
     {
       // ensure speed is within allowable range
+      if(speed > 1.0)
+      {
+        speed = 1.0;
+      } else if (speed < -1.0)
+      {
+        speed = -1.0;
+      }
+
+      if (speed > 0)
+      {
+        System.out.println("Tigger speed: " + speed);
+        speed = speed * 0.5;
+      }
 
       // move Tigger
       liftRight.set(ControlMode.PercentOutput, speed);
