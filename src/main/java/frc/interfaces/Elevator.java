@@ -36,14 +36,14 @@ public class Elevator
       //Moves arm down if pot reading is more than desired reading
       if(hardware.potArm.get() >= position + 5)
       {
-        liftRight.set(ControlMode.PercentOutput, constants.elevatorSlow);
-        liftLeft.set(ControlMode.PercentOutput, constants.elevatorSlow);
+        liftRight.set(ControlMode.PercentOutput, constants.elevatorSlow * 0.5);
+        liftLeft.set(ControlMode.PercentOutput, constants.elevatorSlow * 0.5);
       }
       //Moves arm up if pot reading is less than desired reading
       else if (hardware.potArm.get()<= position - 5)
       {
-        liftRight.set(ControlMode.PercentOutput, -constants.elevatorSlow);
-        liftLeft.set(ControlMode.PercentOutput, -constants.elevatorSlow);
+        liftRight.set(ControlMode.PercentOutput, -constants.elevatorSlow * 0.5 );
+        liftLeft.set(ControlMode.PercentOutput, -constants.elevatorSlow * 0.5);
       }
       // We have arrived at target - return true
       else
@@ -64,7 +64,7 @@ public class Elevator
     {
       boolean arrived = false;
 
-      arrived = presetMove(50.0);
+      arrived = presetMove(60.0);
 
       // logic to move arm and check if arrived
       
@@ -147,12 +147,19 @@ public class Elevator
 
       if (speed > 0)
       {
-        System.out.println("Tigger speed: " + speed);
         speed = speed * 0.5;
       }
 
       // move Tigger
       liftRight.set(ControlMode.PercentOutput, speed);
       liftLeft.set(ControlMode.PercentOutput, speed);
+
+      
+      // System.out.println("Tigger speed: " + speed);
+    }
+
+    public void potTest()
+    {
+      System.out.println("The poteniometer reads: " + hardware.potArm.get());
     }
 } // end Elevator

@@ -1,6 +1,7 @@
 package frc.interfaces;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Trigger;
 // import statements
 import frc.globals.*;
 /*The left side of the controller is for elevator
@@ -129,6 +130,11 @@ public class OperatorControls
         else if(hardware.operatorGamepad.getRawButtonReleased(constants.btnRB))
         {
             hardware.enterprise.Charge();
+        }
+        
+        if(hardware.operatorGamepad.getRawButtonPressed(constants.btnBack))
+        {
+            hardware.Tigger.potTest();
         }
     }
 } // end OperatorControls
