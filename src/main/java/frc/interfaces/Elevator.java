@@ -158,7 +158,7 @@ public class Elevator
       // System.out.println("Tigger speed: " + speed);
     }
 
-    public void potTest()
+    public static void potTest()
     {
       System.out.println("The poteniometer reads: " + hardware.potArm.get());
     }

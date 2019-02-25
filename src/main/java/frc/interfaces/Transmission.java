@@ -232,7 +232,7 @@ public class Transmission
         return(encReset);
     } // end driveByInches
 
-    public void encTest()
+    public static void encTest()
     {
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnX))
         {

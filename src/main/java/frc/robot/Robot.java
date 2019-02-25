@@ -10,7 +10,10 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.globals.constants;
 import frc.globals.hardware;
+import frc.interfaces.Elevator;
+import frc.interfaces.Transmission;
 import edu.wpi.first.cameraserver.CameraServer;
 
 
@@ -120,8 +123,19 @@ public class Robot extends TimedRobot {
   @Override
   public void testPeriodic() 
   {
-    // System.out.println("Close: " + hardware.clawCloseSwitch.get());
-    // System.out.println("Open: " + hardware.clawOpenSwitch.get());
+    if(hardware.operatorGamepad.getRawButtonPressed(constants.btnX))
+    {
+      System.out.println("Close: " + hardware.clawCloseSwitch.get());
+    }
+    if(hardware.operatorGamepad.getRawButtonPressed(constants.btnY))
+    {
+      System.out.println("Open: " + hardware.clawOpenSwitch.get());
+    }
+    Transmission.encTest();
+    if(hardware.operatorGamepad.getRawButtonPressed(constants.btnA))
+    {
+      Elevator.potTest();
+    }
   }
   
 }
