@@ -136,6 +136,10 @@ public class Robot extends TimedRobot {
     {
       Elevator.potTest();
     }
+    if(hardware.operatorGamepad.getRawButtonPressed(constants.btnB))
+    {
+      System.out.println(hardware.operatorGamepad.getPOV());
+    }
   }
   
 }
