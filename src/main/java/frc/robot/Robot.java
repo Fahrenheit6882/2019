@@ -113,8 +113,9 @@ public class Robot extends TimedRobot {
    * This function is called once at the start of test mode.
    */
   @Override
-  public void testInit() {
-    
+  public void testInit() 
+  {
+    hardware.driveBase.resetEncoder();
   }
  
   /**
@@ -131,10 +132,10 @@ public class Robot extends TimedRobot {
     {
       System.out.println("Open: " + hardware.clawOpenSwitch.get());
     }
-    Transmission.encTest();
+    hardware.driveBase.encTest();
     if(hardware.operatorGamepad.getRawButtonPressed(constants.btnA))
     {
-      Elevator.potTest();
+      hardware.Tigger.potTest();
     }
   }
   
