@@ -234,7 +234,7 @@ public class Transmission
 
     public static void encTest()
     {
-        if(hardware.operatorGamepad.getRawButtonPressed(constants.btnX))
+        if(hardware.driverGamepad.getRawButtonPressed(constants.btnX))
         {
         System.out.println("Right encoder reads:" + encRight.getDistance());
         System.out.println("Left encoder reads:" + encLeft.getDistance());
