@@ -40,6 +40,13 @@ public class Transmission
 
         encRight = r;
         encLeft = l;
+        
+        //Inverts left encoder
+        encLeft.setReverseDirection(true);
+        
+        //Sets inches per pulse to 18.9
+        encRight.setDistancePerPulse(18.9);
+        encLeft.setDistancePerPulse(18.9);
     }
 
     /**
