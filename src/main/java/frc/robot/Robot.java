@@ -137,6 +137,10 @@ public class Robot extends TimedRobot {
     {
       hardware.Tigger.potTest();
     }
+    if(hardware.operatorGamepad.getRawButtonPressed(constants.btnB))
+    {
+      System.out.println(hardware.operatorGamepad.getPOV());
+    }
   }
   
 }
