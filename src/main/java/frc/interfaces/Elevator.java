@@ -75,6 +75,7 @@ public class Elevator
      * Move Tigger into position to score in low rocket or cargo ship hatch panel
      * @return true when reached; false otherwise
      */
+    //1' 7", 19"
     public boolean Paper()
     {
       boolean arrived = false;
@@ -90,6 +91,7 @@ public class Elevator
      * Move Tigger into position to score in mid rocket hatch panel or cargo ship cargo
      * @return true when reached; false otherwise
      */
+    //3' 11", 47"
     public boolean Scissor()
     {
       boolean arrived = false;
@@ -105,6 +107,7 @@ public class Elevator
      * Move Tigger into position to score in low rocket cargo
      * @return true when reached; false otherwise
      */
+    //2' 3.5", 27.5"
     public boolean Lizard()
     {
       boolean arrived = false;
@@ -120,6 +123,7 @@ public class Elevator
      * Move Tigger into position to score in mid rocket cargo
      * @return true when reached; false otherwise
      */
+    //4' 7.5", 55.5"
     public boolean Spock()
     {
       boolean arrived = false;
