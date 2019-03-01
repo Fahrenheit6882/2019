@@ -39,7 +39,7 @@ public class Sandstorm
         if (auto == true)
         {
             //Drives forward 8' 4"
-             hardware.driveBase.driveByInches(constants.driveSlow, 100.0);
+             hardware.driveBase.driveByInches(constants.driveFast, 100.0);
             
         }else
         {

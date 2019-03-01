@@ -38,12 +38,14 @@ public class Elevator
       {
         liftRight.set(ControlMode.PercentOutput, constants.elevatorSlow * 0.5);
         liftLeft.set(ControlMode.PercentOutput, constants.elevatorSlow * 0.5);
+        System.out.println("Going Down");
       }
       //Moves arm up if pot reading is less than desired reading
       else if (hardware.potArm.get()<= position - 5)
       {
         liftRight.set(ControlMode.PercentOutput, -constants.elevatorSlow * 0.5 );
         liftLeft.set(ControlMode.PercentOutput, -constants.elevatorSlow * 0.5);
+        System.out.println("Going up!");
       }
       // We have arrived at target - return true
       else
@@ -51,6 +53,7 @@ public class Elevator
         arrived = true;
         liftRight.set(ControlMode.PercentOutput, 0.0);
         liftLeft.set(ControlMode.PercentOutput, 0.0);
+        System.out.println("You have arrived");
       }
 
       return arrived;
@@ -80,7 +83,7 @@ public class Elevator
     {
       boolean arrived = false;
 
-      arrived = presetMove(75.0);
+      arrived = presetMove(100.5);
 
       // logic to move arm and check if arrived
 
@@ -96,7 +99,7 @@ public class Elevator
     {
       boolean arrived = false;
 
-      arrived = presetMove(170.1);
+      arrived = presetMove(222.4);
 
       // logic to move arm and check if arrived
 
@@ -112,7 +115,7 @@ public class Elevator
     {
       boolean arrived = false;
 
-      arrived = presetMove(100.5);
+      arrived = presetMove(133.0);
 
       // logic to move arm and check if arrived
 
@@ -128,7 +131,7 @@ public class Elevator
     {
       boolean arrived = false;
 
-      arrived = presetMove(234.88);
+      arrived = presetMove(255.8);
       // logic to move arm and check if arrived
 
       return arrived;
@@ -140,8 +143,10 @@ public class Elevator
      */
     public void RubberAndSpring(double speed)
     {
+      //Please explain commented section below
+
       // ensure speed is within allowable range
-      if(speed > 1.0)
+      /*if(speed > 1.0)
       {
         speed = 1.0;
       } else if (speed < -1.0)
@@ -153,6 +158,7 @@ public class Elevator
       {
         speed = speed * 0.5;
       }
+      */
 
       // move Tigger
       liftRight.set(ControlMode.PercentOutput, speed);
@@ -161,9 +167,31 @@ public class Elevator
       
       // System.out.println("Tigger speed: " + speed);
     }
-
+    //Stops the 
     public void potTest()
     {
       System.out.println("The poteniometer reads: " + hardware.potArm.get());
+    }
+    public void stop()
+    {
+      liftRight.set(ControlMode.PercentOutput, 0.0);
+      liftLeft.set(ControlMode.PercentOutput, 0.0);
+    }
+    //Stops the elevator if the 
+    public void softStop()
+    {
+      if(Claw.updownCheck())
+      {
+        if(hardware.potArm.get() < 58.0)
+        {
+          stop();
+        }
+      }else
+      {
+        if(hardware.potArm.get() < 56.0)
+        {
+          stop();
+        }
+      }
     }
 } // end Elevator

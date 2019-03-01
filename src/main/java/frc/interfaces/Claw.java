@@ -1,8 +1,6 @@
 package frc.interfaces;
 
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.ControlType;
-
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 // import statements
@@ -26,28 +24,7 @@ public class Claw
         Betty = b;
         updown = ud;
     }
-    //For fine tuning the claw motor
-    // public void clawFineTuneOpen(double speed)
-    // {
-    //     if(hardware.clawOpenSwitch.get() != true)
-    //     {
-    //         ClawMotor.getPIDController().setReference((-constants.clawSlow * speed), ControlType.kDutyCycle);
-    //     }else 
-    //     {
-    //         ClawMotor.getPIDController().setReference(0, ControlType.kDutyCycle);
-    //     }
-    // }
 
-    // public void clawFineTuneClose(double speed)
-    // {
-    //     if(hardware.clawOpenSwitch.get() != true)
-    //     {
-    //         ClawMotor.getPIDController().setReference((constants.clawSlow * speed), ControlType.kDutyCycle);
-    //     }else
-    //     {
-    //         ClawMotor.getPIDController().setReference(0, ControlType.kDutyCycle);
-    //     }
-    // }
     /**
      * Method: open
      * Parameters: N/A
@@ -114,5 +91,24 @@ public class Claw
     {
         ClawMotor.set(speed);
         // System.out.println("Speed: " + speed);
+    }
+    //For calling the state of the updown pistons
+    public static  boolean updownCheck()
+    {
+        boolean flow = false;
+        if(updown.get() == Value.kReverse)
+        {
+            flow = false;
+        } else if(updown.get() == Value.kForward)
+        {
+            flow = true;
+        } else if(updown.get() == Value.kOff)
+        {
+            flow = false;
+        } else
+        {
+            flow = false;
+        }
+        return flow;
     }
 } // end Claw

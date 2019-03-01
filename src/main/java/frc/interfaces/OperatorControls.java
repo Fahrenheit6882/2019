@@ -1,7 +1,6 @@
 package frc.interfaces;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.Trigger;
 // import statements
 import frc.globals.*;
 /*The left side of the controller is for elevator
@@ -28,7 +27,7 @@ public class OperatorControls
         //Reads and sets speed from joysticks
         if (Math.abs(ctrl.getRawAxis(constants.leftY))> constants.gamepadDeadzone)
         {
-            hardware.Tigger.RubberAndSpring(constants.elevatorFast * ctrl.getRawAxis(constants.leftY));
+            hardware.Tigger.RubberAndSpring(constants.elevatorSlow * ctrl.getRawAxis(constants.leftY));
         }
 
         if (Math.abs(ctrl.getRawAxis(constants.rightY)) > constants.gamepadDeadzone)
@@ -38,17 +37,10 @@ public class OperatorControls
         /*ELEVATOR PRESET POSITIONS
         *Left bumper = Elevator Floor Position
         *
-        *Left Trigger +
-        *D-Pad Left = Cargo Ship Hatch Panel Scoring Position
+        *D-Pad Left = Rocket Mid Hatch Panel Scoring Position
         *D-Pad Down = Rocket Low Hatch Panel Scoring Position
-        *D-Pad Right = Rocket Mid Hatch Panel Scoring Position
-        *D-Pad Up = Rocket High Hatch Panel Scoring Position
-        *
-        *No Left Trigger +
-        *D-Pad Left = Cargo Ship Cargo Scoring Position
-        *D-Pad Down = Rocket Low Cargo Scoring Position
-        *D-Pad Right = Rocket Mid Cargo Scoring Position
-        *D-Pad Up = Rocket High Cargo Scoring Position
+        *D-Pad Right = Rocket Low Cargo Scoring Position
+        *D-Pad Up = Rocket Mid Cargo Scoring Position
         */
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnLB))
         {
@@ -62,6 +54,13 @@ public class OperatorControls
                 if(ready)
                 {
                     ready = false;
+                    //Checks if elevator is done moving?
+                    /*
+                    if(hardware.Tigger.Spock())
+                    {
+                        ready = true;
+                    }
+                    */ 
                     hardware.Tigger.Spock();
                 }   
                 break;
@@ -70,6 +69,13 @@ public class OperatorControls
                 if(ready)
                 {
                     ready = false;
+                    //Checks if elevator is done moving?
+                    /*
+                    if(hardware.Tigger.Scissor())
+                    {
+                        ready = true;
+                    }
+                    */ 
                     hardware.Tigger.Scissor();
                 }   
                 break;
@@ -78,6 +84,13 @@ public class OperatorControls
                 if(ready)
                 {
                     ready = false;
+                    //Checks if elevator is done moving?
+                    /*
+                    if(hardware.Tigger.Paper())
+                    {
+                        ready = true;
+                    }
+                    */ 
                     hardware.Tigger.Paper();
                 }
                 break;
@@ -85,6 +98,13 @@ public class OperatorControls
                 if(ready)
                 {
                     ready = false;
+                    //Checks if elevator is done moving?
+                    /*
+                    if(hardware.Tigger.Lizard())
+                    {
+                        ready = true;
+                    }
+                    */ 
                     hardware.Tigger.Lizard();
                 }
                 break;
@@ -103,7 +123,7 @@ public class OperatorControls
         *B is open for Cargo
         *X is Enterprise up
         *Y is Enterprise down
-        *Right Trigger is for pneumatic piston out then in position (aka "boop")
+        *Right Bumber is for pneumatic piston out then in position (aka "boop")
         */
            
         if(hardware.operatorGamepad.getRawButton(constants.btnA))
@@ -136,5 +156,6 @@ public class OperatorControls
         {
             hardware.Tigger.potTest();
         }
+        hardware.Tigger.softStop();
     }
 } // end OperatorControls

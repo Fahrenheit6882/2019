@@ -40,7 +40,7 @@ public class constants
     // Speed Factors
     public static double driveFast     = 0.6;
     public static double driveSlow     = 0.3;
-    public static double elevatorFast = 0.6;
+    public static double elevatorFast = 0.7;
     public static double elevatorSlow = 0.3;
     public static double clawFast      = 1.0;
     public static double clawSlow      = 1.0;
@@ -49,7 +49,7 @@ public class constants
 
 
     // Dead Zones
-    public static double gamepadDeadzone = 0.01;
+    public static double gamepadDeadzone = 0.3;
     
 
     // Forward Motion Calculations
