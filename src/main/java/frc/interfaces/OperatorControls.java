@@ -28,12 +28,19 @@ public class OperatorControls
         if (Math.abs(ctrl.getRawAxis(constants.leftY))> constants.gamepadDeadzone)
         {
             hardware.Tigger.RubberAndSpring(constants.elevatorSlow * ctrl.getRawAxis(constants.leftY));
+        } else
+        {
+            hardware.Tigger.RubberAndSpring(0.0);
         }
 
         if (Math.abs(ctrl.getRawAxis(constants.rightY)) > constants.gamepadDeadzone)
         {
             hardware.enterprise.AttackAndCruise(constants.clawSlow * ctrl.getRawAxis(constants.rightY));
+        } else
+        {
+            hardware.enterprise.AttackAndCruise(0.0);
         }
+        
         /*ELEVATOR PRESET POSITIONS
         *Left bumper = Elevator Floor Position
         *
