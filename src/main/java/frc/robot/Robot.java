@@ -42,6 +42,8 @@ public class Robot extends TimedRobot {
 
     CameraServer.getInstance().addCamera(hardware.pOVCamera);
     CameraServer.getInstance().startAutomaticCapture(hardware.pOVCamera);
+
+    hardware.enterprise.Dock();
   }
 
   /**

@@ -11,6 +11,15 @@ public class OperatorControls
     // Private variables
     private static Joystick  ctrl;
     public static boolean ready = true;
+
+    // desiredPos:
+    //      -1  ::  cleared
+    //      0   ::  rock
+    //      1   ::  paper
+    //      2   ::  scissor
+    //      3   ::  lizard
+    //      4   ::  spock
+    private int desiredPos = -1;
     
     public OperatorControls(Joystick oc){
         
@@ -28,6 +37,7 @@ public class OperatorControls
         if (Math.abs(ctrl.getRawAxis(constants.leftY))> constants.gamepadDeadzone)
         {
             hardware.Tigger.RubberAndSpring(constants.elevatorSlow * ctrl.getRawAxis(constants.leftY));
+            desiredPos = -1;
         } else
         {
             hardware.Tigger.RubberAndSpring(0.0);
@@ -52,76 +62,49 @@ public class OperatorControls
         if(hardware.operatorGamepad.getRawButtonPressed(constants.btnLB))
         {
             //Elevator floor position
-            hardware.Tigger.Rock();
+            desiredPos = 0;
         }else
         {
             switch(hardware.operatorGamepad.getPOV())
             {
                 case 0: 
-                if(ready)
-                {
-                    ready = false;
-                    //Checks if elevator is done moving?
-                    /*
-                    if(hardware.Tigger.Spock())
-                    {
-                        ready = true;
-                    }
-                    */ 
-                    hardware.Tigger.Spock();
-                }   
+                desiredPos = 4;                
                 break;
 
                 case 90:
-                if(ready)
-                {
-                    ready = false;
-                    //Checks if elevator is done moving?
-                    /*
-                    if(hardware.Tigger.Scissor())
-                    {
-                        ready = true;
-                    }
-                    */ 
-                    hardware.Tigger.Scissor();
-                }   
+                desiredPos = 2;                 
                 break;
 
-                case 180:
-                if(ready)
-                {
-                    ready = false;
-                    //Checks if elevator is done moving?
-                    /*
-                    if(hardware.Tigger.Paper())
-                    {
-                        ready = true;
-                    }
-                    */ 
-                    hardware.Tigger.Paper();
-                }
+                case 180:                
+                desiredPos = 1;
                 break;
+
                 case 270:
-                if(ready)
-                {
-                    ready = false;
-                    //Checks if elevator is done moving?
-                    /*
-                    if(hardware.Tigger.Lizard())
-                    {
-                        ready = true;
-                    }
-                    */ 
-                    hardware.Tigger.Lizard();
-                }
+                desiredPos = 3;
                 break;
                 
-                case -1:
-                ready = true;
+                default:                
+                break;
+            }
 
+            switch (desiredPos)
+            {
+                case 0:
+                    hardware.Tigger.Rock();
+                break;
+                case 1:
+                    hardware.Tigger.Paper();
+                break;
+                case 2:
+                    hardware.Tigger.Scissor();
+                break;
+                case 3:
+                    hardware.Tigger.Lizard();
+                break;
+                case 4:
+                    hardware.Tigger.Spock();
+                break;
                 default:
-                ready = true;
-
                 break;
             }
         }
@@ -163,6 +146,6 @@ public class OperatorControls
         {
             hardware.Tigger.potTest();
         }
-        hardware.Tigger.softStop();
+        //hardware.Tigger.softStop();
     }
 } // end OperatorControls

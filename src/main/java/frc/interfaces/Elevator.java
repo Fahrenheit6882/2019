@@ -32,29 +32,33 @@ public class Elevator
     private static boolean presetMove(double position)
     {
       boolean arrived = false;
+      double eleSpeed = constants.elevatorSlow;
+      double current = hardware.potArm.get();
 
-      //Moves arm down if pot reading is more than desired reading
-      if(hardware.potArm.get() >= position + 5)
+      double delta = Math.abs(position - current);
+      
+      if(delta < 50)
       {
-        liftRight.set(ControlMode.PercentOutput, constants.elevatorSlow * 0.5);
-        liftLeft.set(ControlMode.PercentOutput, constants.elevatorSlow * 0.5);
-        System.out.println("Going Down");
+        eleSpeed = eleSpeed * .66;
       }
-      //Moves arm up if pot reading is less than desired reading
-      else if (hardware.potArm.get()<= position - 5)
+      else if(delta < 30)
       {
-        liftRight.set(ControlMode.PercentOutput, -constants.elevatorSlow * 0.5 );
-        liftLeft.set(ControlMode.PercentOutput, -constants.elevatorSlow * 0.5);
-        System.out.println("Going up!");
+        eleSpeed = eleSpeed * 0.33;
       }
-      // We have arrived at target - return true
-      else
+      else if(delta < 10)
       {
+        eleSpeed = 0.0;
         arrived = true;
-        liftRight.set(ControlMode.PercentOutput, 0.0);
-        liftLeft.set(ControlMode.PercentOutput, 0.0);
-        System.out.println("You have arrived");
       }
+
+      if (current < position && delta > 5)
+      {
+        eleSpeed = -eleSpeed;
+        //System.out.println("Going up!");
+      }
+
+      liftRight.set(ControlMode.PercentOutput, eleSpeed);
+      liftLeft.set(ControlMode.PercentOutput, eleSpeed);
 
       return arrived;
     }
@@ -67,7 +71,7 @@ public class Elevator
     {
       boolean arrived = false;
 
-      arrived = presetMove(60.0);
+      arrived = presetMove(58.0);
 
       // logic to move arm and check if arrived
       
@@ -83,7 +87,7 @@ public class Elevator
     {
       boolean arrived = false;
 
-      arrived = presetMove(100.5);
+      arrived = presetMove(118.0);
 
       // logic to move arm and check if arrived
 
@@ -99,7 +103,7 @@ public class Elevator
     {
       boolean arrived = false;
 
-      arrived = presetMove(222.4);
+      arrived = presetMove(170.0);
 
       // logic to move arm and check if arrived
 
@@ -115,7 +119,7 @@ public class Elevator
     {
       boolean arrived = false;
 
-      arrived = presetMove(133.0);
+      arrived = presetMove(226.0);
 
       // logic to move arm and check if arrived
 
@@ -131,7 +135,7 @@ public class Elevator
     {
       boolean arrived = false;
 
-      arrived = presetMove(255.8);
+      arrived = presetMove(255.0);
       // logic to move arm and check if arrived
 
       return arrived;
@@ -144,9 +148,9 @@ public class Elevator
     public void RubberAndSpring(double speed)
     {
       //Please explain commented section below
-
+      
       // ensure speed is within allowable range
-      /*if(speed > 1.0)
+      if(speed > 1.0)
       {
         speed = 1.0;
       } else if (speed < -1.0)
@@ -154,11 +158,40 @@ public class Elevator
         speed = -1.0;
       }
 
-      if (speed > 0)
+      if (speed > 0)  // if we are moving the arm down
       {
-        speed = speed * 0.5;
+        // updownCheck returns true when docked
+        if(hardware.enterprise.updownCheck())
+        {
+          if (hardware.potArm.get() < 70) // half speed when we are approaching limit
+          {
+            speed = speed * 0.5;
+          }
+          else if (hardware.potArm.get() < 55) // quarter speed because we are very close now
+          {
+            speed = speed * .25;
+          }
+          else if (hardware.potArm.get() < 40) // do not allow arm to go below this point
+          {
+            speed = 0.0;
+          }
+        }
+        else  //we aren't docked, so we are deployed
+        {
+          if (hardware.potArm.get() < 80) // half speed when we are approaching limit
+          {
+            speed = speed * 0.5;
+          }
+          else if (hardware.potArm.get() < 70) // quarter speed because we are very close now
+          {
+            speed = speed * .25;
+          }
+          else if (hardware.potArm.get() < 60) // do not allow arm to go below this point
+          {
+            speed = 0.0;
+          }
+        }
       }
-      */
 
       // move Tigger
       liftRight.set(ControlMode.PercentOutput, speed);
@@ -172,26 +205,10 @@ public class Elevator
     {
       System.out.println("The poteniometer reads: " + hardware.potArm.get());
     }
+
     public void stop()
     {
       liftRight.set(ControlMode.PercentOutput, 0.0);
       liftLeft.set(ControlMode.PercentOutput, 0.0);
-    }
-    //Stops the elevator if the 
-    public void softStop()
-    {
-      if(Claw.updownCheck())
-      {
-        if(hardware.potArm.get() < 58.0)
-        {
-          stop();
-        }
-      }else
-      {
-        if(hardware.potArm.get() < 56.0)
-        {
-          stop();
-        }
-      }
     }
 } // end Elevator

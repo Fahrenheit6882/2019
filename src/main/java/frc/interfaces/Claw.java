@@ -13,6 +13,7 @@ public class Claw
     private static CANSparkMax ClawMotor;
     private static DoubleSolenoid Betty;
     private static DoubleSolenoid updown;
+    private static boolean docked;
 
     /**
      * Constructor
@@ -80,35 +81,34 @@ public class Claw
     public void Dock()
     {
         updown.set(Value.kReverse);
+        docked = true;
     }
 
     public void Deploy()
     {
         updown.set(Value.kForward);
+        docked = false;
     }
 
     public void AttackAndCruise(double speed)
     {
-        ClawMotor.set(speed);
+        if(hardware.clawOpenSwitch.get() && speed > 0)
+        {
+            ClawMotor.set(speed);
+        }
+        else if(hardware.clawCloseSwitch.get() && speed < 0)
+        {
+            ClawMotor.set(speed);            
+        }
+        else
+        {
+            ClawMotor.set(0); 
+        }
         // System.out.println("Speed: " + speed);
     }
     //For calling the state of the updown pistons
     public static  boolean updownCheck()
     {
-        boolean flow = false;
-        if(updown.get() == Value.kReverse)
-        {
-            flow = false;
-        } else if(updown.get() == Value.kForward)
-        {
-            flow = true;
-        } else if(updown.get() == Value.kOff)
-        {
-            flow = false;
-        } else
-        {
-            flow = false;
-        }
-        return flow;
+        return docked;
     }
 } // end Claw
