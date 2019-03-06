@@ -39,12 +39,13 @@ public class constants
     // ----------------------------------------
     // Speed Factors
     public static double driveFast     = 0.6;
+    public static double driveMed =     0.3;
     public static double driveSlow     = 0.3;
     public static double elevatorFast = 0.7;
     public static double elevatorSlow = 0.4;
     public static double clawFast      = 1.0;
     public static double clawSlow      = 1.0;
-    public static double gravityConstant = 0.15;
+    public static double gravityConstant = -0.15;
     
     public boolean fast = true;
 

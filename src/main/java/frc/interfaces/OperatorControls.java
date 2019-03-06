@@ -43,6 +43,11 @@ public class OperatorControls
             hardware.Tigger.RubberAndSpring(0.0);
         }
 
+        if(hardware.operatorGamepad.getRawAxis(constants.leftTrigger) > 0.3)
+        {
+          hardware.Tigger.RubberAndSpring(constants.elevatorSlow * -0.4);
+        }
+
         if (Math.abs(ctrl.getRawAxis(constants.rightY)) > constants.gamepadDeadzone)
         {
             hardware.enterprise.AttackAndCruise(constants.clawSlow * ctrl.getRawAxis(constants.rightY));

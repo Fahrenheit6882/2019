@@ -114,7 +114,7 @@ public class Transmission
     public void changeSpeed()
     {
         //
-        fast = !fast;;
+        fast = !fast;
         // System.out.println("Changing speed: " + fast);
     } // end changeSpeed
    
@@ -122,8 +122,16 @@ public class Transmission
      * setFast forces robot to fast speed setting
      */
     public void setFast()
-    {        
+    {   
         fast = true;
+        if(speedFactor == constants.driveMed)
+        {
+            speedFactor = constants.driveFast;
+        }
+        else if(speedFactor == constants.driveSlow)
+        {
+            speedFactor = constants.driveMed;
+        }
         // System.out.println("Setting fast.  Fast = " + fast);
     }//end setFast
     
@@ -133,6 +141,14 @@ public class Transmission
     public void setSlow()
     {
         fast = false;
+        if(speedFactor == constants.driveFast)
+        {
+            speedFactor = constants.driveMed;
+        }
+        else if(speedFactor == constants.driveMed)
+        {
+            speedFactor = constants.driveSlow;
+        }
         // System.out.println("Setting slow.  Fast = " + fast);
     }//end setSlow
 

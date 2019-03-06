@@ -130,19 +130,44 @@ public class Robot extends TimedRobot {
     {
       System.out.println("Close: " + hardware.clawCloseSwitch.get());
     }
+
     if(hardware.operatorGamepad.getRawButtonPressed(constants.btnY))
     {
       System.out.println("Open: " + hardware.clawOpenSwitch.get());
     }
+
     hardware.driveBase.encTest();
+
     if(hardware.operatorGamepad.getRawButtonPressed(constants.btnA))
     {
       hardware.Tigger.potTest();
     }
+
     if(hardware.operatorGamepad.getRawButtonPressed(constants.btnB))
     {
       System.out.println(hardware.operatorGamepad.getPOV());
     }
+
+    if(hardware.driverGamepad.getRawButtonPressed(constants.btnRB))
+    {
+      System.out.println("The left joystick reads: " + hardware.operatorGamepad.getRawAxis(constants.leftY));
+    }
+
+    //Reads and sets speed from joysticks
+    if (Math.abs(hardware.operatorGamepad.getRawAxis(constants.leftY))> constants.gamepadDeadzone)
+    {
+        hardware.Tigger.RubberAndSpring(constants.elevatorSlow * hardware.operatorGamepad.getRawAxis(constants.leftY));
+        //desiredPos = -1;
+    } else
+    {
+        hardware.Tigger.RubberAndSpring(0.0);
+    }
+
+    if(hardware.operatorGamepad.getRawAxis(constants.leftTrigger) > 0.3)
+    {
+      hardware.Tigger.RubberAndSpring(constants.elevatorSlow * -0.4);
+    }
+
   }
   
 }
