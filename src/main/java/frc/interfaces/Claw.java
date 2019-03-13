@@ -107,7 +107,7 @@ public class Claw
         // System.out.println("Speed: " + speed);
     }
     //For calling the state of the updown pistons
-    public boolean updownCheck()
+    public static boolean updownCheck()
     {
         return docked;
     }

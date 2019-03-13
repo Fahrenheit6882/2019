@@ -51,7 +51,7 @@ public class constants
 
 
     // Dead Zones
-    public static double gamepadDeadzone = 0.3;
+    public static double gamepadDeadzone = 0.05;
     
 
     // Forward Motion Calculations

@@ -126,6 +126,7 @@ public class Robot extends TimedRobot {
   @Override
   public void testPeriodic() 
   {
+    //Testing operator stuff
     if(hardware.operatorGamepad.getRawButtonPressed(constants.btnX))
     {
       System.out.println("Close: " + hardware.clawCloseSwitch.get());
@@ -136,8 +137,6 @@ public class Robot extends TimedRobot {
       System.out.println("Open: " + hardware.clawOpenSwitch.get());
     }
 
-    hardware.driveBase.encTest();
-
     if(hardware.operatorGamepad.getRawButtonPressed(constants.btnA))
     {
       hardware.Tigger.potTest();
@@ -147,11 +146,18 @@ public class Robot extends TimedRobot {
     {
       System.out.println(hardware.operatorGamepad.getPOV());
     }
+    //Testing contollers
+    if(hardware.driverGamepad.getRawButtonPressed(constants.btnLB))
+    {
+      System.out.println("The driver's left joystick reads: " + hardware.driverGamepad.getRawAxis(constants.leftY));
+    }
 
     if(hardware.driverGamepad.getRawButtonPressed(constants.btnRB))
     {
-      System.out.println("The left joystick reads: " + hardware.operatorGamepad.getRawAxis(constants.leftY));
+      System.out.println("The driver's right joystick reads: " + hardware.driverGamepad.getRawAxis(constants.rightY));
     }
+    
+    hardware.driveBase.encTest();
 
     //Reads and sets speed from joysticks
     if (Math.abs(hardware.operatorGamepad.getRawAxis(constants.leftY))> constants.gamepadDeadzone)
