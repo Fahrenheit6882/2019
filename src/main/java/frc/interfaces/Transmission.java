@@ -19,6 +19,7 @@ public class Transmission
     private static double speedFactor;
     private static boolean encReset;
     private static Encoder encLeft, encRight; 
+    private static double rightFactor;
 
     /**
      * Constructor
@@ -34,6 +35,8 @@ public class Transmission
 
         fast = true;
         speedFactor = constants.driveFast;
+        rightFactor = constants.driveFast + 0.05;
+        
 
         leftFront.setInverted(true);
         leftRear.setInverted(true);
@@ -90,6 +93,7 @@ public class Transmission
         }
 
         //checking if fast is true/false to adjust left & right speed
+        /*
         if(fast == true)
         {
             speedFactor = constants.driveFast; 
@@ -97,9 +101,9 @@ public class Transmission
         {
             speedFactor = constants.driveSlow;
         } 
-        
+        */
         leftSpeed *= speedFactor;
-        rightSpeed *= speedFactor;
+        rightSpeed *= rightFactor;
 
         // set motor controllers
         leftFront.set(ControlMode.PercentOutput, leftSpeed);
@@ -113,7 +117,6 @@ public class Transmission
      */
     public void changeSpeed()
     {
-        //
         fast = !fast;
         // System.out.println("Changing speed: " + fast);
     } // end changeSpeed
@@ -127,10 +130,12 @@ public class Transmission
         if(speedFactor == constants.driveMed)
         {
             speedFactor = constants.driveFast;
+            rightFactor = constants.elevatorFast + 0.05;
         }
         else if(speedFactor == constants.driveSlow)
         {
             speedFactor = constants.driveMed;
+            rightFactor = constants.driveMed + 0.05;
         }
         // System.out.println("Setting fast.  Fast = " + fast);
     }//end setFast
@@ -144,10 +149,12 @@ public class Transmission
         if(speedFactor == constants.driveFast)
         {
             speedFactor = constants.driveMed;
+            rightFactor = constants.driveMed + 0.05;
         }
         else if(speedFactor == constants.driveMed)
         {
             speedFactor = constants.driveSlow;
+            rightFactor = constants.driveSlow + 0.05;
         }
         // System.out.println("Setting slow.  Fast = " + fast);
     }//end setSlow

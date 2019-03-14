@@ -49,7 +49,7 @@ public class DriveControls
         //pressing button RB to toggle speed setting
         if(hardware.driverGamepad.getRawButtonPressed(constants.btnRB))
         {
-            hardware.driveBase.changeSpeed();
+            hardware.driveBase.setFast();
        }
     }
 } // end DriveControls
