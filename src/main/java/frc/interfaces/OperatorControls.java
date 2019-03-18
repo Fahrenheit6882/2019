@@ -45,20 +45,30 @@ public class OperatorControls {
              */
 
             // Reads and sets speed from joysticks
-            if (Math.abs(ctrl.getRawAxis(constants.leftY)) > constants.gamepadDeadzone) {
+            if (Math.abs(ctrl.getRawAxis(constants.leftY)) > constants.gamepadDeadzone) 
+            {
                 hardware.Tigger.RubberAndSpring(constants.elevatorSlow * ctrl.getRawAxis(constants.leftY));
+
                 desiredPos = -1;
             } else {
                 hardware.Tigger.RubberAndSpring(0.0);
             }
 
-            if (hardware.operatorGamepad.getRawAxis(constants.leftTrigger) > 0.3) {
+            if (hardware.operatorGamepad.getRawAxis(constants.leftTrigger) > 0.3) 
+            {
                 hardware.Tigger.RubberAndSpring(constants.elevatorSlow * -0.4);
             }
 
-            if (Math.abs(ctrl.getRawAxis(constants.rightY)) > constants.gamepadDeadzone) {
-                hardware.enterprise.AttackAndCruise(constants.clawSlow * ctrl.getRawAxis(constants.rightY));
-            } else {
+            if (ctrl.getRawAxis(constants.rightY) > constants.secondDeadZone) 
+            {
+                hardware.enterprise.AttackAndCruise(constants.clawSlow);
+            } 
+            else if(ctrl.getRawAxis(constants.rightY) < -constants.secondDeadZone)
+            {
+                hardware.enterprise.AttackAndCruise(-constants.clawSlow);
+            }
+            else
+            {
                 hardware.enterprise.AttackAndCruise(0.0);
             }
 

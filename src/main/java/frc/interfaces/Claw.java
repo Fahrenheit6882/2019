@@ -34,7 +34,7 @@ public class Claw
      */
     public void Blalala()
     {
-        if(hardware.clawOpenSwitch.get())
+        if(true)
         {
             ClawMotor.set(constants.clawFast);
         } else
@@ -92,7 +92,7 @@ public class Claw
 
     public void AttackAndCruise(double speed)
     {
-        if(hardware.clawOpenSwitch.get() && speed > 0)
+        if(speed > 0)
         {
             ClawMotor.set(speed);
         }

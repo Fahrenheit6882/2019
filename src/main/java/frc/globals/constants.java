@@ -38,9 +38,10 @@ public class constants
     // Hardware Tunables
     // ----------------------------------------
     // Speed Factors
+    public static double driveSuperFast = 1.0;
     public static double driveFast     = 0.6;
     public static double driveMed =     0.4;
-    public static double driveSlow     = 0.1;
+    public static double driveSlow     = 0.25;
     public static double elevatorFast = 0.7;
     public static double elevatorSlow = 0.4;
     public static double clawFast      = 1.0;
@@ -51,7 +52,8 @@ public class constants
 
 
     // Dead Zones
-    public static double gamepadDeadzone = 0.05;
+    public static double gamepadDeadzone = 0.03;
+    public static double secondDeadZone = 0.25;
     
 
     // Forward Motion Calculations

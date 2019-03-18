@@ -127,10 +127,15 @@ public class Transmission
     public void setFast()
     {   
         fast = true;
-        if(speedFactor == constants.driveMed)
+        if(speedFactor == constants.driveFast)
+        {
+            speedFactor = constants.driveSuperFast;
+            rightFactor = constants.driveSuperFast;
+        }
+        else if(speedFactor == constants.driveMed)
         {
             speedFactor = constants.driveFast;
-            rightFactor = constants.elevatorFast + 0.05;
+            rightFactor = constants.driveFast + 0.05;
         }
         else if(speedFactor == constants.driveSlow)
         {
@@ -146,7 +151,12 @@ public class Transmission
     public void setSlow()
     {
         fast = false;
-        if(speedFactor == constants.driveFast)
+        if(speedFactor == constants.driveSuperFast)
+        {
+            speedFactor = constants.driveFast;
+            rightFactor = speedFactor + 0.05;
+        }
+        else if(speedFactor == constants.driveFast)
         {
             speedFactor = constants.driveMed;
             rightFactor = constants.driveMed + 0.05;
@@ -154,7 +164,7 @@ public class Transmission
         else if(speedFactor == constants.driveMed)
         {
             speedFactor = constants.driveSlow;
-            rightFactor = constants.driveSlow + 0.05;
+            rightFactor = speedFactor;
         }
         // System.out.println("Setting slow.  Fast = " + fast);
     }//end setSlow
