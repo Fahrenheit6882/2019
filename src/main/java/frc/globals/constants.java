@@ -1,5 +1,7 @@
 package frc.globals;
 
+import edu.wpi.first.networktables.NetworkTable;
+
 // Import statements
 
 /**
@@ -61,5 +63,7 @@ public class constants
 
     // Turn calculations
 
+    //Vision Tables
+    public NetworkTable newTable;
 
 } // end constants

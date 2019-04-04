@@ -2,8 +2,7 @@ package frc.interfaces;
 
 // Import statements
 import frc.globals.*;
-import edu.wpi.first.wpilibj.Joystick;
- 
+import edu.wpi.first.wpilibj.Joystick; 
 
 public class DriveControls
 {
@@ -50,6 +49,15 @@ public class DriveControls
         if(hardware.driverGamepad.getRawButtonPressed(constants.btnRB))
         {
             hardware.driveBase.setFast();
+       }
+       //Right trigger is climb
+       if(hardware.driverGamepad.getRawAxis(constants.rightTrigger) > constants.gamepadDeadzone)
+       {
+         hardware.driveBase.climb();
+       }
+       if(hardware.driverGamepad.getRawAxis(constants.rightTrigger) > constants.gamepadDeadzone)
+       {
+          hardware.driveBase.retract();
        }
     }
 } // end DriveControls

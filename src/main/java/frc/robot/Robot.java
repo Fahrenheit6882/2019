@@ -15,7 +15,7 @@ import frc.globals.hardware;
 import frc.interfaces.Elevator;
 import frc.interfaces.Transmission;
 import edu.wpi.first.cameraserver.CameraServer;
-
+import edu.wpi.first.networktables.NetworkTable;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -28,6 +28,10 @@ public class Robot extends TimedRobot {
   private static final String kDefaultAuto = "Default";
   private static final String kCustomAuto = "My Auto";
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
+  
+  NetworkTable newTable;
+
+  //newTable = NetworkTable.getTable("GRIP/GripPipeline");
 
   /**
    * This function is run when the robot is first started up and should be
@@ -44,6 +48,14 @@ public class Robot extends TimedRobot {
     CameraServer.getInstance().startAutomaticCapture(hardware.pOVCamera);
 
     hardware.enterprise.Dock();
+
+    //Vision processing
+    double[] defaultValue = new double[0];
+    while(true)
+    {
+      //double[] areas = newTable.getNumberArray("area", defaultValue);
+
+    }
   }
 
   /**

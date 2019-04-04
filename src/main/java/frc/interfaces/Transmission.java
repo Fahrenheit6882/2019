@@ -5,7 +5,8 @@ import frc.globals.*;
 
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.first.wpilibj.Encoder;
-
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
 public class Transmission
@@ -19,13 +20,15 @@ public class Transmission
     private static double speedFactor;
     private static boolean encReset;
     private static Encoder encLeft, encRight; 
+    private static DoubleSolenoid climbPiston;
+    //Because the right side of the drive train is slower than the left
     private static double rightFactor;
 
     /**
      * Constructor
      * Parameters: 4 motor controllers, 1 per motor
      */
-    public Transmission (VictorSPX rf, VictorSPX lf, VictorSPX rr, VictorSPX lr, Encoder r, Encoder l)
+    public Transmission (VictorSPX rf, VictorSPX lf, VictorSPX rr, VictorSPX lr, Encoder r, Encoder l, DoubleSolenoid c)
     {
         // Initialize motor controllers
         rightFront = rf;
@@ -50,6 +53,9 @@ public class Transmission
         //Sets inches per pulse to 18.9
         encRight.setDistancePerPulse(18.9);
         encLeft.setDistancePerPulse(18.9);
+        
+        //Solenoid for climb
+        climbPiston = c;
     }
 
     /**
@@ -285,5 +291,15 @@ public class Transmission
         System.out.println("Right encoder reads:" + encRight.getDistance());
         System.out.println("Left encoder reads:" + encLeft.getDistance());
         }
+    }
+    //For climbing at end game
+    public void climb()
+    {
+        climbPiston.set(Value.kForward);
+    }
+    //For retracting climb pistons
+    public void retract()
+    {
+        climbPiston.set(Value.kReverse);
     }
 } //end Transmission
