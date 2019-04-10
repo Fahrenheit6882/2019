@@ -115,6 +115,6 @@ public class hardware
     public static Elevator Tigger = new Elevator(new TalonSRX(0), new TalonSRX(1));
     //Initializes Transmission with four Victor motor controllers: front right, back right, front left, back left.
     //Blue encoder wire goes in ports 2 (left) & 4 (right), yellow encoder wires go in ports 1 (left) & 3 (right)
-    public static Transmission driveBase = new Transmission(new VictorSPX(0), new VictorSPX(1), new VictorSPX(2), new VictorSPX(3), new Encoder(2, 3, false, Encoder.EncodingType.k4X), new Encoder(4, 5, false, Encoder.EncodingType.k4X), new DoubleSolenoid(4,5));
+    public static Transmission driveBase = new Transmission(new VictorSPX(0), new VictorSPX(1), new VictorSPX(2), new VictorSPX(3), new Encoder(2, 3, false, Encoder.EncodingType.k4X), new Encoder(4, 5, false, Encoder.EncodingType.k4X)/*, new DoubleSolenoid(4,5)*/);
     public static Claw enterprise  = new Claw(new CANSparkMax(0, CANSparkMaxLowLevel.MotorType.kBrushed), new DoubleSolenoid(0, 1), new DoubleSolenoid(2, 3));
 } // end hardware

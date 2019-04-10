@@ -20,6 +20,12 @@ public class DriveControls
       double rightSpeed;
       double leftSpeed;
 
+         //For even movement
+         if(hardware.driverGamepad.getRawAxis(constants.leftTrigger) > constants.gamepadDeadzone)
+         {
+            rightSpeed = ctrl.getRawAxis(constants.leftTrigger);
+            leftSpeed = ctrl.getRawAxis(constants.leftTrigger);
+         }
          //Reads and sets the speed from the joysticks
          if (Math.abs(ctrl.getRawAxis(constants.rightY)) > constants.gamepadDeadzone)
          {
@@ -37,7 +43,7 @@ public class DriveControls
             leftSpeed = 0.0;            
          }
 
-         hardware.driveBase.drive(leftSpeed,rightSpeed);
+         hardware.driveBase.drive(leftSpeed, rightSpeed);
 
         //pressing button LB forces robot Slow 
         if(hardware.driverGamepad.getRawButtonPressed(constants.btnLB))
@@ -55,7 +61,7 @@ public class DriveControls
        {
          hardware.driveBase.climb();
        }
-       if(hardware.driverGamepad.getRawAxis(constants.rightTrigger) > constants.gamepadDeadzone)
+       if(hardware.driverGamepad.getRawAxis(constants.rightTrigger) < constants.gamepadDeadzone)
        {
           hardware.driveBase.retract();
        }

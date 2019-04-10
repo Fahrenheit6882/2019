@@ -20,7 +20,7 @@ public class Transmission
     private static double speedFactor;
     private static boolean encReset;
     private static Encoder encLeft, encRight; 
-    private static DoubleSolenoid climbPiston;
+    //private static DoubleSolenoid climbPiston;
     //Because the right side of the drive train is slower than the left
     private static double rightFactor;
 
@@ -28,7 +28,7 @@ public class Transmission
      * Constructor
      * Parameters: 4 motor controllers, 1 per motor
      */
-    public Transmission (VictorSPX rf, VictorSPX lf, VictorSPX rr, VictorSPX lr, Encoder r, Encoder l, DoubleSolenoid c)
+    public Transmission (VictorSPX rf, VictorSPX lf, VictorSPX rr, VictorSPX lr, Encoder r, Encoder l/*, DoubleSolenoid c*/)
     {
         // Initialize motor controllers
         rightFront = rf;
@@ -55,7 +55,7 @@ public class Transmission
         encLeft.setDistancePerPulse(18.9);
         
         //Solenoid for climb
-        climbPiston = c;
+        //climbPiston = c;
     }
 
     /**
@@ -295,11 +295,11 @@ public class Transmission
     //For climbing at end game
     public void climb()
     {
-        climbPiston.set(Value.kForward);
+        //climbPiston.set(Value.kForward);
     }
     //For retracting climb pistons
     public void retract()
     {
-        climbPiston.set(Value.kReverse);
+        //climbPiston.set(Value.kReverse);
     }
 } //end Transmission
