@@ -29,7 +29,7 @@ public class Robot extends TimedRobot {
   private static final String kCustomAuto = "My Auto";
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   
-  NetworkTable newTable;
+  //NetworkTable newTable;
 
   //newTable = NetworkTable.getTable("GRIP/GripPipeline");
 
@@ -50,12 +50,13 @@ public class Robot extends TimedRobot {
     hardware.enterprise.Dock();
 
     //Vision processing
-    double[] defaultValue = new double[0];
+    /*double[] defaultValue = new double[0];
     while(true)
     {
       //double[] areas = newTable.getNumberArray("area", defaultValue);
 
     }
+    */
   }
 
   /**
